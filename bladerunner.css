@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100&display=swap');
+
+html {
+    font-size: 14px; 
+}
+
+/* BOXES */
+
+.dark-box {
+    background-color: #1b1e21; 
+}
+.light-box {
+    background-color: #455758;
+}
+.lighter-box {
+    background-color: #cae2e4;
+}
+.background {
+    background-color: #4e6e6e;
+}
+
+.ui-dialog .charsheet div {
+    /* border: 1px solid #6e8991; */ 
+    box-sizing: border-box;
+    min-height: 1.5rem; 
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;    
+}
+.ui-dialog .charsheet .border-1234 {
+    border: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-1 {
+    border-top: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-123 {
+    border-top: 1px solid #6e8991; 
+    border-right: 1px solid #6e8991; 
+    border-bottom: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-2 { 
+    border-right: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-23 { 
+    border-right: 1px solid #6e8991; 
+    border-bottom: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-24 { 
+    border-right: 1px solid #6e8991; 
+    border-left: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-3 { 
+    border-bottom: 1px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-234 { 
+    border-right: 1px solid #6e8991; 
+    border-bottom: 1px solid #6e8991; 
+    border-left: 1px solid #6e8991; 
+}
+
+.w10pc { width: 10%; min-width: 10%; max-width: 10%; box-sizing: border-box;}
+.w15pc { width: 15%; min-width: 15%; max-width: 15%; box-sizing: border-box;}
+.w20pc { width: 20%; min-width: 20%; max-width: 20%; box-sizing: border-box;}
+.w25pc { width: 25%; min-width: 25%; max-width: 25%; box-sizing: border-box;}
+.w33pc { width: 33%; min-width: 33%; max-width: 33%; box-sizing: border-box;}
+.w34pc { width: 34%; min-width: 34%; max-width: 34%; box-sizing: border-box;}
+.w40pc { width: 40%; min-width: 40%; max-width: 40%; box-sizing: border-box;}
+.w50pc { width: 50%; min-width: 50%; max-width: 50%; box-sizing: border-box;}
+.w67pc { width: 67%; min-width: 67%; max-width: 67%; box-sizing: border-box;}
+.w70pc { width: 70%; min-width: 70%; max-width: 70%; box-sizing: border-box;}
+.w80pc { width: 80%; min-width: 80%; max-width: 80%; box-sizing: border-box;}
+.w100pc { width: 100%; min-width: 100%; max-width: 100%; box-sizing: border-box;}
+.w100pc-40px { width: calc(100% - 40px); min-width: calc(100% - 40px); max-width: calc(100% - 40px); box-sizing: border-box;}
+
+.w20px { width: 20px; min-width: 20px; max-width: 20px; box-sizing: border-box;}
+
+.grow1 {flex-grow: 1; }
+.grow2 {flex-grow: 2; }
+.grow3 {flex-grow: 3; }
+.grow4 {flex-grow: 4; }
+.grow5 {flex-grow: 5; }
+.grow8 {flex-grow: 8; }
+.grow10 {flex-grow: 10; }
+
+.float-left { float: left; justify-self: left;}
+.float-right { float: right; justify-self: right;}
+
+/* TEXT */
+
+div, span, label, p, h1, h2, h3 {
+    font-family: 'Barlow Condensed', 'Arimo'; 
+    color: #92b9c3; 
+    font-weight: 600; 
+}
+.yellow {
+    color: #b4bf92;
+}
+
+.ui-dialog .charsheet textarea {
+    align-self:flex-start;
+    width: calc(100% - 12px);
+    max-width: calc(100% - 12px); 
+    height: 3rem;
+    margin: 5px;
+    background-color: #cae2e4; 
+}
+
+/* SPECIFIC */
+.ui-dialog .charsheet {
+    padding: 0; 
+}  
+
+div.main-box {
+    margin: 0; 
+    width: 100%;
+    flex-wrap: wrap;
+}
