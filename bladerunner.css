@@ -7,16 +7,18 @@ html {
 /* BOXES */
 
 .dark-box {
-    background-color: #1b1e21; 
+    -background-color: #1b1e21; 
 }
 .light-box {
-    background-color: #455758;
+    -background-color: #455758;
 }
 .lighter-box {
-    background-color: #cae2e4;
+    -background-color: #cae2e4;
 }
 .background {
-    background-color: #4e6e6e;
+    -background-color: #4e6e6e;
+    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/0ca434492b930420345d2b422d497879f65a3ff1/images/background.png?raw=true');
+    background-size: 100%;
 }
 
 .ui-dialog .charsheet div {
