@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;700&family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&display=swap');
 
 html {
     font-size: 14px; 
@@ -23,62 +24,85 @@ html {
     -o-background-size: cover;
     background-size: cover;
     background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.png?raw=true);
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 .ui-dialog .charsheet div {
     /* border: 1px solid #6e8991; */ 
     box-sizing: border-box;
-    min-height: 1.5rem; 
+    min-height: 2rem; 
+    -height: 1.5rem;
     display: flex;
     flex-flow: row wrap;
-    align-content: flex-start;    
+    align-content: center;   
 }
 .ui-dialog .charsheet .border-1234 {
-    border: 1px solid #6e8991; 
+    border: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-1 {
-    border-top: 1px solid #6e8991; 
+    border-top: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-123 {
-    border-top: 1px solid #6e8991; 
-    border-right: 1px solid #6e8991; 
-    border-bottom: 1px solid #6e8991; 
+    border-top: 2px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-2 { 
-    border-right: 1px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-23 { 
-    border-right: 1px solid #6e8991; 
-    border-bottom: 1px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-24 { 
-    border-right: 1px solid #6e8991; 
-    border-left: 1px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
+    border-left: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-3 { 
-    border-bottom: 1px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
+}
+.ui-dialog .charsheet .border-34 { 
+    border-bottom: 2px solid #6e8991; 
+    border-left: 2px solid #6e8991; 
 }
 .ui-dialog .charsheet .border-234 { 
-    border-right: 1px solid #6e8991; 
-    border-bottom: 1px solid #6e8991; 
-    border-left: 1px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
+    border-left: 2px solid #6e8991; 
+}
+.yellow-border-bottom {
+    border-bottom: 2px dashed #b4bf92;
 }
 
+.w5pc { width: 5%; min-width: 5%; max-width: 5%; box-sizing: border-box;}
+.w8pc { width: 8%; min-width: 8%; max-width: 8%; box-sizing: border-box;}
 .w10pc { width: 10%; min-width: 10%; max-width: 10%; box-sizing: border-box;}
+.w12pc { width: 12%; min-width: 12%; max-width: 12%; box-sizing: border-box;}
 .w15pc { width: 15%; min-width: 15%; max-width: 15%; box-sizing: border-box;}
 .w20pc { width: 20%; min-width: 20%; max-width: 20%; box-sizing: border-box;}
+.w20pc-4px { width: calc(20% - 4px); min-width: calc(20% - 4px); max-width: calc(20% - 4px); box-sizing: border-box;}
 .w25pc { width: 25%; min-width: 25%; max-width: 25%; box-sizing: border-box;}
+.w25pc-4px { width: calc(25% - 4px); min-width: calc(25% - 4px); max-width: calc(25% - 4px); box-sizing: border-box;}
+.w30pc { width: 30%; min-width: 30%; max-width: 30%; box-sizing: border-box;}
 .w33pc { width: 33%; min-width: 33%; max-width: 33%; box-sizing: border-box;}
 .w34pc { width: 34%; min-width: 34%; max-width: 34%; box-sizing: border-box;}
 .w40pc { width: 40%; min-width: 40%; max-width: 40%; box-sizing: border-box;}
 .w50pc { width: 50%; min-width: 50%; max-width: 50%; box-sizing: border-box;}
+.w50pc-4px { width: calc(50% - 4px); min-width: calc(50% - 4px); max-width: calc(50% - 4px); box-sizing: border-box;}
+.w60pc { width: 60%; min-width: 60%; max-width: 60%; box-sizing: border-box;}
 .w67pc { width: 67%; min-width: 67%; max-width: 67%; box-sizing: border-box;}
 .w70pc { width: 70%; min-width: 70%; max-width: 70%; box-sizing: border-box;}
+.w75pc { width: 75%; min-width: 75%; max-width: 75%; box-sizing: border-box;}
+.w75pc-4px { width: calc(75% - 4px); min-width: calc(75% - 4px); max-width: calc(75% - 4px); box-sizing: border-box;}
 .w80pc { width: 80%; min-width: 80%; max-width: 80%; box-sizing: border-box;}
 .w100pc { width: 100%; min-width: 100%; max-width: 100%; box-sizing: border-box;}
+.w100pc-4px { width: calc(100% - 4px); min-width: calc(100% - 4px); max-width: calc(100% - 4px); box-sizing: border-box;}
 .w100pc-40px { width: calc(100% - 40px); min-width: calc(100% - 40px); max-width: calc(100% - 40px); box-sizing: border-box;}
 
 .w20px { width: 20px; min-width: 20px; max-width: 20px; box-sizing: border-box;}
+
+.h100pc { height: 100%; }
 
 .grow1 {flex-grow: 1; }
 .grow2 {flex-grow: 2; }
@@ -91,25 +115,194 @@ html {
 .float-left { float: left; justify-self: left;}
 .float-right { float: right; justify-self: right;}
 
-/* TEXT */
-
-div, span, label, p, h1, h2, h3 {
-    font-family: 'Barlow Condensed', 'Arimo'; 
-    color: #92b9c3; 
-    font-weight: 600; 
+.ui-dialog .charsheet div.align-center  {
+    align-content: center;
 }
+.ui-dialog .charsheet div.align-top  {
+    align-content: flex-start;
+}
+
+/* TEXT & INPUT */
+
+div, span, label, p, h1, h2, h3,
+.sheet-darkmode .characterviewer label,
+input, select, button {
+    font-family: 'Barlow Condensed', 'Arimo', Helvetica, Arial, sans-serif; 
+    color: #92b9c3; 
+    font-size: 1rem;
+    font-weight: 400; 
+    text-indent: 0.5rem;
+}
+input, select, textarea {
+    font-family: /* 'Barlow Semi Condensed',  */'Barlow Condensed','Arimo', Helvetica, Arial, sans-serif ;
+    /* font-weight: bold; */
+    color: #202429;
+}
+.ui-dialog .charsheet .main-box span, label,
+.sheet-darkmode .characterviewer label {
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+.ui-dialog .charsheet .main-box button[type="roll"],
+.ui-dialog .charsheet .main-box button[type="action"],
+.ui-dialog .charsheet .main-box .toggle-box {
+    height: 1.2rem;
+    background-image: unset;
+    background-color: #92b9c3;
+    color: #202429;
+    border-radius: 0;
+    border: 2px solid #4e6e6e;
+    font-size: 1rem; 
+    text-shadow: unset;
+    text-indent: 0;
+    padding: 2px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.ui-dialog .charsheet .main-box button[type="roll"]:before {
+    content: "";
+}
+.ui-dialog .charsheet .main-box button[type="roll"]:hover {
+    background-color:#aedeea;
+}
+.ui-dialog .charsheet .main-box button[type="roll"].h100pc {
+    height: 100%;
+}
+.ui-dialog .charsheet .main-box button[type="roll"].w100pc {
+    margin: 0; 
+}
+.ui-dialog .charsheet .main-box .toggle-box {
+    border: 0; 
+    background-color: #202429;
+    color: #4e6e6e;
+    height: 100%;
+    margin: 0; 
+    text-align: center;
+}
+.ui-dialog .charsheet .main-box input:checked + .toggle-box {
+    background-color: #92b9c3;
+}
+
+.sheet-darkmode .characterviewer label.yellow,
 .yellow {
     color: #b4bf92;
+}
+.smaller {
+    font-size: 0.7rem;
+}
+.text-center {
+    text-align: center;
+    justify-content: center;
+    text-indent: 0;
+}
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+    text-indent: 0;
+    padding-right: 5px;
+}
+
+.ui-dialog .charsheet :is(input[type="radio"],input[type="checkbox"]) {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #92b9c3;
+    background-color: #cae2e4;
+    z-index: 100; 
+}
+
+.ui-dialog .charsheet :is(input[type="radio"],input[type="checkbox"]):after {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    right: 0.5rem;
+    background-color: #cae2e4;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    z-index: 99; 
+}
+.ui-dialog .charsheet :is(input[type="radio"],input[type="checkbox"]):checked:after {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    right: 0.5rem;
+    background-color: #cae2e4;
+    content: '';
+    display: none;
+    z-index: 99; 
 }
 
 .ui-dialog .charsheet textarea {
     align-self:flex-start;
     width: calc(100% - 12px);
     max-width: calc(100% - 12px); 
-    height: 3rem;
+    overflow: hidden;
+    height: 2rem;
+    min-height: 1.5rem;
     margin: 5px;
+    padding: 0 2px 0 2px;
     background-color: #cae2e4; 
+    border-radius: 0;
 }
+.ui-dialog .charsheet textarea.oneliner {    
+    height: 1.2rem;
+}
+.ui-dialog .charsheet :is(input[type="text"],input[type="number"],select,option) {
+    align-self:flex-start;
+    height: 1.5rem;
+    line-height: 1rem;
+    padding: 0px 2px 0px 2px;
+    margin: 2px;
+    background-color: #cae2e4; 
+    border-radius: 0;
+}
+.ui-dialog .charsheet :is(input[type="number"],select,option) {
+    text-align: center;
+    text-indent: 0px;
+}
+.ui-dialog .charsheet .attributes-skills select {
+    text-indent: 7px;
+}
+
+
+input[type="number"]:hover {
+    -moz-appearance: auto;
+}
+/* input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button, */
+.ui-dialog .charsheet input[type="number"]::-webkit-outer-spin-button,
+.ui-dialog .charsheet input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* input[type="number"]:hover::-webkit-outer-spin-button, 
+input[type="number"]:hover::-webkit-inner-spin-button, */
+.ui-dialog .charsheet input[type="number"]:hover::-webkit-outer-spin-button, 
+.ui-dialog .charsheet input[type="number"]:hover::-webkit-inner-spin-button {
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    max-width: 3px;
+    width: 3px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    margin: 10;
+}
+
+/* BUTTONS */
+
+.ui-dialog .charsheet button {
+    border: #92b9c3;
+    background-color: #cae2e4; 
+    background-color: #202429;
+    color: #92b9c3;
+} 
 
 /* SPECIFIC */
 .ui-dialog .charsheet {
@@ -121,3 +314,290 @@ div.main-box {
     width: 100%;
     flex-wrap: wrap;
 }
+.ui-dialog .charsheet .rating,
+.ui-dialog .charsheet .die {
+    align-content: flex-end;
+}
+.armor-rating-header,
+.weapon-header .smaller {
+    position: relative;
+    top: 5px;
+}
+.attribute-d-die:before,
+.skill-d-die:before {
+    content: 'D';
+}
+
+
+
+/* REPEATING SECTION*/ 
+.ui-dialog .charsheet div.repcontainer,
+.ui-dialog .charsheet div.repcontainer div.repitem {
+    width: 100%;
+    min-height: unset;
+}
+.ui-dialog .charsheet .repcontrol,
+.ui-dialog .charsheet .itemcontrol {
+   width: 100%;
+   justify-content: flex-end;
+   padding-right: 5px;
+}
+/* .ui-dialog .charsheet .repcontrol_edit,
+.ui-dialog .charsheet .repcontrol_add,
+.ui-dialog .charsheet .repcontrol_del {
+    appearance:unset;
+    font-family: 'Barlow Condensed', 'Arimo'; 
+    -color: #92b9c3;
+    background-color: #cae2e4;
+    -height: 1.2rem;
+    -line-height: 1rem;
+} */
+/* .ui-dialog .charsheet .repcontainer .repitem .itemcontrol .repcontrol_del {
+  -position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1000;
+}
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol .repcontrol_move {
+  -position: absolute;
+  right: 35px;
+  top: 2px;
+  z-index: 1000;
+} */
+
+.ui-dialog .charsheet .repcontrol {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-start;
+    clear: both;
+  }
+.ui-dialog .charsheet .repeating-weapons .repcontrol {
+    border-right: 1px solid #6e8991;
+}
+  
+  .ui-dialog .charsheet .repcontrol_add,
+  .ui-dialog .charsheet .repcontrol_edit,
+  .ui-dialog .charsheet .repcontrol_del, 
+  .ui-dialog .charsheet .repcontrol_move,  
+  .ui-dialog .charsheet .repcontrol_add:hover,
+  .ui-dialog .charsheet .repcontrol_edit:hover,
+  .ui-dialog .charsheet .repcontrol_del:hover,
+  .ui-dialog .charsheet .repcontrol_move:hover {
+    color: #92b9c3; 
+    /* background-color: #cae2e4;
+    background-color: #202429 */;
+    width: 1rem;
+    height: 1.2rem;
+    margin: 1px;
+    padding: 0 0 0 9px;
+    box-shadow: none;
+    color: transparent;
+    text-shadow: none;
+    background-image: unset;
+    background-color: transparent;
+  }
+  .ui-dialog .charsheet .repcontrol_del,
+  .ui-dialog .charsheet .repcontrol_del:hover {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    z-index: 1000;
+    padding: 0 2px 0 2px;
+    background-color: maroon;
+  }
+  .ui-dialog .charsheet .repcontrol_move,
+  .ui-dialog .charsheet .repcontrol_move:hover {
+    position: absolute;
+    right: 28px;
+    top: 2px;
+    z-index: 1000;
+    cursor: move;
+    padding: 0 9px 0px 0;
+    font-size: 1.2rem;
+  }
+  
+/*   .ui-dialog .charsheet .repcontrol_move {
+    float: right;
+    margin-right: 5px;
+  } */
+  
+  .ui-dialog .charsheet button.btn.repcontrol_edit:after {
+    color: #92b9c3; 
+    font-family: Pictos;
+    content: '(';
+    color: black;
+    margin: 0 0 0 -38px;
+    color: #92b9c3; 
+  }
+  
+  .ui-dialog .charsheet  .repcontainer.ui-sortable.editmode ~ .repcontrol button.btn.repcontrol_edit:after {
+    margin: 0 0 0 -28px;
+    content: ')';
+  }
+  
+  .ui-dialog .charsheet button.btn.repcontrol_add:after {
+    font-family: Pictos;
+    content: '&';
+    color: black;
+    margin: 0 0 0 -31px;
+    color: #92b9c3; 
+  }
+  
+  .ui-dialog .charsheet button.btn:hover.repcontrol_edit:after,
+  .ui-dialog .charsheet button.btn:hover.repcontrol_add:after,
+  .ui-dialog .charsheet button.btn:hover.repcontrol_del:after {
+    color: #a60100;
+    color: #b4bf92;
+  }
+  
+  .ui-dialog .charsheet .btn.repcontrol_move {
+    color: #a60100;
+    color: #b4bf92;
+  }
+  
+  .ui-dialog .charsheet button.btn.btn-danger.pictos.repcontrol_del {
+    color: #fff;
+  }
+
+/* ROLLTEMPLATE */
+.sheet-rolltemplate-bladerunner {
+    font-size: 14px;
+}
+.sheet-rolltemplate-bladerunner .sheet-template-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 5px;
+    width: 100%;
+    margin-left: -10px;
+    padding: 0;
+    margin: 0;
+}
+.sheet-rolltemplate-bladerunner .sheet-template-background {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.png?raw=true);
+    background-size: 100% 100%;
+    background-position: center;
+}
+.sheet-rolltemplate-bladerunner .sheet-template-div {
+    box-sizing: border-box;    
+    /* border: 2px solid #6e8991;  */
+    min-height: 2.5rem; 
+    height: 2.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;    
+    justify-content: center;
+    align-content: center;
+}
+.sheet-rolltemplate-bladerunner div, 
+.sheet-rolltemplate-bladerunner span {
+    font-family: 'Barlow Semi Condensed','Barlow','Barlow Condensed', Helvetica, Arial, sans-serif; 
+    color: #92b9c3; 
+    font-size: 1.2rem;
+    font-weight: 400; 
+    -text-indent: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+.sheet-rolltemplate-bladerunner span {
+    padding: 0 3px;
+}
+.sheet-rolltemplate-bladerunner .sheet-yellow {
+    color: #b4bf92;
+}
+.sheet-rolltemplate-bladerunner .sheet-header {
+    font-size: 1.5rem;
+}
+
+.sheet-rolltemplate-bladerunner div.sheet-left {
+    justify-content: flex-start;
+}
+
+.sheet-rolltemplate-bladerunner div.sheet-right {
+    justify-content: flex-end;
+}
+
+.sheet-rolltemplate-bladerunner .sheet-border-1234 {
+    border: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-123 { 
+    border-top: 2px solid #6e8991; 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-2 { 
+    border-right: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-23 { 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-234 { 
+    border-right: 2px solid #6e8991; 
+    border-bottom: 2px solid #6e8991; 
+    border-left: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-4 { 
+    border-left: 2px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-border-4-sm { 
+    border-left: 1px solid #6e8991; 
+}
+.sheet-rolltemplate-bladerunner .sheet-w25pc { width: 25%; min-width: 25%; max-width: 25%; box-sizing: border-box; } 
+.sheet-rolltemplate-bladerunner .sheet-w50pc { width: 50%; min-width: 50%; max-width: 50%; box-sizing: border-box; } 
+.sheet-rolltemplate-bladerunner .sheet-w100pc { width: 100%; min-width: 100%; max-width: 100%; box-sizing: border-box; } 
+
+.sheet-rolltemplate-bladerunner .sheet-rollinfo {
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 2rem;
+}
+.sheet-rolltemplate-bladerunner .sheet-rollresult span.inlinerollresult {
+    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0; 
+}
+.sheet-rolltemplate-bladerunner .sheet-rollresult {
+    height: 5rem; 
+    min-height: 5rem;
+    max-height: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .sheet-rolltemplate-bladerunner .inlinerollresult[original-title*="1D6"] {
+font-family: 'dicefontd10'; 
+    content: "A"; 
+    -clip-path: polygon(50% 10%, 100% 70%, 50% 100%, 0 70%);
+    width: 3rem;
+    height: 3rem; 
+    
+}
+.sheet-rolltemplate-bladerunner .inlinerollresult[original-title*="1D8"] {
+    font-family: 'dicefontd10'; 
+    content: "A"; 
+    -clip-path: polygon(49% 0, 100% 74%, 57% 76%, 100% 76%, 51% 96%, 0 78%, 43% 76%, 0 76%);
+    width: 3rem;
+    height: 3rem;     
+}
+.sheet-rolltemplate-bladerunner .inlinerollresult[original-title*="1D10"] {
+    font-family: 'dicefontd10'; 
+    content: "A"; 
+    clip-path: polygon(50% 10%, 100% 70%, 50% 100%, 0 70%);
+    -clip-path: polygon(50% 15%, 100% 69%, 64% 77%, 100% 72%, 52% 98%, 0 73%, 32% 75%, 0 69%);
+    width: 3rem;
+    height: 3rem;     
+}
+.sheet-rolltemplate-bladerunner .inlinerollresult[original-title*="1D12"] {
+    font-family: 'dicefontd10'; 
+    content: "A"; 
+    -clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+    width: 3rem;
+    height: 3rem;     
+} */
