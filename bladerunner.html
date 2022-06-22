@@ -1,209 +1,834 @@
 
 <div class="border-1234 main-box background">
-    <div class="border-23 w100pc header light-box header">
-        <span class="float-left w70pc light-box">Character sheet</span>
-        <span class="float-right w30pc light-box">BLADE RUNNER</span>
+    <div class="border-3 w100pc header light-box header">
+        <div class="float-left w70pc light-box">&nbsp;</div>
+        <div class="float-right w30pc light-box text-right"><span>BLADE RUNNER</span></div>
     </div>
     
-    <div class="border-23 w40pc logo light-box character-info">&nbsp;</div>
-    <div class="border-23 w40pc charinfo light-box">Charinfo</div>
-    <div class="border-3 w20pc chartype light-box">Chartype</div>
+    <div class="border-23 w40pc logo light-box character-info">LAPD LOGO</div>
+
+    <div class="border-23 w40pc light-box charinfo">
+        <label class="w25pc yellow yellow-border-bottom">NAME</label>
+        <div class="w75pc">
+            <input type="text" name="attr_character_name" class="w100pc-4px" />
+        </div>
+        <label class="w25pc yellow">ARCHETYPE</label>
+        <div class="w75pc">
+            <input type="text" name="attr_archetype" class="w100pc-4px" />
+        </div>
+    </div>
+    <div class="border-3 w20pc light-box chartype">
+        <div class="w50pc h100pc align-center border-2">
+            <span class="w100pc text-center">HUMAN</span>
+            <div class="w100pc text-center">
+                <input type="radio" name="attr_charactertype" value="1" class="" checked>
+            </div>            
+        </div>
+        <div class="w50pc h100pc align-center">
+            <span class="w100pc text-center">REPLICANT</span>
+            <div class="w100pc text-center">
+                <input type="radio" name="attr_charactertype" value="2" class="">
+            </div>            
+        </div>
+    </div>
 
     <div class="border-23 w20px">&nbsp;</div>
     <div class="border-23 w100pc-40px dark-box key-info">
-        <div class="border-2 w50pc key-memory">
-            <span class="w100pc">Key Memory</span>
-            <textarea class=""></textarea>
+        <div class="border-2 w50pc key-memory align-top">
+            <span class="w100pc">KEY MEMORY</span>
+            <textarea name="attr_keymemory" class=""></textarea>
         </div>
-        <div class="w50pc key-relationship">
-            <span class="w100pc">Key Relationship</span>
-            <textarea class=""></textarea>            
+        <div class="w50pc key-relationship align-top">
+            <span class="w100pc">KEY RELATIONSHIP</span>
+            <textarea name="attr_keyrelationship" class=""></textarea>            
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-23 w20px">&nbsp;</div>
     <div class="border-23 w100pc-40px dark-box home-info">
-        <div class="border-2 w50pc home">
-            <span class="w100pc">Home</span>            
-            <textarea class=""></textarea>
+        <div class="border-2 w50pc home align-top">
+            <span class="w100pc">HOME</span>            
+            <textarea name="attr_homedescription" class=""></textarea>
             <!-- <div class="border-1 w100pc dark-box force-years">Years on the force</div> -->
         </div>
-        <div class="w50pc appearance">
-            <span class="w100pc">Appearance</span>            
-            <textarea class=""></textarea>
+        <div class="w50pc appearance align-top">
+            <span class="w100pc">APPEARANCE</span>            
+            <textarea name="attr_appearance" class=""></textarea>
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
     
     <div class="border-23 w20px">&nbsp;</div>
-    <div class="w100pc-40px dark-box points">
-        <div class="border-23 w25pc dark-box force-years">Years on the force</div>
-        <div class="border-23 w25pc promotion-points">PROMOTION POINTS</div>
-        <div class="border-23 w25pc humanity-points">HUMANITY POINTS</div>
-        <div class="border-23 w25pc chinyen-points">CHINYEN POINTS</div>
+    <div class="w100pc-40px">
+        <div class="w50pc dark-box points">
+            <div class="border-23 w50pc dark-box force-years">
+                <span class="w75pc">YEARS ON THE FORCE</span>
+                <input type="number" name="attr_forceyears" class="w25pc-4px text-center" />
+            </div>
+            <div class="border-23 w50pc dark-box promotion-points">
+                <span class="w75pc">PROMOTION POINTS</span>
+                <input type="number" name="attr_promotionpoints" class="w25pc-4px text-center" />
+            </div>
+            <div class="border-23 w50pc dark-box humanity-points">
+                <span class="w75pc">HUMANITY POINTS</span>
+                <input type="number" name="attr_humanitypoints" class="w25pc-4px text-center" />
+            </div>
+            <div class="border-23 w50pc dark-box chinyen-points">
+                <span class="w75pc">CHINYEN POINTS</span>
+                <input type="number" name="attr_chinyenpoints" class="w25pc-4px text-center" />
+            </div>
+        </div>
+        <div class="w50pc border-23">
+            <span class="yellow">DICE POOL</span>
+        </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-23 w20px">&nbsp;</div>
-    <div class="border-2 w100pc-40px dark-box attributes-skills-header">
-        Attributes and skills
+    <div class="border-23 w100pc-40px dark-box attributes-skills-header">
+        <div class="w75pc">ATTRIBUTES & SKILLS</div>
+        <div class="w25pc">
+            <div class="w50pc dark-box"></div>
+            <div class="border-2 w25pc dark-box smaller text-center rating">RATING</div>
+            <div class="w25pc dark-box smaller text-center die">DIE</div>
+        </div>        
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-23 w20px">&nbsp;</div>
     <div class="w100pc-40px attributes-skills">
-        <div class="w25pc">
-            <div class="border-23 w70pc dark-box table-header"></div>
-            <div class="border-23 w15pc dark-box table-header rating">Rat.</div>
-            <div class="border-23 w15pc dark-box table-header die">Die</div>
-            <div class="border-23 w70pc dark-box yellow attribute">STRENGTH</div>
-            <div class="border-23 w15pc lighter-box attribute-rank"></div>
-            <div class="border-23 w15pc lighter-box attribute-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Close Cmb</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Force</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Stamina</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
+        <div class="w25pc border-23">
+            <div class="border-3 w50pc dark-box table-header"></div>
+            <div class="border-23 w25pc dark-box table-header smaller text-center rating">RATING</div>
+            <div class="border-3 w25pc dark-box table-header smaller text-center die">DIE</div>
+            <div class="border-3 w50pc dark-box yellow attribute">STRENGTH</div>
+            <div class="border-3 w25pc lighter-box attribute-rank">
+                <input type="text" name="attr_strength" hidden /> 
+                <select type="text" name="attr_strength" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8" selected>C</option>
+                    <option value="6">D</option>
+                </select>
+            </div>
+            <div class="border-3 w25pc lighter-box attribute-die">
+                <span type="text" name="attr_strength" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Close Combat</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_closecombat" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_closecombat" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Force</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_force" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_force" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow skill">Stamina</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_stamina" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_stamina" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
         </div>
-        <div class="w25pc">
-            <div class="border-23 w70pc dark-box table-header"></div>
-            <div class="border-23 w15pc dark-box table-header rating">Rat.</div>
-            <div class="border-23 w15pc dark-box table-header die">Die</div>
-            <div class="border-23 w70pc dark-box yellow attribute">AGILITY</div>
-            <div class="border-23 w15pc lighter-box attribute-rank"></div>
-            <div class="border-23 w15pc lighter-box attribute-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Firearms</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Mobility</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Stealth</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
+        <div class="w25pc border-23">
+            <div class="border-3 w50pc dark-box table-header"></div>
+            <div class="border-23 w25pc dark-box table-header smaller text-center rating">RATING</div>
+            <div class="border-3 w25pc dark-box table-header smaller text-center die">DIE</div>
+            <div class="border-3 w50pc dark-box yellow attribute">AGILITY</div>
+            <div class="border-3 w25pc lighter-box attribute-rank">
+                <select name="attr_agility" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8" selected>C</option>
+                    <option value="6">D</option>
+                </select>
+            </div>
+            <div class="border-3 w25pc lighter-box attribute-die">
+                <span type="text" name="attr_agility" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Firearms</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_firearms" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_firearms" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Mobility</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_mobility" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_mobility" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow skill">Stealth</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_stealth" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_stealth" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
         </div>
-        <div class="w25pc">
-            <div class="border-23 w70pc dark-box"></div>
-            <div class="border-23 w15pc dark-box">Rat.</div>
-            <div class="border-23 w15pc dark-box">Die</div>
-            <div class="border-23 w70pc dark-box yellow attribute">INTELLIGENCE</div>
-            <div class="border-23 w15pc lighter-box attribute-rank"></div>
-            <div class="border-23 w15pc lighter-box attribute-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Medicial Aid</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Observation</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Tech</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
+        <div class="w25pc border-23">
+            <div class="border-3 w50pc dark-box"></div>
+            <div class="border-23 w25pc dark-box smaller text-center rating">RATING</div>
+            <div class="border-3 w25pc dark-box smaller text-center die">DIE</div>
+            <div class="border-3 w50pc dark-box yellow attribute">INTELLIGENCE</div>
+            <div class="border-3 w25pc lighter-box attribute-rank">
+                <select name="attr_intelligence" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8" selected>C</option>
+                    <option value="6">D</option>
+                </select>
+            </div>
+            <div class="border-3 w25pc lighter-box attribute-die">
+                <span type="text" name="attr_intelligence" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill ">Medicial Aid</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_medicalaid" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_medicalaid" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Observation</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_observation" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_observation" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow skill">Tech</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_tech" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8" selected>C</option>
+                    <option value="6">D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_tech" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
         </div>
-        <div class="w25pc">
-            <div class="border-23 w70pc dark-box"></div>
-            <div class="border-23 w15pc dark-box">Rat.</div>
-            <div class="border-23 w15pc dark-box">Die</div>
-            <div class="border-23 w70pc dark-box yellow attribute">EMPATHY</div>
-            <div class="border-23 w15pc lighter-box attribute-rank"></div>
-            <div class="border-23 w15pc lighter-box attribute-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Connections</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Insight</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
-            <div class="border-23 w70pc dark-box yellow skill">Manipulation</div>
-            <div class="border-23 w15pc lighter-box skill-rank"></div>
-            <div class="border-23 w15pc lighter-box skill-die"></div>
+        <div class="w25pc border-23">
+            <div class="border-3 w50pc dark-box yellow skill">Driving</div>
+            <div class="border-3 w25pc lighter-box skill-rank">
+                <select name="attr_driving" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="border-3 w25pc lighter-box skill-die">
+                <span type="text" name="attr_driving" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="border-3 w50pc dark-box yellow attribute">EMPATHY</div>
+            <div class="border-3 w25pc lighter-box attribute-rank">
+                <select name="attr_empathy" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8" selected>C</option>
+                    <option value="6">D</option>
+                </select>
+            </div>
+            <div class="border-3 w25pc lighter-box attribute-die">
+                <span type="text" name="attr_empathy" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Connections</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_connections" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_connections" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow yellow-border-bottom skill">Insight</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_insight" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_insight" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            </div>
+            <div class="w50pc dark-box yellow skill">Manipulation</div>
+            <div class="w25pc lighter-box skill-rank">
+                <select name="attr_manipulation" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="w25pc lighter-box skill-die">
+                <span type="text" name="attr_manipulation" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
+            </div>
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
-    <div class="w20px">&nbsp;</div>
-    <div class="border-24 w100pc-40px dark-box weapon-header">Weapons</div>
-    <div class="w20px">&nbsp;</div>
-    <div class="w20px">&nbsp;</div>
-    <div class="w100pc-40px">
-        <div class="border-234 w25pc dark-box">&nbsp;</div>
-        <div class="border-23 w15pc dark-box">DAMAGE</div>
-        <div class="border-23 w15pc dark-box">CRIT</div>
-        <div class="border-23 w15pc dark-box">TYPE</div>
-        <div class="border-23 w15pc dark-box">MIN RANGE</div>
-        <div class="border-23 w15pc dark-box">MAX RANGE</div>
+    <div class="border-2 w20px">&nbsp;</div>
+    <div class="border-23 w100pc-40px dark-box weapon-header">
+        <div class="w20pc dark-box">WEAPONS</div> 
+<!--     <div class="w20px">&nbsp;</div>
+    <div class="w20px border-4">&nbsp;</div>
+    <div class="w100pc-40px weapon-table-headers"> 
+        <div class="border-3 w25pc dark-box">&nbsp;</div>-->
+        <div class="w5pc dark-box text-center smaller">DAMAGE</div>
+        <div class="w8pc dark-box text-center smaller">CRIT</div>
+        <div class="w12pc dark-box text-center smaller">TYPE</div>
+        <div class="w10pc dark-box text-center smaller">MIN RANGE</div>
+        <div class="w10pc dark-box text-center smaller">MAX RANGE</div>
+        <div class="w20pc dark-box text-center smaller">COMMENT</div>
+        <div class="w15pc dark-box text-center smaller">ROLLS</div>
     </div>
     <div class="w20px">&nbsp;</div>
-    <div class="w20px">&nbsp;</div>
+    <div class="border-2 w20px">&nbsp;</div>
     <div class="w100pc-40px">
-        <div class="border-234 w25pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
+        <div class="border-23 w20pc">
+            <input type="text" spellcheck="false" name="attr_weapon1_name" class="" />
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <input type="number" name="attr_weapon1_damage" class="w100pc-4px text-center" />
+        </div>
+        <div class="border-23 w8pc lighter-box">
+            <select type="text" name="attr_weapon1_critdie" class="w100pc-4px text-center" >                
+                <option value="" selected disabled></option>               
+                <option value="12">D12</option>
+                <option value="10">D10</option>
+                <option value="8">D8</option>
+                <option value="6">D6</option>
+                <option value="@{strength}">STR</option>
+                <option value="0">-</option>
+            </select>
+        </div>
+        <div class="border-23 w8pc lighter-box">
+            <input type="radio" id="combatclose" name="combattype" value="0" hidden />
+            <label for="combatclose" class="w50pc toggle-box">CC</label>
+            <input type="radio" id="combatranged" name="combattype" value="1" hidden checked />
+            <label for="combatranged" class="w50pc toggle-box">RC</label>
+        </div>
+        <div class="border-23 w12pc lighter-box">
+            <select type="text" name="attr_weapon1_type" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Piercing</option>
+                <option value="1">Crushing</option>
+                <option value="2">Slashing</option>
+                <option value="3">Piercing (Expl.)</option>
+                <option value="4">Crushing (Expl.)</option>
+            </select>
+        </div>
+        <div class="border-23 w12pc lighter-box">
+            <select type="text" name="attr_weapon1_minrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w10pc lighter-box">
+            <select type="text" name="attr_weapon1_maxrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w20pc lighter-box">
+            <input type="text" name="attr_weapon1_comment" class="w100pc-4px" />
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <!-- <span class="yellow">ROLLS </span> -->
+            <button type="roll" name="attackroll" class="w100pc h100pc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Attack }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">ROLL</button>
+        </div>
     </div>
     <div class="w20px">&nbsp;</div>
-    <div class="w20px">&nbsp;</div>
+    <div class="border-2 w20px">&nbsp;</div>
     <div class="w100pc-40px">
-        <div class="border-234 w25pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
+        <div class="border-23 w20pc">
+            <input type="text" spellcheck="false" name="attr_weapon2_name" class="" />
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <input type="number" name="attr_weapon2_damage" class="w100pc-4px text-center" />
+        </div>
+        <div class="border-23 w8pc lighter-box">
+            <select type="text" name="attr_weapon2_critdie" class="w100pc-4px text-center" >                
+                <option value="" selected disabled></option>               
+                <option value="12">D12</option>
+                <option value="10">D10</option>
+                <option value="8">D8</option>
+                <option value="6">D6</option>
+                <option value="@{strength}">STR</option>
+                <option value="0">-</option>
+            </select>
+        </div>
+        <div class="border-23 w12pc lighter-box">
+            <select type="text" name="attr_weapon2_type" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Piercing</option>
+                <option value="1">Crushing</option>
+                <option value="2">Slashing</option>
+                <option value="3">Piercing (Expl.)</option>
+                <option value="4">Crushing (Expl.)</option>
+            </select>
+        </div>
+        <div class="border-23 w10pc lighter-box">
+            <select type="text" name="attr_weapon2_minrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w10pc lighter-box">
+            <select type="text" name="attr_weapon2_maxrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w20pc lighter-box">
+            <input type="text" name="attr_weapon2_comment" class="w100pc-4px" />
+        </div>
+        <div class="border-23 w15pc lighter-box">
+            <span class="w100pc yellow">ROLLS</span>
+        </div>
     </div>
     <div class="w20px">&nbsp;</div>
-    <div class="w20px">&nbsp;</div>
+    <div class="border-2 w20px">&nbsp;</div>
     <div class="border-box w100pc-40px">
-        <div class="border-234 w25pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
-        <div class="border-23 w15pc lighter-box">&nbsp;</div>
+        <div class="border-23 w20pc">
+            <input type="text" spellcheck="false" name="attr_weapon3_name" class="" />
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <input type="number" name="attr_weapon3_damage" class="w100pc-4px text-center" />
+        </div>
+        <div class="border-23 w8pc lighter-box">
+            <select type="text" name="attr_weapon3_critdie" class="w100pc-4px text-center" >                
+                <option value="" selected disabled></option>               
+                <option value="12">D12</option>
+                <option value="10">D10</option>
+                <option value="8">D8</option>
+                <option value="6">D6</option>
+                <option value="@{strength}">STR</option>
+                <option value="0">-</option>
+            </select>
+        </div>
+        <div class="border-23 w12pc lighter-box">
+            <select type="text" name="attr_weapon3_type" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Piercing</option>
+                <option value="1">Crushing</option>
+                <option value="2">Slashing</option>
+                <option value="3">Piercing (Expl.)</option>
+                <option value="4">Crushing (Expl.)</option>
+            </select>
+        </div>
+        <div class="border-23 w10pc lighter-box">
+            <select type="text" name="attr_weapon3_minrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w10pc lighter-box">
+            <select type="text" name="attr_weapon3_maxrange" class="w100pc-4px text-center" >   
+                <option value="" selected disabled></option>             
+                <option value="0">Engaged</option>
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+                <option value="4">Extreme</option>
+            </select>
+        </div>
+        <div class="border-23 w20pc lighter-box">
+            <input type="text" name="attr_weapon3_comment" class="w100pc-4px" />
+        </div>
+        <div class="border-23 w15pc lighter-box">
+            <span class="w100pc yellow">ROLLS</span>
+        </div>
+    </div>
+    <div class="w20px">&nbsp;</div>
+    <div class="border-23 w20px">&nbsp;</div>    
+    <div class="border-3 w100pc-40px repeating-weapons">
+        <fieldset class="repeating_weapon">
+            <div class="w100pc repeating-weapon">
+                <div class="border-23 w20pc">
+                    <input type="text" name="attr_name" spellcheck="false" class="" />
+                </div>
+                <div class="border-23 w5pc lighter-box">
+                    <input type="number" name="attr_damage" class="w100pc-4px text-center" />
+                </div>
+                <div class="border-23 w8pc lighter-box">
+                    <select type="text" name="attr_critdie" class="w100pc-4px text-center" >                
+                        <option value="" selected disabled hidden></option>               
+                        <option value="12">D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="@{strength}">STR</option>
+                        <option value="0">-</option>
+                    </select>
+                </div>
+                <div class="border-23 w12pc lighter-box">
+                    <select type="text" name="attr_type" class="w100pc-4px text-center" >   
+                        <option value="" selected disabled hidden></option>             
+                        <option value="0">Piercing</option>
+                        <option value="1">Crushing</option>
+                        <option value="2">Slashing</option>
+                        <option value="3">Piercing (Expl.)</option>
+                        <option value="4">Crushing (Expl.)</option>
+                    </select>
+                </div>
+                <div class="border-23 w10pc lighter-box">
+                    <select type="text" name="attr_minrange" class="w100pc-4px text-center" >   
+                        <option value="" selected disabled hidden></option>             
+                        <option value="0">Engaged</option>
+                        <option value="1">Short</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Long</option>
+                        <option value="4">Extreme</option>
+                    </select>
+                </div>
+                <div class="border-23 w10pc lighter-box">
+                    <select type="text" name="attr_maxrange" class="w100pc-4px text-center" >   
+                        <option value="" selected disabled hidden></option>             
+                        <option value="0">Engaged</option>
+                        <option value="1">Short</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Long</option>
+                        <option value="4">Extreme</option>
+                    </select>
+                </div>
+                <div class="border-23 w20pc lighter-box">
+                    <input type="text" name="attr_comment" class="w100pc-4px" />
+                </div>
+                <div class="border-23 w15pc lighter-box">
+                    <span class="w100pc yellow">ROLLS</span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="border-3 w20px">&nbsp;</div>
+    
+
+    <div class="border-23 w20px">&nbsp;</div>
+    <div class="border-23 w100pc-40px">
+        <div class="border-2 w33pc dark-box align-top">
+            <span class="w100pc dark-box">SPECIALITIES</span>
+            <fieldset class="repeating_specialities">
+                <div class="w100pc repeating-specialities">
+                    <input type="text" name="attr_name" class="w100pc-4px" />
+                </div>
+            </fieldset>
+            <!-- <textarea class=""></textarea> -->
+        </div>
+        <div class="border-2 w34pc dark-box align-top">
+            <span class="w100pc dark-box">FAVORED GEAR</span>
+            <textarea name="attr_favoredgear" spellcheck="off" class="oneliner"></textarea>
+            <span class="w100pc dark-box">SIGNATURE ITEM</span>
+            <textarea name="attr_signatureitem" class="oneliner"></textarea>
+            <span class="w100pc dark-box">GEAR</span>
+            <fieldset class="repeating_gear">
+                <div class="w100pc repeating-gear">
+                    <input type="text" name="attr_name" spellcheck="false" class="w100pc-4px" />
+                </div>
+            </fieldset>
+            <!-- <textarea class=""></textarea> -->
+        </div>
+        <div class="w33pc dark-box align-top">
+            <span class="w75pc dark-box armor-header">ARMOR</span>
+            <span class="w15pc dark-box text-center armor-rating-header smaller">RATING</span>
+            <span class="w10pc dark-box text-center armor-rating-header smaller">ROLL</span>
+            <input type="text" name="attr_armorname" class="w75pc-4px border-1" />
+            <!-- <input type="number" name="attr_armorrating" class="w25pc-4px border-1" /> -->
+            <select type="text" name="attr_armorrating" class="w15pc text-center" >                
+                <option value="" selected disabled hidden></option>               
+                <option value="12">A</option>
+                <option value="10">B</option>
+                <option value="8">C</option>
+                <option value="6">D</option>
+            </select>
+            <span class="w10px yellow">R</span>
+            <span class="w100pc border-1 dark-box">HEALTH</span>
+            <span class="w80pc dark-box border-1 yellow">Maximum Health</span>
+            <div class="w20pc border-1">
+                <input type="number" name="attr_health_max" value="ceil((@{strength}+@{agility})/4)" class="text-center" disabled />            
+                <!-- <span name="attr_health_max" class="" disabled readonly></span> -->
+            </div>
+            <span class="w100pc lighter-box border-1">Health boxes</span>
+            <div class="w100pc border-1">
+                <textarea class=" border-1" placeholder="CRITICAL INJURIES"></textarea>
+            </div>
+            <span class="w100pc dark-box border-1">RESOLVE</span>
+            <span class="w80pc dark-box border-1 yellow">Maximum Resolve</span>
+            <div class="w20pc border-1">       
+                <input type="number" name="attr_health_max" value="ceil((@{intelligence}+@{empathy})/4)" class="text-center" disabled />      
+            </div>
+            <span class="w100pc lighter-box border-1">Resolve boxes</span>
+            <div class="w100pc border-1">
+                <textarea class=" border-1" placeholder="CRITICAL STRESS EFFECTS"></textarea>
+            </div>
+        </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
-    <div class="border-123 w20px">&nbsp;</div>
-    <div class="border-23 w100pc-40px">
-        <div class="border-2 w33pc dark-box">
-            <span class="w100pc dark-box">SPECIALITIES</span>
-            <textarea class=""></textarea>
-        </div>
-        <div class="border-2 w34pc dark-box">
-            <span class="w100pc dark-box">FAVOURED GEAR</span>
-            <textarea class=""></textarea>
-            <span class="w100pc dark-box">SIGNATURE ITEM</span>
-            <textarea class=""></textarea>
-            <span class="w100pc dark-box">GEAR</span>
-            <textarea class=""></textarea>
-        </div>
-        <div class="w33pc dark-box">
-            <span class="w100pc dark-box">ARMOR</span>
-            <span class="w100pc">Armor input</span>
-            <span class="w100pc dark-box">HEALTH</span>
-            <span class="w80pc dark-box yellow">Maximum Health</span>
-            <span class="w20pc lighter-box"></span>
-            <span class="w100pc lighter-box">Health boxes</span>
-            <textarea class=""></textarea>
-            <span class="w100pc dark-box">RESOLVE</span>
-            <span class="w80pc dark-box yellow">Maximum Resolve</span>
-            <span class="w20pc lighter-box"></span>
-            <span class="w100pc lighter-box">Resolve boxes</span>
-            <textarea class=""></textarea>
-        </div>
-    </div>
-    <div class="border-23 w20px">&nbsp;</div>
-
-    <div class="border-23 w20px ">&nbsp;</div>
-    <div class="border-23 w100pc-40px ">ALCYON ENTERTAINMENT</div>
-    <div class="border-23 w20px ">&nbsp;</div>
+    <div class="border-2 w20px ">&nbsp;</div>
+    <div class="border-2 w100pc-40px ">ALCYON ENTERTAINMENT</div>
+    <div class="w20px ">&nbsp;</div>
         
     </div>
 
 
 </div>
+
+<rolltemplate class="sheet-rolltemplate-bladerunner">
+    <div class="template-wrap template-background">
+        <div class="template-div w100pc border-1234 header">
+            {{character-name}}
+        </div>
+        <div class="template-div w100pc border-234 header">
+            {{roll-name}} {{#roll-type}} ({{roll-type}}) {{/roll-type}}
+        </div>
+
+        <div class="template-div w50pc border-234 rollinfo right">
+            {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
+            {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
+            {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+            <!-- {{#rollGreater() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Higher</span>{{/rollGreater() die-one-size die-two-size}}
+            {{#rollTotal() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Same</span>{{/rollTotal() die-one-size die-two-size}}
+            {{#rollLess() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Lower</span>{{/rollLess() die-one-size die-two-size}} -->
+            {{#rollTotal() die-one-size 6}}<span class="rollinfo border-4 yellow">D6</span>{{/rollTotal() die-one-size 6}}
+            {{#rollTotal() die-one-size 8}}<span class="rollinfo border-4 yellow">D8</span>{{/rollTotal() die-one-size 8}}
+            {{#rollTotal() die-one-size 10}}<span class="rollinfo border-4 yellow">D10</span>{{/rollTotal() die-one-size 10}}
+            {{#rollTotal() die-one-size 12}}<span class="rollinfo border-4 yellow">D12</span>{{/rollTotal() die-one-size 12}}            
+        </div>
+        <div class="template-div w50pc border-23 rollinfo left">
+            {{#rollTotal() die-two-size 6}}<span class="rollinfo border-2 yellow">D6</span>{{/rollTotal() die-two-size 6}}
+            {{#rollTotal() die-two-size 8}}<span class="rollinfo border-2 yellow">D8</span>{{/rollTotal() die-two-size 8}}
+            {{#rollTotal() die-two-size 10}}<span class="rollinfo border-2 yellow">D10</span>{{/rollTotal() die-two-size 10}}
+            {{#rollTotal() die-two-size 12}}<span class="rollinfo border-2 yellow">D12</span>{{/rollTotal() die-two-size 12}}  
+        </div>
+        <div class="template-div w50pc border-234 rollresult">
+            <span class="w50pc">{{die-one}}</span>
+            {{#^rollTotal() roll-adv 0}}
+                {{#rollLess() die-one-size die-two-size}}<span class="w50pc sheet-border-4-sm">{{die-one-adv}}</span>{{/rollLess() die-one-size die-two-size}}
+            {{/^rollTotal() roll-adv 0}}
+        </div>
+        <div class="template-div w50pc border-23 rollresult">
+            <span class="w50pc">{{die-two}}</span>
+            {{#^rollTotal() roll-adv 0}}
+                {{#rollLess() die-two-size die-one-size}}<span class="w50pc sheet-border-4-sm">{{die-two-adv}}</span>{{/rollLess() die-two-size die-one-size}}
+            {{/^rollTotal() roll-adv 0}}
+        </div>
+        <!-- {{#allprops() }}
+        <div class="template-div w100pc">
+            <div class="template-div w50pc border-23">{{key}}</div>
+            <div class="template-div w50pc border-23">{{value}}</div>             
+        </div>
+        {{/allprops() }} -->
+
+
+    </div>
+</rolltemplate>
+
+
+<!--Sheet Workers -->
+<script type="text/worker">
+      
+    /* number and log handling */
+    const int = (score, on_error = 0) => parseInt(score) || on_error;
+    const float = (score, on_error = 0) => parseFloat(score) || on_error;
+    const clog = (text, title = "", color = "green", style = "font-size:12px; font-weight:normal;", headerstyle = "font-size:13px; font-weight:bold;") => {
+        let titleStyle = `color:${color}; ${headerstyle} text-decoration:underline;`;
+        let textStyle = `color:${color}; ${style}`;
+        let output = `%c${title} %c${text}`;
+        if (title) {
+        console.log(output, titleStyle, textStyle);
+        } else {
+        output = `%c${text}`;
+        console.log(output, textStyle);
+        }
+    };
+
+    /* Oosh async attribute functions */
+    const asw = (() => {
+        const setActiveCharacterId = function(charId){
+            let oldAcid=getActiveCharacterId();
+            let ev = new CustomEvent("message");
+            ev.data={"id":"0", "type":"setActiveCharacter", "data":charId};
+            self.dispatchEvent(ev);
+            return oldAcid;
+        };
+        const promisifyWorker = (worker, parameters) => {
+            let acid=getActiveCharacterId(); 
+            let prevAcid=null;               
+            return new Promise((res,rej)=>{
+                prevAcid=setActiveCharacterId(acid);  
+                try {if (worker===0) getAttrs(parameters[0]||[],(v)=>res(v));
+                    else if (worker===1) setAttrs(parameters[0]||{}, parameters[1]||{},(v)=>res(v));
+                    else if (worker===2) getSectionIDs(parameters[0]||'',(v)=>res(v));
+                } catch(err) {rej(console.error(err))}
+            }).finally(()=>setActiveCharacterId(prevAcid));
+        }
+        return {
+            getAttrs(attrArray) {return promisifyWorker(0, [attrArray])},
+            setAttrs(attrObj, options) {return promisifyWorker(1, [attrObj, options])},
+            getSectionIDs(section) {return promisifyWorker(2, [section])},
+            setActiveCharacterId,
+        }
+    })();
+
+    // METHODS FOR PARSED ROLLS
+    const rollEscape = {
+        chars: { '"': '%quot;', ',': '%comma;', ':': '%colon;', '}': '%rcub;', '{': '%lcub;', },
+        escape(str) {
+            str = (typeof(str) === 'object') ? JSON.stringify(str) : (typeof(str) === 'string') ? str : null;
+            return (str) ? `${str}`.replace(new RegExp(`[${Object.keys(this.chars)}]`, 'g'), (r) => this.chars[r]) : null;
+        },
+        unescape(str) {
+            str = `${str}`.replace(new RegExp(`(${Object.values(this.chars).join('|')})`, 'g'), (r) => Object.entries(this.chars).find(e=>e[1]===r)[0]);
+            return JSON.parse(str);
+        }
+    }
+    
+	// Helper function to grab player input
+	const getQuery = async (queryText) => {
+		const rxGrab = /^0\[(.*)\]\s*$/;
+		let rollBase = `! {{query1=[[ 0[${queryText}] ]]}}`, // just a [[0]] roll with an inline tag
+			queryRoll = await startRoll(rollBase),
+			queryResponse = (queryRoll.results.query1.expression.match(rxGrab) || [])[1]; 
+		finishRoll(queryRoll.rollId); // you can just let this time out if you want - we're done with it
+		return queryResponse;
+	};
+
+    /* GiGs 'Super Simple Summarizer' */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+      if (!Array.isArray(fields)) fields = [fields];
+      getSectionIDs(`repeating_${section}`, (idArray) => {
+        const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `repeating_${section}_${id}_${field}`)], []);
+        getAttrs(attrArray, (v) => {
+          //clog("values of v: " + JSON.stringify(v));
+          // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+          const getValue = (section, id, field) => float(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === "on" ? 1 : 0);
+    
+          const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal, field) => subtotal * getValue(section, id, field), 1), 0);
+          setAttrs({
+            [destination]: sumTotal * multiplier,
+          });
+        });
+      });
+    };
+
+    // VERSIONING
+    // If need for specific data updates with new version then include as a case comparing sheet version with version in the below Switch statement
+    on("sheet:opened", () => {
+        getAttrs(["sheetversion", "version", "newchar"], (values) => {
+            var sheet = float(values.sheetversion),
+            actual = float(values.version),
+            newchar = int(values.newchar);
+            clog(`Versioning; sheet version: ${sheet}, actual: ${actual}, new char: ${newchar}`);
+
+            // Add additional check below, e.g. case newchar != 1 && actual < 2.02
+            // In the case statements, call on a separate function to handle data upgrades and other necessary changes
+            switch (true) {
+                case newchar == 1 :
+                    // A new character would always be on the sheet version, no need to bother with upgrades but need to reset the newchar attribute
+                    clog(`New character identified. New char: ${newchar}, sheet version: ${sheet}, actual: ${actual}`);
+                    setAttrs({
+                        version: sheet,
+                        newchar: 0,
+                        config_notice: 1,
+                        radiation_perm: 0   // Setting permanent radiation to 0 to support the CSS rules, without value they do not work
+                    });
+                    break;  
+                /*
+                case actual < float(4.02) : 
+                    clog(`New version upgrade needed. Sheet version: ${sheet}, actual: ${actual}`);
+                    upg_4_02();
+                    */
+                case actual < sheet :
+                    // This can be use as example of upgrade handling, use specific versions in the case logic to handle version specific upgrade of attributes, e.g. actual < 2.10 :
+                    // Any upgrade handling needs to be done above this one, and may set the actual variable to be same as sheet to avoid doing the below setAttrs twice.
+                    clog(`Updating version. Sheet version: ${sheet}, actual: ${actual}`);
+                    // Add reference to upgrade function here, if needed, e.g. upgrade_to_2.24() 
+                    setAttrs({
+                        version: sheet,
+                        newchar: 0,
+                        config_notice: 1
+                    });
+                    // In case an upgrade can be followed by further upgrading, then omit the break at this stage to move down the list of cases
+                    break;
+            }
+        });
+    });
+
+</script>
