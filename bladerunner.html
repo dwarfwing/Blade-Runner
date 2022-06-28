@@ -318,7 +318,7 @@
             </div>
             <div class="w60pc dark-box yellow-border-bottom skill">
                 <button type="roll" id="medicalaidroll-adv" name="medicalaid-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">ADV</button>
-                <label for="medicalaidroll" class="yellow skill">Medicial Aid</label>
+                <label for="medicalaidroll" class="yellow skill">Medical Aid</label>
                 <button type="roll" id="medicalaidroll-dis" name="medicalaid-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">DIS</button>
                 <button type="roll" hidden id="medicalaidroll" name="medicalaid-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}"></button>
                 
@@ -926,7 +926,7 @@
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-2 w20px ">&nbsp;</div>
-    <div class="border-2 w100pc-40px "><span>ALCYON ENTERTAINMENT</span></div>
+    <div class="border-2 w100pc-40px "><span>ALCON ENTERTAINMENT</span></div>
     <div class="w20px ">&nbsp;</div>
         
     </div>
@@ -944,11 +944,16 @@
         </div>
 
         <div class="template-div w50pc border-234 rollinfo right">
-            {{#^rollLess() die-one-size die-two-size}}
+            {{#rollGreater() die-one-size die-two-size}}
                 {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
                 {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
                 {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
-            {{/^rollLess() die-one-size die-two-size}}
+            {{/rollGreater() die-one-size die-two-size}}
+            {{#rollTotal() die-one-size die-two-size}}
+                {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
+                {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
+                {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+            {{/rollTotal() die-one-size die-two-size}}
             <!-- {{#rollGreater() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Higher</span>{{/rollGreater() die-one-size die-two-size}}
             {{#rollTotal() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Same</span>{{/rollTotal() die-one-size die-two-size}}
             {{#rollLess() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Lower</span>{{/rollLess() die-one-size die-two-size}} -->
@@ -969,78 +974,127 @@
             {{/rollLess() die-one-size die-two-size}}
         </div>
         <div class="template-div w50pc border-234 rollresult">
-            {{#rollTotal() die-one 1}}<span class="w50pc result-1">{{die-one}}</span>{{/rollTotal() die-one 1}}
-            {{#rollTotal() die-one 2}}<span class="w50pc result-2">{{die-one}}</span>{{/rollTotal() die-one 2}}
-            {{#rollTotal() die-one 3}}<span class="w50pc result-3">{{die-one}}</span>{{/rollTotal() die-one 3}}
-            {{#rollTotal() die-one 4}}<span class="w50pc result-4">{{die-one}}</span>{{/rollTotal() die-one 4}}
-            {{#rollTotal() die-one 5}}<span class="w50pc result-5">{{die-one}}</span>{{/rollTotal() die-one 5}}
-            {{#rollTotal() die-one 6}}<span class="w50pc result-6">{{die-one}}</span>{{/rollTotal() die-one 6}}
-            {{#rollTotal() die-one 7}}<span class="w50pc result-7">{{die-one}}</span>{{/rollTotal() die-one 7}}
-            {{#rollTotal() die-one 8}}<span class="w50pc result-8">{{die-one}}</span>{{/rollTotal() die-one 8}}
-            {{#rollTotal() die-one 9}}<span class="w50pc result-9">{{die-one}}</span>{{/rollTotal() die-one 9}}
-            {{#rollTotal() die-one 10}}<span class="w50pc result-10">{{die-one}}</span>{{/rollTotal() die-one 10}}
-            {{#rollTotal() die-one 11}}<span class="w50pc result-11">{{die-one}}</span>{{/rollTotal() die-one 11}}
-            {{#rollTotal() die-one 12}}<span class="w50pc result-12">{{die-one}}</span>{{/rollTotal() die-one 12}}
-            {{#^rollTotal() roll-adv 0}}
-                {{#rollTotal() die-two 0}}
-                    {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
-                    {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
-                    {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
-                    {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
-                    {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
-                    {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
-                    {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
-                    {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
-                    {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-one-adv 9}}
-                    {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
-                    {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
-                    {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}  
-                {{/rollTotal() die-two 0}}
-                {{#rollLess() die-one-size die-two-size}}
-                    {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
-                    {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
-                    {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
-                    {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
-                    {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
-                    {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
-                    {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
-                    {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
-                    {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-one-adv 9}}
-                    {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
-                    {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
-                    {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}                
-                {{/rollLess() die-one-size die-two-size}}
-            {{/^rollTotal() roll-adv 0}}
+            {{#rollLess() roll-adv 0}}
+                {{#^rollLess() die-one-size die-two-size}}                        
+                    {{#rollTotal() die-one 1}}<span class="w50pc die-1 result-1">{{die-one}}</span>{{/rollTotal() die-one 1}}
+                    {{#rollTotal() die-one 2}}<span class="w50pc die-1 result-2">{{die-one}}</span>{{/rollTotal() die-one 2}}
+                    {{#rollTotal() die-one 3}}<span class="w50pc die-1 result-3">{{die-one}}</span>{{/rollTotal() die-one 3}}
+                    {{#rollTotal() die-one 4}}<span class="w50pc die-1 result-4">{{die-one}}</span>{{/rollTotal() die-one 4}}
+                    {{#rollTotal() die-one 5}}<span class="w50pc die-1 result-5">{{die-one}}</span>{{/rollTotal() die-one 5}}
+                    {{#rollTotal() die-one 6}}<span class="w50pc die-1 result-6">{{die-one}}</span>{{/rollTotal() die-one 6}}
+                    {{#rollTotal() die-one 7}}<span class="w50pc die-1 result-7">{{die-one}}</span>{{/rollTotal() die-one 7}}
+                    {{#rollTotal() die-one 8}}<span class="w50pc die-1 result-8">{{die-one}}</span>{{/rollTotal() die-one 8}}
+                    {{#rollTotal() die-one 9}}<span class="w50pc die-1 result-9">{{die-one}}</span>{{/rollTotal() die-one 9}}
+                    {{#rollTotal() die-one 10}}<span class="w50pc die-1 result-10">{{die-one}}</span>{{/rollTotal() die-one 10}}
+                    {{#rollTotal() die-one 11}}<span class="w50pc die-1 result-11">{{die-one}}</span>{{/rollTotal() die-one 11}}
+                    {{#rollTotal() die-one 12}}<span class="w50pc die-1 result-12">{{die-one}}</span>{{/rollTotal() die-one 12}}
+                {{/^rollLess() die-one-size die-two-size}}
+            {{/rollLess() roll-adv 0}}
+            {{#rollGreater() roll-adv -1}}
+                {{#rollTotal() die-one 1}}<span class="w50pc die-1 result-1">{{die-one}}</span>{{/rollTotal() die-one 1}}
+                {{#rollTotal() die-one 2}}<span class="w50pc die-1 result-2">{{die-one}}</span>{{/rollTotal() die-one 2}}
+                {{#rollTotal() die-one 3}}<span class="w50pc die-1 result-3">{{die-one}}</span>{{/rollTotal() die-one 3}}
+                {{#rollTotal() die-one 4}}<span class="w50pc die-1 result-4">{{die-one}}</span>{{/rollTotal() die-one 4}}
+                {{#rollTotal() die-one 5}}<span class="w50pc die-1 result-5">{{die-one}}</span>{{/rollTotal() die-one 5}}
+                {{#rollTotal() die-one 6}}<span class="w50pc die-1 result-6">{{die-one}}</span>{{/rollTotal() die-one 6}}
+                {{#rollTotal() die-one 7}}<span class="w50pc die-1 result-7">{{die-one}}</span>{{/rollTotal() die-one 7}}
+                {{#rollTotal() die-one 8}}<span class="w50pc die-1 result-8">{{die-one}}</span>{{/rollTotal() die-one 8}}
+                {{#rollTotal() die-one 9}}<span class="w50pc die-1 result-9">{{die-one}}</span>{{/rollTotal() die-one 9}}
+                {{#rollTotal() die-one 10}}<span class="w50pc die-1 result-10">{{die-one}}</span>{{/rollTotal() die-one 10}}
+                {{#rollTotal() die-one 11}}<span class="w50pc die-1 result-11">{{die-one}}</span>{{/rollTotal() die-one 11}}
+                {{#rollTotal() die-one 12}}<span class="w50pc die-1 result-12">{{die-one}}</span>{{/rollTotal() die-one 12}}
+
+                {{#rollGreater() roll-adv 0}}
+                    {{#rollTotal() die-one-size die-two-size}}
+                        {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 die-1-adv result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
+                        {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 die-1-adv result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
+                        {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 die-1-adv result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
+                        {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 die-1-adv result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
+                        {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 die-1-adv result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
+                        {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 die-1-adv result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
+                        {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 die-1-adv result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
+                        {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 die-1-adv result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
+                        {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 die-1-adv result-9">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 9}}
+                        {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 die-1-adv result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
+                        {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 die-1-adv result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
+                        {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 die-1-adv result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}
+                    {{/rollTotal() die-one-size die-two-size}}
+                    {{#rollLess() die-one-size die-two-size}}
+                        {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
+                        {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
+                        {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
+                        {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
+                        {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
+                        {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
+                        {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
+                        {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
+                        {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-one-adv 9}}
+                        {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
+                        {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
+                        {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}                
+                    {{/rollLess() die-one-size die-two-size}}
+                {{/rollGreater() roll-adv 0}}
+            {{/rollGreater() roll-adv -1}}
         </div>
         <div class="template-div w50pc border-23 rollresult">
-            {{#rollTotal() die-two 1}}<span class="w50pc result-1">{{die-two}}</span>{{/rollTotal() die-two 1}}
-            {{#rollTotal() die-two 2}}<span class="w50pc result-2">{{die-two}}</span>{{/rollTotal() die-two 2}}
-            {{#rollTotal() die-two 3}}<span class="w50pc result-3">{{die-two}}</span>{{/rollTotal() die-two 3}}
-            {{#rollTotal() die-two 4}}<span class="w50pc result-4">{{die-two}}</span>{{/rollTotal() die-two 4}}
-            {{#rollTotal() die-two 5}}<span class="w50pc result-5">{{die-two}}</span>{{/rollTotal() die-two 5}}
-            {{#rollTotal() die-two 6}}<span class="w50pc result-6">{{die-two}}</span>{{/rollTotal() die-two 6}}
-            {{#rollTotal() die-two 7}}<span class="w50pc result-7">{{die-two}}</span>{{/rollTotal() die-two 7}}
-            {{#rollTotal() die-two 8}}<span class="w50pc result-8">{{die-two}}</span>{{/rollTotal() die-two 8}}
-            {{#rollTotal() die-two 9}}<span class="w50pc result-9">{{die-two}}</span>{{/rollTotal() die-two 9}}
-            {{#rollTotal() die-two 10}}<span class="w50pc result-10">{{die-two}}</span>{{/rollTotal() die-two 10}}
-            {{#rollTotal() die-two 11}}<span class="w50pc result-11">{{die-two}}</span>{{/rollTotal() die-two 11}}
-            {{#rollTotal() die-two 12}}<span class="w50pc result-12">{{die-two}}</span>{{/rollTotal() die-two 12}}
-            {{#^rollTotal() roll-adv 0}}
-                {{#rollLess() die-two-size die-one-size}}
-                    {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
-                    {{#rollTotal() die-two-adv 2}}<span class="w50pc border-4 result-2">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 2}}
-                    {{#rollTotal() die-two-adv 3}}<span class="w50pc border-4 result-3">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 3}}
-                    {{#rollTotal() die-two-adv 4}}<span class="w50pc border-4 result-4">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 4}}
-                    {{#rollTotal() die-two-adv 5}}<span class="w50pc border-4 result-5">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 5}}
-                    {{#rollTotal() die-two-adv 6}}<span class="w50pc border-4 result-6">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 6}}
-                    {{#rollTotal() die-two-adv 7}}<span class="w50pc border-4 result-7">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 7}}
-                    {{#rollTotal() die-two-adv 8}}<span class="w50pc border-4 result-8">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 8}}
-                    {{#rollTotal() die-two-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-two-adv 9}}
-                    {{#rollTotal() die-two-adv 10}}<span class="w50pc border-4 result-10">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 10}}
-                    {{#rollTotal() die-two-adv 11}}<span class="w50pc border-4 result-11">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 11}}
-                    {{#rollTotal() die-two-adv 12}}<span class="w50pc border-4 result-12">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 12}}                
-                {{/rollLess() die-two-size die-one-size}}
-            {{/^rollTotal() roll-adv 0}}
+            {{#rollLess() roll-adv 0}}
+                {{#rollLess() die-one-size die-two-size}}                        
+                    {{#rollTotal() die-two 1}}<span class="w50pc die-1 result-1">{{die-two}}</span>{{/rollTotal() die-two 1}}
+                    {{#rollTotal() die-two 2}}<span class="w50pc die-1 result-2">{{die-two}}</span>{{/rollTotal() die-two 2}}
+                    {{#rollTotal() die-two 3}}<span class="w50pc die-1 result-3">{{die-two}}</span>{{/rollTotal() die-two 3}}
+                    {{#rollTotal() die-two 4}}<span class="w50pc die-1 result-4">{{die-two}}</span>{{/rollTotal() die-two 4}}
+                    {{#rollTotal() die-two 5}}<span class="w50pc die-1 result-5">{{die-two}}</span>{{/rollTotal() die-two 5}}
+                    {{#rollTotal() die-two 6}}<span class="w50pc die-1 result-6">{{die-two}}</span>{{/rollTotal() die-two 6}}
+                    {{#rollTotal() die-two 7}}<span class="w50pc die-1 result-7">{{die-two}}</span>{{/rollTotal() die-two 7}}
+                    {{#rollTotal() die-two 8}}<span class="w50pc die-1 result-8">{{die-two}}</span>{{/rollTotal() die-two 8}}
+                    {{#rollTotal() die-two 9}}<span class="w50pc die-1 result-9">{{die-two}}</span>{{/rollTotal() die-two 9}}
+                    {{#rollTotal() die-two 10}}<span class="w50pc die-1 result-10">{{die-two}}</span>{{/rollTotal() die-two 10}}
+                    {{#rollTotal() die-two 11}}<span class="w50pc die-1 result-11">{{die-two}}</span>{{/rollTotal() die-two 11}}
+                    {{#rollTotal() die-two 12}}<span class="w50pc die-1 result-12">{{die-two}}</span>{{/rollTotal() die-two 12}}
+                {{/rollLess() die-one-size die-two-size}}
+            {{/rollLess() roll-adv 0}}
+            {{#rollGreater() roll-adv -1}}
+                {{#rollTotal() die-two 1}}<span class="w50pc die-1 result-1">{{die-two}}</span>{{/rollTotal() die-two 1}}
+                {{#rollTotal() die-two 2}}<span class="w50pc die-1 result-2">{{die-two}}</span>{{/rollTotal() die-two 2}}
+                {{#rollTotal() die-two 3}}<span class="w50pc die-1 result-3">{{die-two}}</span>{{/rollTotal() die-two 3}}
+                {{#rollTotal() die-two 4}}<span class="w50pc die-1 result-4">{{die-two}}</span>{{/rollTotal() die-two 4}}
+                {{#rollTotal() die-two 5}}<span class="w50pc die-1 result-5">{{die-two}}</span>{{/rollTotal() die-two 5}}
+                {{#rollTotal() die-two 6}}<span class="w50pc die-1 result-6">{{die-two}}</span>{{/rollTotal() die-two 6}}
+                {{#rollTotal() die-two 7}}<span class="w50pc die-1 result-7">{{die-two}}</span>{{/rollTotal() die-two 7}}
+                {{#rollTotal() die-two 8}}<span class="w50pc die-1 result-8">{{die-two}}</span>{{/rollTotal() die-two 8}}
+                {{#rollTotal() die-two 9}}<span class="w50pc die-1 result-9">{{die-two}}</span>{{/rollTotal() die-two 9}}
+                {{#rollTotal() die-two 10}}<span class="w50pc die-1 result-10">{{die-two}}</span>{{/rollTotal() die-two 10}}
+                {{#rollTotal() die-two 11}}<span class="w50pc die-1 result-11">{{die-two}}</span>{{/rollTotal() die-two 11}}
+                {{#rollTotal() die-two 12}}<span class="w50pc die-1 result-12">{{die-two}}</span>{{/rollTotal() die-two 12}}
+<!--                     {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 die-1-adv result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
+                    {{#rollTotal() die-two-adv 2}}<span class="w50pc border-4 die-1-adv result-2">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 2}}
+                    {{#rollTotal() die-two-adv 3}}<span class="w50pc border-4 die-1-adv result-3">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 3}}
+                    {{#rollTotal() die-two-adv 4}}<span class="w50pc border-4 die-1-adv result-4">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 4}}
+                    {{#rollTotal() die-two-adv 5}}<span class="w50pc border-4 die-1-adv result-5">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 5}}
+                    {{#rollTotal() die-two-adv 6}}<span class="w50pc border-4 die-1-adv result-6">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 6}}
+                    {{#rollTotal() die-two-adv 7}}<span class="w50pc border-4 die-1-adv result-7">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 7}}
+                    {{#rollTotal() die-two-adv 8}}<span class="w50pc border-4 die-1-adv result-8">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 8}}
+                    {{#rollTotal() die-two-adv 9}}<span class="w50pc border-4 die-1-adv result-9">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 9}}
+                    {{#rollTotal() die-two-adv 10}}<span class="w50pc border-4 die-1-adv result-10">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 10}}
+                    {{#rollTotal() die-two-adv 11}}<span class="w50pc border-4 die-1-adv result-11">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 11}}
+                    {{#rollTotal() die-two-adv 12}}<span class="w50pc border-4 die-1-adv result-12">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 12}}  --> 
+                {{#rollGreater() roll-adv 0}}
+                    {{#rollLess() die-two-size die-one-size}}
+                        {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
+                        {{#rollTotal() die-two-adv 2}}<span class="w50pc border-4 result-2">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 2}}
+                        {{#rollTotal() die-two-adv 3}}<span class="w50pc border-4 result-3">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 3}}
+                        {{#rollTotal() die-two-adv 4}}<span class="w50pc border-4 result-4">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 4}}
+                        {{#rollTotal() die-two-adv 5}}<span class="w50pc border-4 result-5">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 5}}
+                        {{#rollTotal() die-two-adv 6}}<span class="w50pc border-4 result-6">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 6}}
+                        {{#rollTotal() die-two-adv 7}}<span class="w50pc border-4 result-7">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 7}}
+                        {{#rollTotal() die-two-adv 8}}<span class="w50pc border-4 result-8">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 8}}
+                        {{#rollTotal() die-two-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-two-adv 9}}
+                        {{#rollTotal() die-two-adv 10}}<span class="w50pc border-4 result-10">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 10}}
+                        {{#rollTotal() die-two-adv 11}}<span class="w50pc border-4 result-11">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 11}}
+                        {{#rollTotal() die-two-adv 12}}<span class="w50pc border-4 result-12">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 12}}                
+                    {{/rollLess() die-two-size die-one-size}}
+                {{/rollGreater() roll-adv 0}}
+            {{/rollGreater() roll-adv -1}}
         </div>
         <!-- <div class="template-div w50pc border-234">
             <span class="successes">Successes: </span>
@@ -1048,9 +1102,11 @@
         <div class="template-div w50pc border-23">
             <span class="failures">Failures: </span>
         </div> -->
+        {{#comment}}
         <div class="template-div w100pc border-234">
             <span class="comments">{{comment}}</span>
         </div>
+        {{/comment}}
         <!-- {{#allprops() }}
         <div class="template-div w100pc">
             <div class="template-div w50pc border-23">{{key}}</div>
