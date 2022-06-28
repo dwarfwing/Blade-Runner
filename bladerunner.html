@@ -1,11 +1,11 @@
 
 <div class="border-1234 main-box background">
-    <div class="border-3 w100pc header light-box header">
+    <!-- <div class="border-3 w100pc header light-box header">
         <div class="float-left w70pc light-box">&nbsp;</div>
-        <div class="float-right w30pc light-box text-right"><span>BLADE RUNNER</span></div>
-    </div>
+        <div class="float-right w30pc light-box text-right"></div>
+    </div> -->
     
-    <div class="border-23 w40pc logo light-box character-info">LAPD LOGO</div>
+    <div class="border-23 w40pc logo light-box"><span class="blade-runner">BLDE RUNNER</span></div>
 
     <div class="border-23 w40pc light-box charinfo">
         <label class="w25pc yellow yellow-border-bottom">NAME</label>
@@ -79,19 +79,65 @@
                 <input type="number" name="attr_chinyenpoints" class="w25pc-4px text-center" />
             </div>
         </div>
-        <div class="w50pc border-23">
-            <span class="yellow">DICE POOL</span>
+        <div class="w50pc border-23 customdice">
+            <div class="w25pc border-2 text-center">
+                <div class="w100pc border-3">
+                    <button id="initiative-roll" type="roll" name="initiative" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
+                    <label for="initiative-roll" class="w100pc yellow text-center initiative-label">INITIATIVE</label>
+                    <button id="initiative-token-roll" type="roll" name="initiativetoken" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10 &{tracker}]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
+                    <label for="initiative-token-roll" class="w100pc yellow text-center initiative-label smaller">(TRACKER)</label>
+                </div>
+                <div class="w100pc-4px secretrolls">
+                    <label for="secretroll" class="yellow text-center pointer">SECRET ROLLS</label><input type="checkbox" id="secretroll" name="attr_secretrolls" value="1" class="text-center" unchecked>
+                </div>
+                <!-- <input type="text" name="attr_customroll_name" class="w80pc" value="Custom roll" placeholder="Custom roll"> -->
+            </div>
+            <div class="w50pc border-2 dice-pool">                
+                <span class="w33pc border-3 yellow smaller">DIE 1</span>
+                <span class="w34pc border-3 yellow dice-pool-header">DICE POOL</span>
+                <span class="w33pc border-3 yellow smaller">DIE 2</span>
+                <input type="radio" name="attr_customdieone" id="customdieone0" value="0" class="customdie" hidden>
+                <label for="customdieone0" class="customdie-label small">X</label>
+                <input type="radio" name="attr_customdieone" id="customdieone6" value="6" class="customdie" hidden>
+                <label for="customdieone6" class="customdie-label small">D6</label>
+                <input type="radio" name="attr_customdieone" id="customdieone8" value="8" class="customdie" hidden>
+                <label for="customdieone8" class="customdie-label small">D8</label>
+                <input type="radio" name="attr_customdieone" id="customdieone10" value="10" class="customdie" hidden>
+                <label for="customdieone10" class="customdie-label small">D10</label>
+                <input type="radio" name="attr_customdieone" id="customdieone12" value="12" class="customdie" hidden>
+                <label for="customdieone12" class="customdie-label border-2 small">D12</label>
+                <input type="radio" name="attr_customdietwo" id="customdietwo0" value="0" class="customdie" hidden>
+                <label for="customdietwo0" class="customdie-label small">X</label>
+                <input type="radio" name="attr_customdietwo" id="customdietwo6" value="6" class="customdie" hidden>
+                <label for="customdietwo6" class="customdie-label small">D6</label>
+                <input type="radio" name="attr_customdietwo" id="customdietwo8" value="8" class="customdie" hidden>
+                <label for="customdietwo8" class="customdie-label small">D8</label>
+                <input type="radio" name="attr_customdietwo" id="customdietwo10" value="10" class="customdie" hidden>
+                <label for="customdietwo10" class="customdie-label small">D10</label>
+                <input type="radio" name="attr_customdietwo" id="customdietwo12" value="12" class="customdie" hidden>
+                <label for="customdietwo12" class="customdie-label small">D12</label>
+            </div>
+            <div class="w25pc">
+                <input type="text" name="attr_customroll_name" class="w100pc" value="Custom roll" placeholder="Custom roll">
+                <button type="roll" name="custom-adv" class="customdice-roll w20pc h50pc smaller" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }}"><span class="advantage-roll ">ADV</span></button>
+                <button type="roll" name="custom" class="customdice-roll normal-roll w60pc h50pc " value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }}">ROLL</button>
+                <button type="roll" name="custom-dis" class="customdice-roll w20pc h50pc smaller" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }}"><span class="disadvantage-roll ">DIS</span></button>
+            </div>         
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-23 w20px">&nbsp;</div>
     <div class="border-23 w100pc-40px dark-box attributes-skills-header">
-        <div class="w75pc">ATTRIBUTES & SKILLS</div>
+        <div class="w75pc"><span>ATTRIBUTES & SKILLS</span></div>
+        <!-- <div class="w25pc border-2 secretrolls">
+            <span class="yellow text-center">SECRET ROLLS</span><input type="checkbox" name="attr_secretrolls" value="1" class="text-center" unchecked>
+        </div> -->
         <div class="w25pc">
-            <div class="w50pc dark-box"></div>
-            <div class="border-2 w25pc dark-box smaller text-center rating">RATING</div>
-            <div class="w25pc dark-box smaller text-center die">DIE</div>
+            <div class="w40pc dark-box"></div>
+            <div class="w20pc dark-box smaller text-center rating">MANOUVER.</div>
+            <div class="w20pc border-2 dark-box smaller text-center rating">RATING</div>
+            <div class="w20pc dark-box smaller text-center die">DIE</div>
         </div>        
     </div>
     <div class="border-3 w20px">&nbsp;</div>
@@ -99,11 +145,16 @@
     <div class="border-23 w20px">&nbsp;</div>
     <div class="w100pc-40px attributes-skills">
         <div class="w25pc border-23">
-            <div class="border-3 w50pc dark-box table-header"></div>
-            <div class="border-23 w25pc dark-box table-header smaller text-center rating">RATING</div>
-            <div class="border-3 w25pc dark-box table-header smaller text-center die">DIE</div>
-            <div class="border-3 w50pc dark-box yellow attribute">STRENGTH</div>
-            <div class="border-3 w25pc lighter-box attribute-rank">
+            <div class="border-3 w60pc dark-box table-header"></div>
+            <div class="border-23 w20pc dark-box table-header smaller text-center rating">RATING</div>
+            <div class="border-3 w20pc dark-box table-header smaller text-center die">DIE</div>
+            <div class="border-3 w60pc dark-box attribute">
+                <button type="roll" id="strengthroll-adv" name="strength-roll-adv" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Strength }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV.</button>
+                <label for="strengthroll" class="attribute yellow">STRENGTH</label>
+                <button type="roll" id="strengthroll-dis" name="strength-roll-dis" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Strength }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS.</button>
+                <button type="roll" hidden id="strengthroll" name="strength-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Strength }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button>
+            </div>
+            <div class="border-3 w20pc lighter-box attribute-rank">
                 <input type="text" name="attr_strength" hidden /> 
                 <select type="text" name="attr_strength" class="w100pc-4px">
                     <option value="12">A</option>
@@ -112,11 +163,16 @@
                     <option value="6">D</option>
                 </select>
             </div>
-            <div class="border-3 w25pc lighter-box attribute-die">
+            <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_strength" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Close Combat</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc yellow-border-bottom dark-box skill">
+                <button type="roll" id="closecombatroll-adv" name="closecombat-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Close Combat }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{closecombat}]] }} {{die-two-adv=[[1d@{closecombat}]] }}">ADV</button>
+                <label for="closecombatroll" class="yellow skill">Close&nbsp;Combat</label>
+                <button type="roll" id="closecombatroll-dis" name="closecombat-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Close Combat }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{closecombat}]] }} {{die-two-adv=[[1d@{closecombat}]] }}">DIS</button>
+                <button type="roll" hidden id="closecombatroll" name="closecombat-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Close Combat }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{closecombat}]] }} {{die-two-adv=[[1d@{closecombat}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_closecombat" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -124,11 +180,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_closecombat" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Force</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc yellow-border-bottom skill">
+                <button type="roll" id="forceroll-adv" name="force-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">ADV</button>
+                <label for="forceroll" class="yellow skill">Force</label>
+                <button type="roll" id="forceroll-dis" name="force-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">DIS</button>
+                <button type="roll" hidden id="forceroll" name="force-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_force" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -136,11 +197,17 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_force" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow skill">Stamina</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc skill">
+                <button type="roll" id="staminaroll-adv" name="stamina-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">ADV</button>
+                <label for="staminaroll" class="yellow skill">Stamina</label>
+                <button type="roll" id="staminaroll-dis" name="stamina-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">DIS</button>
+                <button type="roll" hidden id="staminaroll" name="stamina-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}"></button>
+                
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_stamina" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -148,16 +215,22 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_stamina" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
         </div>
         <div class="w25pc border-23">
-            <div class="border-3 w50pc dark-box table-header"></div>
-            <div class="border-23 w25pc dark-box table-header smaller text-center rating">RATING</div>
-            <div class="border-3 w25pc dark-box table-header smaller text-center die">DIE</div>
-            <div class="border-3 w50pc dark-box yellow attribute">AGILITY</div>
-            <div class="border-3 w25pc lighter-box attribute-rank">
+            <div class="border-3 w60pc dark-box table-header"></div>
+            <div class="border-23 w20pc dark-box table-header smaller text-center rating">RATING</div>
+            <div class="border-3 w20pc dark-box table-header smaller text-center die">DIE</div>
+            <div class="border-3 w60pc yellow-border-bottom attribute">
+                <button type="roll" id="agilityroll-adv" name="agility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button>
+                <label for="agilityroll" class="yellow attribute">AGILITY</label>
+                <button type="roll" id="agilityroll-dis" name="agility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button>
+                <button type="roll" hidden id="agilityroll" name="agility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button>
+                
+            </div>
+            <div class="border-3 w20pc lighter-box attribute-rank">
                 <select name="attr_agility" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -165,11 +238,17 @@
                     <option value="6">D</option>
                 </select>
             </div>
-            <div class="border-3 w25pc lighter-box attribute-die">
+            <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_agility" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Firearms</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc yellow-border-bottom skill">
+                <button type="roll" id="firearmsroll-adv" name="firearms-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">ADV</button>
+                <label for="firearmsroll" class="yellow skill">Firearms</label>
+                <button type="roll" id="firearmsroll-dis" name="firearms-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">DIS</button>
+                <button type="roll" hidden id="firearmsroll" name="firearms-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}"></button>
+                
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_firearms" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -177,11 +256,17 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_firearms" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Mobility</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc yellow-border-bottom skill">
+                <button type="roll" id="mobilityroll-adv" name="mobility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">ADV</button>
+                <label for="mobilityroll" class="yellow skill">Mobility</label>
+                <button type="roll" id="mobilityroll-dis" name="mobility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">DIS</button>
+                <button type="roll" hidden id="mobilityroll" name="mobility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}"></button>
+                
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_mobility" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -189,11 +274,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_mobility" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow skill">Stealth</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc skill">
+                <button type="roll" id="stealthroll-adv" name="stealth-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">ADV</button>
+                <label for="stealthroll" class="dark-box yellow skill">Stealth</label>
+                <button type="roll" id="stealthroll-dis" name="stealth-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">DIS</button>
+                <button type="roll" hidden id="stealthroll" name="stealth-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}"></button>                
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_stealth" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -201,16 +291,21 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_stealth" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
         </div>
         <div class="w25pc border-23">
-            <div class="border-3 w50pc dark-box"></div>
-            <div class="border-23 w25pc dark-box smaller text-center rating">RATING</div>
-            <div class="border-3 w25pc dark-box smaller text-center die">DIE</div>
-            <div class="border-3 w50pc dark-box yellow attribute">INTELLIGENCE</div>
-            <div class="border-3 w25pc lighter-box attribute-rank">
+            <div class="border-3 w60pc dark-box"></div>
+            <div class="border-23 w20pc dark-box smaller text-center rating">RATING</div>
+            <div class="border-3 w20pc dark-box smaller text-center die">DIE</div>
+            <div class="border-3 w60pc attribute">
+                <button type="roll" id="intelligenceroll-adv" name="intelligence-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Intelligence }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button>    
+                <label for="intelligenceroll" class="dark-box yellow attribute">INTELLIGENCE</label>
+                <button type="roll" id="intelligenceroll-dis" name="intelligence-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Intelligence }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button>    
+                <button type="roll" hidden id="intelligenceroll" name="intelligence-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Intelligence }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button>    
+            </div>
+            <div class="border-3 w20pc lighter-box attribute-rank">
                 <select name="attr_intelligence" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -218,11 +313,17 @@
                     <option value="6">D</option>
                 </select>
             </div>
-            <div class="border-3 w25pc lighter-box attribute-die">
+            <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_intelligence" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill ">Medicial Aid</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box yellow-border-bottom skill">
+                <button type="roll" id="medicalaidroll-adv" name="medicalaid-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">ADV</button>
+                <label for="medicalaidroll" class="yellow skill">Medicial Aid</label>
+                <button type="roll" id="medicalaidroll-dis" name="medicalaid-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">DIS</button>
+                <button type="roll" hidden id="medicalaidroll" name="medicalaid-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}"></button>
+                
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_medicalaid" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -230,11 +331,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_medicalaid" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Observation</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box yellow-border-bottom skill">
+                <button type="roll" id="observationroll-adv" name="observation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">ADV</button>
+                <label for="observationroll" class="yellow skill">Observation</label>
+                <button type="roll" id="observationroll-dis" name="observation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">DIS</button>
+                <button type="roll" hidden id="observationroll" name="observation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_observation" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -242,11 +348,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_observation" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow skill">Tech</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box skill">
+                <button type="roll" id="techroll-adv" name="tech-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">ADV</button>
+                <label for="techroll" class="yellow skill">Tech</label>
+                <button type="roll" id="techroll-dis" name="tech-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">DIS</button>
+                <button type="roll" hidden id="techroll" name="tech-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_tech" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -254,13 +365,26 @@
                     <option value="6">D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_tech" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
         </div>
         <div class="w25pc border-23">
-            <div class="border-3 w50pc dark-box yellow skill">Driving</div>
-            <div class="border-3 w25pc lighter-box skill-rank">
+            <div class="border-3 w40pc lighter-box skill">
+                <button type="roll" id="drivingroll-adv" name="driving-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">ADV</button>
+                <label for="drivingroll" class="yellow skill">Driving</label>
+                <button type="roll" id="drivingroll-dis" name="driving-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">DIS</button>
+                <button type="roll" hidden id="drivingroll" name="driving-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[0]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}"></button>
+            </div>
+            <div class="border-3 w20pc lighter-box skill-rank">
+                <select name="attr_manouverability" class="w100pc-4px">
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6" selected>D</option>
+                </select>
+            </div>
+            <div class="border-3 w20pc lighter-box skill-rank">
                 <select name="attr_driving" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -268,11 +392,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="border-3 w25pc lighter-box skill-die">
+            <div class="border-3 w20pc lighter-box skill-die">
                 <span type="text" name="attr_driving" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="border-3 w50pc dark-box yellow attribute">EMPATHY</div>
-            <div class="border-3 w25pc lighter-box attribute-rank">
+            <div class="border-3 w60pc dark-box attribute">
+                <button type="roll" id="empathyroll-adv" name="empathy-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Empathy }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button>
+                <label for="empathyroll" class="yellow attribute">EMPATHY</label>
+                <button type="roll" id="empathyroll-dis" name="empathy-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Empathy }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button>
+                <button type="roll" hidden id="empathyroll" name="empathy-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Empathy }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button>
+            </div>
+            <div class="border-3 w20pc lighter-box attribute-rank">
                 <select name="attr_empathy" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -280,11 +409,16 @@
                     <option value="6">D</option>
                 </select>
             </div>
-            <div class="border-3 w25pc lighter-box attribute-die">
+            <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_empathy" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Connections</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box yellow-border-bottom skill">
+                <button type="roll" id="connectionsroll-adv" name="connections-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">ADV</button>
+                <label for="connectionsroll" class="yellow skill">Connections</label>
+                <button type="roll" id="connectionsroll-dis" name="connections-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">DIS</button>
+                <button type="roll" hidden id="connectionsroll" name="connections-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_connections" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -292,11 +426,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_connections" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow yellow-border-bottom skill">Insight</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box yellow-border-bottom skill">
+                <button type="roll" hidden id="insightroll-adv" name="insight-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">ADV</button>
+                <label for="insightroll" class="yellow skill">Insight</label>
+                <button type="roll" hidden id="insightroll-dis" name="insight-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">DIS</button>
+                <button type="roll" hidden id="insightroll" name="insight-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_insight" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -304,11 +443,16 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_insight" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
             </div>
-            <div class="w50pc dark-box yellow skill">Manipulation</div>
-            <div class="w25pc lighter-box skill-rank">
+            <div class="w60pc dark-box skill">
+                <button type="roll" id="manipulationroll-adv" name="manipulation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">ADV</button>
+                <label for="manipulationroll" class="yellow skill">Manipulation</label>
+                <button type="roll" id="manipulationroll-dis" name="manipulation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">DIS</button>
+                <button type="roll" hidden id="manipulationroll" name="manipulation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}"></button>
+            </div>
+            <div class="w20pc lighter-box skill-rank">
                 <select name="attr_manipulation" class="w100pc-4px">
                     <option value="12">A</option>
                     <option value="10">B</option>
@@ -316,7 +460,7 @@
                     <option value="6" selected>D</option>
                 </select>
             </div>
-            <div class="w25pc lighter-box skill-die">
+            <div class="w20pc lighter-box skill-die">
                 <span type="text" name="attr_manipulation" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
             </div>
         </div>
@@ -325,22 +469,18 @@
 
     <div class="border-2 w20px">&nbsp;</div>
     <div class="border-23 w100pc-40px dark-box weapon-header">
-        <div class="w20pc dark-box">WEAPONS</div> 
-<!--     <div class="w20px">&nbsp;</div>
-    <div class="w20px border-4">&nbsp;</div>
-    <div class="w100pc-40px weapon-table-headers"> 
-        <div class="border-3 w25pc dark-box">&nbsp;</div>-->
+        <div class="w20pc dark-box"><span>WEAPONS</span></div> 
         <div class="w5pc dark-box text-center smaller">DAMAGE</div>
         <div class="w8pc dark-box text-center smaller">CRIT</div>
         <div class="w12pc dark-box text-center smaller">TYPE</div>
-        <div class="w10pc dark-box text-center smaller">MIN RANGE</div>
-        <div class="w10pc dark-box text-center smaller">MAX RANGE</div>
-        <div class="w20pc dark-box text-center smaller">COMMENT</div>
-        <div class="w15pc dark-box text-center smaller">ROLLS</div>
+        <div class="w8pc dark-box text-center smaller">RANGE</div>
+        <div class="w8pc dark-box text-center smaller">MIN RANGE</div>
+        <div class="w8pc dark-box text-center smaller">MAX RANGE</div>
+        <div class="w22pc dark-box text-center smaller">COMMENT</div>
     </div>
     <div class="w20px">&nbsp;</div>
     <div class="border-2 w20px">&nbsp;</div>
-    <div class="w100pc-40px">
+    <div class="w100pc-40px weapon-row">
         <div class="border-23 w20pc">
             <input type="text" spellcheck="false" name="attr_weapon1_name" class="" />
         </div>
@@ -348,7 +488,7 @@
             <input type="number" name="attr_weapon1_damage" class="w100pc-4px text-center" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <select type="text" name="attr_weapon1_critdie" class="w100pc-4px text-center" >                
+            <select type="text" name="attr_weapon1_critdie" class="w100pc-4px" >                
                 <option value="" selected disabled></option>               
                 <option value="12">D12</option>
                 <option value="10">D10</option>
@@ -357,12 +497,6 @@
                 <option value="@{strength}">STR</option>
                 <option value="0">-</option>
             </select>
-        </div>
-        <div class="border-23 w8pc lighter-box">
-            <input type="radio" id="combatclose" name="combattype" value="0" hidden />
-            <label for="combatclose" class="w50pc toggle-box">CC</label>
-            <input type="radio" id="combatranged" name="combattype" value="1" hidden checked />
-            <label for="combatranged" class="w50pc toggle-box">RC</label>
         </div>
         <div class="border-23 w12pc lighter-box">
             <select type="text" name="attr_weapon1_type" class="w100pc-4px text-center" >   
@@ -374,7 +508,11 @@
                 <option value="4">Crushing (Expl.)</option>
             </select>
         </div>
-        <div class="border-23 w12pc lighter-box">
+        <input type="radio" id="combatclose1" name="attr_weapon1_combattype" value="@{closecombat}" class="w4pc cc" hidden />
+        <label for="combatclose1" class="border-23 w4pc toggle-box">CC</label>
+        <input type="radio" id="combatranged1" name="attr_weapon1_combattype" value="@{firearms}" class="w4pc rc" hidden checked /> 
+        <label for="combatranged1" class="border-23 w4pc toggle-box">RC</label>
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon1_minrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -384,7 +522,7 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w10pc lighter-box">
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon1_maxrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -394,17 +532,23 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w20pc lighter-box">
+        <div class="border-23 w22pc lighter-box">
             <input type="text" name="attr_weapon1_comment" class="w100pc-4px" />
         </div>
+        <div class="border-23 w4pc lighter-box">
+            <button type="roll" name="weapon1rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
+            <button type="roll" name="weapon1cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
+            <button type="roll" name="weapon1rc-dis" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon1_comment} }}">DIS</button>
+            <button type="roll" name="weapon1cc-dis" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon1_comment} }}">DIS</button>
+        </div>
         <div class="border-23 w5pc lighter-box">
-            <!-- <span class="yellow">ROLLS </span> -->
-            <button type="roll" name="attackroll" class="w100pc h100pc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Attack }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">ROLL</button>
+            <button type="roll" name="weapon1rc" class="w100pc h100pc rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon1_comment} }}">ROLL</button>
+            <button type="roll" name="weapon1cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon1_comment} }}">ROLL</button>
         </div>
     </div>
     <div class="w20px">&nbsp;</div>
     <div class="border-2 w20px">&nbsp;</div>
-    <div class="w100pc-40px">
+    <div class="w100pc-40px weapon-row">
         <div class="border-23 w20pc">
             <input type="text" spellcheck="false" name="attr_weapon2_name" class="" />
         </div>
@@ -412,7 +556,7 @@
             <input type="number" name="attr_weapon2_damage" class="w100pc-4px text-center" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <select type="text" name="attr_weapon2_critdie" class="w100pc-4px text-center" >                
+            <select type="text" name="attr_weapon2_critdie" class="w100pc-4px" >                
                 <option value="" selected disabled></option>               
                 <option value="12">D12</option>
                 <option value="10">D10</option>
@@ -432,7 +576,11 @@
                 <option value="4">Crushing (Expl.)</option>
             </select>
         </div>
-        <div class="border-23 w10pc lighter-box">
+        <input type="radio" id="combatclose2" name="attr_weapon2_combattype" value="@{closecombat}" class="cc" hidden />
+        <label for="combatclose2" class="border-23 w4pc toggle-box">CC</label>
+        <input type="radio" id="combatranged2" name="attr_weapon2_combattype" value="@{firearms}" class="rc" hidden checked />
+        <label for="combatranged2" class="border-23 w4pc toggle-box">RC</label>
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon2_minrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -442,7 +590,7 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w10pc lighter-box">
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon2_maxrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -452,16 +600,23 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w20pc lighter-box">
+        <div class="border-23 w22pc lighter-box">
             <input type="text" name="attr_weapon2_comment" class="w100pc-4px" />
         </div>
-        <div class="border-23 w15pc lighter-box">
-            <span class="w100pc yellow">ROLLS</span>
+        <div class="border-23 w4pc lighter-box">
+            <button type="roll" name="weapon2rc-adv" class="w100pc h50pc smaller  rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
+            <button type="roll" name="weapon2cc-adv" class="w100pc h50pc smaller  cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
+            <button type="roll" name="weapon2rc-dis" class="w100pc h50pc smaller  rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon2_comment} }}">DIS</button>
+            <button type="roll" name="weapon2cc-dis" class="w100pc h50pc smaller  cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon2_comment} }}">DIS</button>
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <button type="roll" name="weapon2rc" class="w100pc h100pc rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon2_comment} }}">ROLL</button>
+            <button type="roll" name="weapon2cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon2_comment} }}">ROLL</button>
         </div>
     </div>
     <div class="w20px">&nbsp;</div>
     <div class="border-2 w20px">&nbsp;</div>
-    <div class="border-box w100pc-40px">
+    <div class="border-box w100pc-40px weapon-row">
         <div class="border-23 w20pc">
             <input type="text" spellcheck="false" name="attr_weapon3_name" class="" />
         </div>
@@ -469,7 +624,7 @@
             <input type="number" name="attr_weapon3_damage" class="w100pc-4px text-center" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <select type="text" name="attr_weapon3_critdie" class="w100pc-4px text-center" >                
+            <select type="text" name="attr_weapon3_critdie" class="w100pc-4px" >                
                 <option value="" selected disabled></option>               
                 <option value="12">D12</option>
                 <option value="10">D10</option>
@@ -489,7 +644,11 @@
                 <option value="4">Crushing (Expl.)</option>
             </select>
         </div>
-        <div class="border-23 w10pc lighter-box">
+        <input type="radio" id="combatclose3" name="attr_weapon3_combattype" value="@{closecombat}" class="cc" hidden />
+        <label for="combatclose3" class="border-23 w4pc lighter-box toggle-box">CC</label>
+        <input type="radio" id="combatranged3" name="attr_weapon3_combattype" value="@{firearms}" class="rc" hidden checked />
+        <label for="combatranged3" class="border-23 w4pc lighter-box toggle-box">RC</label>
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon3_minrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -499,7 +658,7 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w10pc lighter-box">
+        <div class="border-23 w8pc lighter-box">
             <select type="text" name="attr_weapon3_maxrange" class="w100pc-4px text-center" >   
                 <option value="" selected disabled></option>             
                 <option value="0">Engaged</option>
@@ -509,27 +668,34 @@
                 <option value="4">Extreme</option>
             </select>
         </div>
-        <div class="border-23 w20pc lighter-box">
+        <div class="border-23 w22pc lighter-box">
             <input type="text" name="attr_weapon3_comment" class="w100pc-4px" />
         </div>
-        <div class="border-23 w15pc lighter-box">
-            <span class="w100pc yellow">ROLLS</span>
+        <div class="border-23 w4pc lighter-box">
+            <button type="roll" name="weapon3rc-adv" class="w100pc  h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
+            <button type="roll" name="weapon3cc-adv" class="w100pc  h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
+            <button type="roll" name="weapon3rc-dis" class="w100pc  h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon3_comment} }}">DIS</button>
+            <button type="roll" name="weapon3cc-dis" class="w100pc  h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon3_comment} }}">DIS</button>
+        </div>
+        <div class="border-23 w5pc lighter-box">
+            <button type="roll" name="weapon3rc" class="w100pc h100pc rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon3_comment} }}">ROLL</button>
+            <button type="roll" name="weapon3cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name}}} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{weapon3_comment} }}">ROLL</button>
         </div>
     </div>
     <div class="w20px">&nbsp;</div>
     <div class="border-23 w20px">&nbsp;</div>    
-    <div class="border-3 w100pc-40px repeating-weapons">
+    <div class="border-3 w100pc-40px weapon-row repeating-weapons">
         <fieldset class="repeating_weapon">
             <div class="w100pc repeating-weapon">
                 <div class="border-23 w20pc">
-                    <input type="text" name="attr_name" spellcheck="false" class="" />
+                    <input type="text" spellcheck="false" name="attr_name" class="" />
                 </div>
                 <div class="border-23 w5pc lighter-box">
                     <input type="number" name="attr_damage" class="w100pc-4px text-center" />
                 </div>
                 <div class="border-23 w8pc lighter-box">
-                    <select type="text" name="attr_critdie" class="w100pc-4px text-center" >                
-                        <option value="" selected disabled hidden></option>               
+                    <select type="text" name="attr_critdie" class="w100pc-4px" >                
+                        <option value="" selected disabled></option>               
                         <option value="12">D12</option>
                         <option value="10">D10</option>
                         <option value="8">D8</option>
@@ -540,7 +706,7 @@
                 </div>
                 <div class="border-23 w12pc lighter-box">
                     <select type="text" name="attr_type" class="w100pc-4px text-center" >   
-                        <option value="" selected disabled hidden></option>             
+                        <option value="" selected disabled></option>             
                         <option value="0">Piercing</option>
                         <option value="1">Crushing</option>
                         <option value="2">Slashing</option>
@@ -548,9 +714,13 @@
                         <option value="4">Crushing (Expl.)</option>
                     </select>
                 </div>
-                <div class="border-23 w10pc lighter-box">
+                <input type="radio" name="attr_combattype" title="CC" value="@{closecombat}" class="border-23 w4pc toggle-box repeating-toggle-box close-combat cc" />
+                <label class="border-23 w4pc toggle-box repeating-toggle-box">CC</label>
+                <input type="radio" name="attr_combattype" title="RC" value="@{firearms}" class="border-23 w4pc toggle-box repeating-toggle-box ranged-combat rc" checked>
+                <label class="border-23 w4pc toggle-box repeating-toggle-box">RC</label>
+                <div class="border-23 w8pc lighter-box">
                     <select type="text" name="attr_minrange" class="w100pc-4px text-center" >   
-                        <option value="" selected disabled hidden></option>             
+                        <option value="" selected disabled></option>             
                         <option value="0">Engaged</option>
                         <option value="1">Short</option>
                         <option value="2">Medium</option>
@@ -558,9 +728,9 @@
                         <option value="4">Extreme</option>
                     </select>
                 </div>
-                <div class="border-23 w10pc lighter-box">
+                <div class="border-23 w8pc lighter-box">
                     <select type="text" name="attr_maxrange" class="w100pc-4px text-center" >   
-                        <option value="" selected disabled hidden></option>             
+                        <option value="" selected disabled></option>             
                         <option value="0">Engaged</option>
                         <option value="1">Short</option>
                         <option value="2">Medium</option>
@@ -568,11 +738,18 @@
                         <option value="4">Extreme</option>
                     </select>
                 </div>
-                <div class="border-23 w20pc lighter-box">
+                <div class="border-23 w22pc lighter-box">
                     <input type="text" name="attr_comment" class="w100pc-4px" />
                 </div>
-                <div class="border-23 w15pc lighter-box">
-                    <span class="w100pc yellow">ROLLS</span>
+                <div class="border-23 w4pc lighter-box">
+                    <button type="roll" name="rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{comment} }}">ADV</button>
+                    <button type="roll" name="cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{comment} }}">ADV</button>
+                    <button type="roll" name="rc-dis" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{comment} }}">DIS</button>
+                    <button type="roll" name="cc-dis" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{comment} }}">DIS</button>
+                </div>
+                <div class="border-23 w5pc lighter-box">
+                    <button type="roll" name="rc" class="w100pc h100pc rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{comment} }}">ROLL</button>
+                    <button type="roll" name="cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{closecombat}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{closecombat}]] }} {{die-two-adv=[[1D@{closecombat}]] }} {{comment=@{comment} }}">ROLL</button>
                 </div>
             </div>
         </fieldset>
@@ -592,10 +769,31 @@
             <!-- <textarea class=""></textarea> -->
         </div>
         <div class="border-2 w34pc dark-box align-top">
-            <span class="w100pc dark-box">FAVORED GEAR</span>
-            <textarea name="attr_favoredgear" spellcheck="off" class="oneliner"></textarea>
-            <span class="w100pc dark-box">SIGNATURE ITEM</span>
-            <textarea name="attr_signatureitem" class="oneliner"></textarea>
+            <div class="w100pc border-3">
+
+                <span class="w70pc dark-box armor-header">ARMOR</span>
+                <span class="w15pc dark-box text-center armor-rating-header smaller">RATING</span>
+                <span class="w10pc dark-box text-center armor-rating-header smaller"></span>
+                <input type="text" name="attr_armorname" class="w70pc-4px border-1" />
+                <!-- <input type="number" name="attr_armorrating" class="w25pc-4px border-1" /> -->
+                <select type="text" name="attr_armorrating" class="w15pc text-center" >                
+                    <option value="" selected disabled hidden></option>               
+                    <option value="12">A</option>
+                    <option value="10">B</option>
+                    <option value="8">C</option>
+                    <option value="6">D</option>
+                </select>
+                <button type="roll" name="armor-roll" class="w10pc armor-roll" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Armor: @{armorname} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{armorrating}]]}} {{die-two-size=[[@{armorrating}]]}} {{die-one=[[1D@{armorrating}]] }} {{die-one-adv=[[1D@{armorrating}]] }} {{die-two=[[1D@{armorrating}]] }} {{die-two-adv=[[1D@{armorrating}]] }}">b</button>
+                
+            </div>
+            <div class="w100pc border-3">
+                <span class="w100pc dark-box">FAVORED GEAR</span>
+                <textarea name="attr_favoredgear" spellcheck="off" class="oneliner"></textarea>
+            </div>
+            <div class="w100pc border-3">
+                <span class="w100pc dark-box">SIGNATURE ITEM</span>
+                <textarea name="attr_signatureitem" class="oneliner"></textarea>
+            </div>
             <span class="w100pc dark-box">GEAR</span>
             <fieldset class="repeating_gear">
                 <div class="w100pc repeating-gear">
@@ -605,44 +803,130 @@
             <!-- <textarea class=""></textarea> -->
         </div>
         <div class="w33pc dark-box align-top">
-            <span class="w75pc dark-box armor-header">ARMOR</span>
-            <span class="w15pc dark-box text-center armor-rating-header smaller">RATING</span>
-            <span class="w10pc dark-box text-center armor-rating-header smaller">ROLL</span>
-            <input type="text" name="attr_armorname" class="w75pc-4px border-1" />
-            <!-- <input type="number" name="attr_armorrating" class="w25pc-4px border-1" /> -->
-            <select type="text" name="attr_armorrating" class="w15pc text-center" >                
-                <option value="" selected disabled hidden></option>               
-                <option value="12">A</option>
-                <option value="10">B</option>
-                <option value="8">C</option>
-                <option value="6">D</option>
-            </select>
-            <span class="w10px yellow">R</span>
-            <span class="w100pc border-1 dark-box">HEALTH</span>
-            <span class="w80pc dark-box border-1 yellow">Maximum Health</span>
-            <div class="w20pc border-1">
-                <input type="number" name="attr_health_max" value="ceil((@{strength}+@{agility})/4)" class="text-center" disabled />            
+
+            <span class="w100pc border-12 dark-box">HEALTH</span>
+            <span class="w60pc dark-box yellow">Maximum Health</span>
+            <div class="w40pc">
+                <select name="attr_health_mod" value="0" class="w50pc-4px text-center">
+                    <option value="0" selected disbaled hidden>Modifier</option>
+                    <option value="0"></option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                </select>  
+                <span name="attr_health_max" class="text-center value-display"></span>
+                <!-- <input type="number" name="attr_health_max_display" value="(@{health_max})" class="text-center" disabled /> -->            
                 <!-- <span name="attr_health_max" class="" disabled readonly></span> -->
             </div>
-            <span class="w100pc lighter-box border-1">Health boxes</span>
-            <div class="w100pc border-1">
-                <textarea class=" border-1" placeholder="CRITICAL INJURIES"></textarea>
+            <div class="w100pc lighter-box border-1 health-boxes" title="Damage">                
+                <input type="hidden" name="attr_health_max" class="hidden health-max max" hidden readonly />      
+                <input type="hidden" name="attr_health" value="0" class="hidden" hidden readonly />      
+                <input type="radio" id="damage0" name="attr_damage" value="0" checked class="damage-box hidden">
+                <label for="damage0" class="damage-label damage0">0</label>     
+                <input type="radio" id="damage1" name="attr_damage" value="1" class="damage-box hidden">
+                <label for="damage1" class="damage-label damage1">1</label>     
+                <input type="radio" id="damage2" name="attr_damage" value="2" class="damage-box hidden">
+                <label for="damage2" class="damage-label damage2">2</label>     
+                <input type="radio" id="damage3" name="attr_damage" value="3" class="damage-box hidden">
+                <label for="damage3" class="damage-label damage3">3</label>     
+                <input type="radio" id="damage4" name="attr_damage" value="4" class="damage-box hidden">
+                <label for="damage4" class="damage-label damage4">4</label>     
+                <input type="radio" id="damage5" name="attr_damage" value="5" class="damage-box hidden">
+                <label for="damage5" class="damage-label damage5">5</label>     
+                <input type="radio" id="damage6" name="attr_damage" value="6" class="damage-box hidden">
+                <label for="damage6" class="damage-label damage6">6</label>     
+                <input type="radio" id="damage7" name="attr_damage" value="7" class="damage-box hidden">
+                <label for="damage7" class="damage-label damage7">7</label>     
+                <input type="radio" id="damage8" name="attr_damage" value="8" class="damage-box hidden">
+                <label for="damage8" class="damage-label damage8">8</label>     
+                <input type="radio" id="damage9" name="attr_damage" value="9" class="damage-box hidden">
+                <label for="damage9" class="damage-label damage9">9</label>   
+                <input type="radio" id="damage10" name="attr_damage" value="10" class="damage-box hidden">
+                <label for="damage10" class="damage-label damage10">10</label>
+                <input type="radio" id="damage11" name="attr_damage" value="11" class="damage-box hidden">
+                <label for="damage11" class="damage-label damage11">11</label>   
+                <input type="radio" id="damage12" name="attr_damage" value="12" class="damage-box hidden">
+                <label for="damage12" class="damage-label damage12">12</label>
             </div>
-            <span class="w100pc dark-box border-1">RESOLVE</span>
-            <span class="w80pc dark-box border-1 yellow">Maximum Resolve</span>
-            <div class="w20pc border-1">       
-                <input type="number" name="attr_health_max" value="ceil((@{intelligence}+@{empathy})/4)" class="text-center" disabled />      
+            <div class="w100pc border-1 crit-effects">
+                <textarea class="border-1" placeholder="CRITICAL INJURIES"></textarea>
+                <span>CRITICAL ROLL </span>:
+                <select name="attr_rollcritdamagedie" class="w50px">
+                    <option value="12">D12</option>
+                    <option value="10">D10</option>
+                    <option value="8">D8</option>
+                    <option value="6" selected>D6</option>
+                </select>
+                <select type="text" name="attr_rollcritdamagetype" class="w85px text-center" >   
+                    <option value="" selected disabled></option>             
+                    <option value="0">Piercing</option>
+                    <option value="1">Crushing</option>
+                    <option value="2">Slashing</option>
+                    <option value="3">Piercing (Expl.)</option>
+                    <option value="4">Crushing (Expl.)</option>
+                </select>
+                <button type="roll" name="critdamageroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Damage roll }} {{critroll=[[1]] }} {{critrolltype=@{rollcritdamagetype} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritdamagedie}]]}} {{die-one=[[1D@{rollcritdamagedie}]] }} {{die-one-adv=[[1D@{rollcritdamagedie}]] }} ">ROLL</button>
             </div>
-            <span class="w100pc lighter-box border-1">Resolve boxes</span>
-            <div class="w100pc border-1">
+
+            <span class="w100pc dark-box border-12">RESOLVE</span>
+            <span class="w60pc dark-box yellow">Maximum Resolve</span>
+            <div class="w40pc">     
+                <select name="attr_resolve_mod" value="0" class="w50pc-4px text-center">
+                    <option value="0" selected disbaled hidden>Modifier</option>
+                    <option value="0"></option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                </select>     
+                <span name="attr_resolve_max" class="text-center value-display"></span>
+                <!-- <input type="number" name="attr_resolve_max" value="0" class="text-center" disabled />  -->     
+            </div>
+            <div class="w100pc lighter-box border-1 resolve-boxes" title="Stress">                               
+                <input type="hidden" name="attr_resolve_max" class="hidden stress-max max" hidden readonly />      
+                <input type="hidden" name="attr_resolve" value="0" class="hidden" hidden readonly />      
+                <input type="radio" id="stress0" name="attr_stress" value="0" checked class="damage-box hidden">
+                <label for="stress0" class="damage-label damage0">0</label>     
+                <input type="radio" id="stress1" name="attr_stress" value="1" class="damage-box hidden">
+                <label for="stress1" class="damage-label damage1">1</label>     
+                <input type="radio" id="stress2" name="attr_stress" value="2" class="damage-box hidden">
+                <label for="stress2" class="damage-label damage2">2</label>     
+                <input type="radio" id="stress3" name="attr_stress" value="3" class="damage-box hidden">
+                <label for="stress3" class="damage-label damage3">3</label>     
+                <input type="radio" id="stress4" name="attr_stress" value="4" class="damage-box hidden">
+                <label for="stress4" class="damage-label damage4">4</label>     
+                <input type="radio" id="stress5" name="attr_stress" value="5" class="damage-box hidden">
+                <label for="stress5" class="damage-label damage5">5</label>     
+                <input type="radio" id="stress6" name="attr_stress" value="6" class="damage-box hidden">
+                <label for="stress6" class="damage-label damage6">6</label>     
+                <input type="radio" id="stress7" name="attr_stress" value="7" class="damage-box hidden">
+                <label for="stress7" class="damage-label damage7">7</label>     
+                <input type="radio" id="stress8" name="attr_stress" value="8" class="damage-box hidden">
+                <label for="stress8" class="damage-label damage8">8</label>     
+                <input type="radio" id="stress9" name="attr_stress" value="9" class="damage-box hidden">
+                <label for="stress9" class="damage-label damage9">9</label>   
+                <input type="radio" id="stress10" name="attr_stress" value="10" class="damage-box hidden">
+                <label for="stress10" class="damage-label damage10">10</label>    
+                <input type="radio" id="stress11" name="attr_stress" value="11" class="damage-box hidden">
+                <label for="stress11" class="damage-label damage11">11</label>   
+                <input type="radio" id="stress12" name="attr_stress" value="12" class="damage-box hidden">
+                <label for="stress12" class="damage-label damage12">12</label>
+            </div>
+            <div class="w100pc border-1 crit-effects">
                 <textarea class=" border-1" placeholder="CRITICAL STRESS EFFECTS"></textarea>
+                <span>CRITICAL ROLL </span>:
+                <input name="attr_rollcritstressdie" class="w50px hidden" value="@{empathy}">
+                <button type="roll" name="critstressroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Stress roll }} {{critroll=[[2]] }} {{critrolltype=@{charactertype} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritstressdie}]]}} {{die-one=[[1D@{rollcritstressdie}]] }} {{die-one-adv=[[1D@{rollcritstressdie}]] }} ">ROLL</button>
             </div>
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
 
     <div class="border-2 w20px ">&nbsp;</div>
-    <div class="border-2 w100pc-40px ">ALCYON ENTERTAINMENT</div>
+    <div class="border-2 w100pc-40px "><span>ALCYON ENTERTAINMENT</span></div>
     <div class="w20px ">&nbsp;</div>
         
     </div>
@@ -660,9 +944,11 @@
         </div>
 
         <div class="template-div w50pc border-234 rollinfo right">
-            {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
-            {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
-            {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+            {{#^rollLess() die-one-size die-two-size}}
+                {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
+                {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
+                {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+            {{/^rollLess() die-one-size die-two-size}}
             <!-- {{#rollGreater() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Higher</span>{{/rollGreater() die-one-size die-two-size}}
             {{#rollTotal() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Same</span>{{/rollTotal() die-one-size die-two-size}}
             {{#rollLess() die-one-size die-two-size}}<span class="rollinfo border-4 yellow">Lower</span>{{/rollLess() die-one-size die-two-size}} -->
@@ -676,18 +962,94 @@
             {{#rollTotal() die-two-size 8}}<span class="rollinfo border-2 yellow">D8</span>{{/rollTotal() die-two-size 8}}
             {{#rollTotal() die-two-size 10}}<span class="rollinfo border-2 yellow">D10</span>{{/rollTotal() die-two-size 10}}
             {{#rollTotal() die-two-size 12}}<span class="rollinfo border-2 yellow">D12</span>{{/rollTotal() die-two-size 12}}  
+            {{#rollLess() die-one-size die-two-size}}
+                {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
+                {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
+                {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+            {{/rollLess() die-one-size die-two-size}}
         </div>
         <div class="template-div w50pc border-234 rollresult">
-            <span class="w50pc">{{die-one}}</span>
+            {{#rollTotal() die-one 1}}<span class="w50pc result-1">{{die-one}}</span>{{/rollTotal() die-one 1}}
+            {{#rollTotal() die-one 2}}<span class="w50pc result-2">{{die-one}}</span>{{/rollTotal() die-one 2}}
+            {{#rollTotal() die-one 3}}<span class="w50pc result-3">{{die-one}}</span>{{/rollTotal() die-one 3}}
+            {{#rollTotal() die-one 4}}<span class="w50pc result-4">{{die-one}}</span>{{/rollTotal() die-one 4}}
+            {{#rollTotal() die-one 5}}<span class="w50pc result-5">{{die-one}}</span>{{/rollTotal() die-one 5}}
+            {{#rollTotal() die-one 6}}<span class="w50pc result-6">{{die-one}}</span>{{/rollTotal() die-one 6}}
+            {{#rollTotal() die-one 7}}<span class="w50pc result-7">{{die-one}}</span>{{/rollTotal() die-one 7}}
+            {{#rollTotal() die-one 8}}<span class="w50pc result-8">{{die-one}}</span>{{/rollTotal() die-one 8}}
+            {{#rollTotal() die-one 9}}<span class="w50pc result-9">{{die-one}}</span>{{/rollTotal() die-one 9}}
+            {{#rollTotal() die-one 10}}<span class="w50pc result-10">{{die-one}}</span>{{/rollTotal() die-one 10}}
+            {{#rollTotal() die-one 11}}<span class="w50pc result-11">{{die-one}}</span>{{/rollTotal() die-one 11}}
+            {{#rollTotal() die-one 12}}<span class="w50pc result-12">{{die-one}}</span>{{/rollTotal() die-one 12}}
             {{#^rollTotal() roll-adv 0}}
-                {{#rollLess() die-one-size die-two-size}}<span class="w50pc sheet-border-4-sm">{{die-one-adv}}</span>{{/rollLess() die-one-size die-two-size}}
+                {{#rollTotal() die-two 0}}
+                    {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
+                    {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
+                    {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
+                    {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
+                    {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
+                    {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
+                    {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
+                    {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
+                    {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-one-adv 9}}
+                    {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
+                    {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
+                    {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}  
+                {{/rollTotal() die-two 0}}
+                {{#rollLess() die-one-size die-two-size}}
+                    {{#rollTotal() die-one-adv 1}}<span class="w50pc border-4 result-1">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 1}}
+                    {{#rollTotal() die-one-adv 2}}<span class="w50pc border-4 result-2">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 2}}
+                    {{#rollTotal() die-one-adv 3}}<span class="w50pc border-4 result-3">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 3}}
+                    {{#rollTotal() die-one-adv 4}}<span class="w50pc border-4 result-4">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 4}}
+                    {{#rollTotal() die-one-adv 5}}<span class="w50pc border-4 result-5">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 5}}
+                    {{#rollTotal() die-one-adv 6}}<span class="w50pc border-4 result-6">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 6}}
+                    {{#rollTotal() die-one-adv 7}}<span class="w50pc border-4 result-7">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 7}}
+                    {{#rollTotal() die-one-adv 8}}<span class="w50pc border-4 result-8">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 8}}
+                    {{#rollTotal() die-one-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-one-adv 9}}
+                    {{#rollTotal() die-one-adv 10}}<span class="w50pc border-4 result-10">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 10}}
+                    {{#rollTotal() die-one-adv 11}}<span class="w50pc border-4 result-11">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 11}}
+                    {{#rollTotal() die-one-adv 12}}<span class="w50pc border-4 result-12">{{die-one-adv}}</span>{{/rollTotal() die-one-adv 12}}                
+                {{/rollLess() die-one-size die-two-size}}
             {{/^rollTotal() roll-adv 0}}
         </div>
         <div class="template-div w50pc border-23 rollresult">
-            <span class="w50pc">{{die-two}}</span>
+            {{#rollTotal() die-two 1}}<span class="w50pc result-1">{{die-two}}</span>{{/rollTotal() die-two 1}}
+            {{#rollTotal() die-two 2}}<span class="w50pc result-2">{{die-two}}</span>{{/rollTotal() die-two 2}}
+            {{#rollTotal() die-two 3}}<span class="w50pc result-3">{{die-two}}</span>{{/rollTotal() die-two 3}}
+            {{#rollTotal() die-two 4}}<span class="w50pc result-4">{{die-two}}</span>{{/rollTotal() die-two 4}}
+            {{#rollTotal() die-two 5}}<span class="w50pc result-5">{{die-two}}</span>{{/rollTotal() die-two 5}}
+            {{#rollTotal() die-two 6}}<span class="w50pc result-6">{{die-two}}</span>{{/rollTotal() die-two 6}}
+            {{#rollTotal() die-two 7}}<span class="w50pc result-7">{{die-two}}</span>{{/rollTotal() die-two 7}}
+            {{#rollTotal() die-two 8}}<span class="w50pc result-8">{{die-two}}</span>{{/rollTotal() die-two 8}}
+            {{#rollTotal() die-two 9}}<span class="w50pc result-9">{{die-two}}</span>{{/rollTotal() die-two 9}}
+            {{#rollTotal() die-two 10}}<span class="w50pc result-10">{{die-two}}</span>{{/rollTotal() die-two 10}}
+            {{#rollTotal() die-two 11}}<span class="w50pc result-11">{{die-two}}</span>{{/rollTotal() die-two 11}}
+            {{#rollTotal() die-two 12}}<span class="w50pc result-12">{{die-two}}</span>{{/rollTotal() die-two 12}}
             {{#^rollTotal() roll-adv 0}}
-                {{#rollLess() die-two-size die-one-size}}<span class="w50pc sheet-border-4-sm">{{die-two-adv}}</span>{{/rollLess() die-two-size die-one-size}}
+                {{#rollLess() die-two-size die-one-size}}
+                    {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
+                    {{#rollTotal() die-two-adv 2}}<span class="w50pc border-4 result-2">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 2}}
+                    {{#rollTotal() die-two-adv 3}}<span class="w50pc border-4 result-3">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 3}}
+                    {{#rollTotal() die-two-adv 4}}<span class="w50pc border-4 result-4">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 4}}
+                    {{#rollTotal() die-two-adv 5}}<span class="w50pc border-4 result-5">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 5}}
+                    {{#rollTotal() die-two-adv 6}}<span class="w50pc border-4 result-6">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 6}}
+                    {{#rollTotal() die-two-adv 7}}<span class="w50pc border-4 result-7">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 7}}
+                    {{#rollTotal() die-two-adv 8}}<span class="w50pc border-4 result-8">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 8}}
+                    {{#rollTotal() die-two-adv 9}}<span class="w50pc border-4 result-9">{{die-on-adv}}</span>{{/rollTotal() die-two-adv 9}}
+                    {{#rollTotal() die-two-adv 10}}<span class="w50pc border-4 result-10">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 10}}
+                    {{#rollTotal() die-two-adv 11}}<span class="w50pc border-4 result-11">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 11}}
+                    {{#rollTotal() die-two-adv 12}}<span class="w50pc border-4 result-12">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 12}}                
+                {{/rollLess() die-two-size die-one-size}}
             {{/^rollTotal() roll-adv 0}}
+        </div>
+        <!-- <div class="template-div w50pc border-234">
+            <span class="successes">Successes: </span>
+        </div>
+        <div class="template-div w50pc border-23">
+            <span class="failures">Failures: </span>
+        </div> -->
+        <div class="template-div w100pc border-234">
+            <span class="comments">{{comment}}</span>
         </div>
         <!-- {{#allprops() }}
         <div class="template-div w100pc">
@@ -828,6 +1190,37 @@
                     // In case an upgrade can be followed by further upgrading, then omit the break at this stage to move down the list of cases
                     break;
             }
+        });
+    });
+
+    /* SET MAX HEALTH */
+    on("change:health_max change:health_mod change:strength change:agility sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['strength','agility','health_max','health_mod']);
+        const health = Math.ceil( ( int(attrs['strength']) + int(attrs['agility'])) / 4 ) + int(attrs['health_mod']);
+        clog(`Max health is ${health}`);
+        await asw.setAttrs({health_max: health});
+    });
+    /* SET MAX RESOLVE */
+    on("change:resolve_max change:resolve_mod change:intelligence change:empathy sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['intelligence','empathy','resolve_max','resolve_mod']);
+        const resolve = Math.ceil( ( int(attrs['intelligence']) + int(attrs['empathy'])) / 4 ) + int(attrs['resolve_mod']);
+        clog(`Max resolve is ${resolve}`);
+        await asw.setAttrs({resolve_max: resolve});
+    });
+
+    // SET SECRET ROLL 
+    on('change:secretrolls sheet:opened', (ev) => {
+        getAttrs(['secretrolls', 'rollcommand'], (values) => {
+            //clog(`Secret roll update: ${JSON.stringify(ev)}`);
+            const s = int(values.secretrolls);
+            var r = "/w gm";
+            clog(`Secret rolls (${s}): `+ !( s == "0" || !s ));
+            if ( s == "0" || !s ) {
+                r = "";
+            } 
+            setAttrs({
+                rollcommand: r
+            });
         });
     });
 
