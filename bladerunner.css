@@ -20,7 +20,7 @@ html {
 }
 
 .dark-box {
-    -background-color: #1b1e21; 
+    background-color: rgb(0, 0, 0, 0.4); 
 }
 .light-box {
     -background-color: #455758;
@@ -101,8 +101,10 @@ html {
 .w20pc-4px { width: calc(20% - 4px); min-width: calc(20% - 4px); max-width: calc(20% - 4px); box-sizing: border-box;}
 .w22pc { width: 22%; min-width: 22%; max-width: 22%; box-sizing: border-box;}
 .w23pc { width: 23%; min-width: 23%; max-width: 23%; box-sizing: border-box;}
+.w24pc { width: 24%; min-width: 24%; max-width: 24%; box-sizing: border-box;}
 .w25pc { width: 25%; min-width: 25%; max-width: 25%; box-sizing: border-box;}
 .w25pc-4px { width: calc(25% - 4px); min-width: calc(25% - 4px); max-width: calc(25% - 4px); box-sizing: border-box;}
+.w28pc { width: 28%; min-width: 28%; max-width: 28%; box-sizing: border-box;}
 .w30pc { width: 30%; min-width: 30%; max-width: 30%; box-sizing: border-box;}
 .w33pc { width: 33%; min-width: 33%; max-width: 33%; box-sizing: border-box;}
 .w34pc { width: 34%; min-width: 34%; max-width: 34%; box-sizing: border-box;}
@@ -155,6 +157,21 @@ html {
     align-content: flex-start;
 }
 
+/* TAB BUTTONS */
+
+/*Configure the tab buttons*/
+.ui-dialog .charsheet input.tabstoggle[value="2"] ~ div.main-box div.character,
+.ui-dialog .charsheet input.tabstoggle[value="1"] ~ div.main-box div.timereport {
+    display: none;
+}
+
+/* show the selected tab */
+.ui-dialog .charsheet input.tabstoggle[value="1"] ~ div.main-box div.character,
+.ui-dialog .charsheet input.tabstoggle[value="2"] ~ div.main-box div.timereport {
+    display: flex;
+}
+
+
 /* TEXT & INPUT */
 
 .ui-dialog .charsheet .blade-runner {
@@ -173,15 +190,17 @@ html {
     padding-left: 1.5rem;
     color: #617b83;
 }
-.ui-dialog .charsheet .main-box span.sheet-tab {
+.ui-dialog .charsheet .main-box label.sheet-tab {
     text-align: center;
     align-self: center;
     justify-self: center;
+    width: unset;
     text-indent: 0;
     padding: 0 0.5rem;
     line-height: 1.6rem;
     letter-spacing: 0.1rem;
     color: #617b83;
+    cursor: pointer;
 }
 .profile-database {
     align-self: baseline;
@@ -210,6 +229,22 @@ input, select, textarea {
     font-family: /* 'Barlow Semi Condensed',  */'Barlow Condensed','Arimo', Helvetica, Arial, sans-serif ;
     /* font-weight: bold; */
     color: #202429;
+}
+textarea::-webkit-scrollbar {
+    width: 6px;
+    margin-left: 4px;
+    cursor: auto;
+}
+textarea::-webkit-scrollbar-track  {
+    border-radius: 3px;
+    background: darkgrey;
+}
+textarea::-webkit-scrollbar-thumb  {
+    border-radius: 3px;
+    background: gray;
+}
+textarea::-webkit-scrollbar-thumb:hover  {
+    background: black;
 }
 
 select {
@@ -301,6 +336,9 @@ select {
     width: 5px;
     margin-right: 3px;
 }
+
+.deg90 { transform: rotate(90deg); }
+.deg270 { transform: rotate(270deg); }
 
 .ui-dialog .charsheet :is(input[type="radio"],input[type="checkbox"]) {
     appearance: unset;
@@ -536,6 +574,22 @@ input[type="number"]:hover::-webkit-inner-spin-button, */
     bottom: 0;
     opacity: 0.4;
     margin: 10;
+}
+
+.ui-dialog .charsheet .main-box .timereport .header-day {
+    display: flex;
+    justify-content: center;
+}
+.ui-dialog .charsheet .main-box .timereport .header-day span {
+    text-indent: 0;
+    text-align: center;
+}
+.ui-dialog .charsheet .main-box .timereport textarea {
+    font-size: 0.9rem;
+    min-height: 4rem;
+    max-height: 8rem;
+    resize: vertical;
+    overflow-y: auto;
 }
 
 /* BUTTONS */
