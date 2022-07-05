@@ -1,4 +1,5 @@
-<input type="hidden" name="attr_sheetversion" value="0.04">
+
+<input type="hidden" name="attr_sheetversion" value="0.05">
 <input type="hidden" name="attr_version" value="0">
 <input type="hidden" name="attr_newchar" value="1">
 
@@ -9,10 +10,21 @@
 <input type="hidden" name="attr_push" value="0">
 <input type="hidden" name="attr_pushdieone" value="8">
 <input type="hidden" name="attr_pushdietwo" value="8">
+<input type="hidden" name="attr_pushdieoner1" value="8">
+<input type="hidden" name="attr_pushdieoner2" value="8">
+<input type="hidden" name="attr_pushdietwor1" value="8">
+<input type="hidden" name="attr_pushdietwor2" value="8">
 <input type="hidden" name="attr_pushrolladv" value="0">
+<button type="roll" name="roll_pushtest" value="%{@{character_name}|pushroll1}" class="hidden"></button>
 <button type="roll" name="roll_push" class="hidden" hidden value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{pushrollname} }} {{comment=@{pushrollcomment}}} {{push=[[(@{push}-1)]] }} {{roll-adv=[[@{pushrolladv}]] }} {{die-one-size=[[@{pushdieone}]]}} {{die-two-size=[[@{pushdietwo}]]}} {{die-one=[[1D@{pushdieone}]] }}  {{die-one-adv=[[1D@{pushdieone}]] }} {{die-two=[[1D@{pushdietwo}]] }} {{die-two-adv=[[1D@{pushdietwo}]] }} "></button>
-<button type="action" name="act_pushroll" class="hidden" data-push-type="1" data-name="@{pushrollname}" data-comment="@{pushrollcomment}" data-die-one="@{pushdieone}" data-die-two="@{pushdietwo}" data-adv="@{pushrolladv}" data-push="@{push}" hidden></button>
-
+<button type="action" name="act_pushroll" value="%{@{character_name|pushroll1}}" class="hidden" data-push-type="1" data-name="@{pushrollname}" data-comment="@{pushrollcomment}" data-die-one="@{pushdieone}" data-die-two="@{pushdietwo}" data-adv="@{pushrolladv}" data-push="@{push}" hidden></button>
+<button type="action" name="act_pushroll_1" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_12" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_13" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_2" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_23" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_3" class="hidden" hidden></button>
+<button type="action" name="act_pushroll_123" class="hidden" hidden></button>
 
 
 <div class="border-1234 main-box background">
@@ -21,7 +33,18 @@
         <div class="float-right w30pc light-box text-right"></div>
     </div> -->
     
-    <div class="border-23 w40pc logo light-box"><span class="blade-runner">BLDE RUNNER</span></div>
+
+    <div class="border-3 w60pc light-box">
+        <span class="border-2 h100pc sheet-tab">CHARACTER SHEET</span>
+        <span class="border-2 h100pc sheet-tab" title="Work In Progress">TIME TRACKER</span>
+    </div>
+    <div class="border-3 w40pc light-box"><span class="blade-runner">BLDE RUNNER</span></div>
+
+    <div class="border-23 w40pc logo light-box">
+        <img src="https://github.com/dwarfwing/Blade-Runner/blob/main/images/LAPD.png?raw=true">
+        <span class="profile-database">Profile Database</span>
+    </div>
+
 
     <div class="border-23 w40pc light-box charinfo">
         <label class="w25pc yellow yellow-border-bottom">NAME</label>
@@ -121,7 +144,8 @@
                 <input type="radio" name="attr_customdieone" id="customdieone10" value="10" class="customdie" hidden>
                 <label for="customdieone10" class="customdie-label small">D10</label>
                 <input type="radio" name="attr_customdieone" id="customdieone12" value="12" class="customdie" hidden>
-                <label for="customdieone12" class="customdie-label border-2 small">D12</label>
+                <label for="customdieone12" class="customdie-label small">D12</label>
+                <span class="separator border-2">&nbsp;</span>
                 <input type="radio" name="attr_customdietwo" id="customdietwo0" value="0" class="customdie" hidden>
                 <label for="customdietwo0" class="customdie-label small">X</label>
                 <input type="radio" name="attr_customdietwo" id="customdietwo6" value="6" class="customdie" hidden>
@@ -138,15 +162,15 @@
                     <input type="text" name="attr_customroll_name" class="w100pc-4px" value="Custom roll" placeholder="Custom roll">
                 </div>
                 <div class="w100pc-4px h50pc">
-                    <button type="action" name="act_customrolladv" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-adv="1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">ADV</span></button>
+                    <button type="action" name="act_customrolladv" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">ADV</span></button>
                     <!-- <button type="roll" name="custom-adv" class="customdice-roll w20pc h50pc" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} ">
                         <span class="advantage-roll  smaller">ADV</span>
                     </button> -->
-                    <button type="action" name="act_customroll" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-adv="0" data-push="@{charactertype}" class="customdice-roll normal-roll w60pc h100pc-4px">ROLL</button>
+                    <button type="action" name="act_customroll" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="0" data-push="@{charactertype}" class="customdice-roll normal-roll w60pc h100pc-4px">ROLL</button>
     <!--                 <button type="roll" name="custom" class="customdice-roll normal-roll w60pc h50pc " value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} {{button=[Push](&#37;push)}} {{push-command=push1d@{customdieone}1d@{customdietwo}adv0}}">ROLL</button>
     --><!--                 <button type="roll" name="custom" class="customdice-roll normal-roll w60pc h50pc " value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} {{button=[Push](!&#64;{pushedrollcommand} &#64;{template:bladerunner} {{roll-adv=[[&#64;{pushedrolladv}]]}} {{die-one=1D&#64;{pusheddieone}} {{die-one-size=&#64;{pusheddieone}}} )}}">ROLL</button> -->                
                     <!-- <input type="hidden" name="attr_customrolldis_action" value=""> -->
-                    <button type="action" name="act_customrolldis" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-adv="-1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">DIS</span></button>
+                    <button type="action" name="act_customrolldis" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="-1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">DIS</span></button>
                     <!-- <button type="roll" name="roll_customrolldis" class="customdice-roll w20pc h50pc" value="@{customrolldis_action}">
                         <span class="disadvantage-roll  smaller">DIS</span>
                     </button> -->
@@ -182,7 +206,7 @@
                  --><!-- <label for="strengthroll" class="attribute yellow">STRENGTH</label> -->
                 <!-- <button type="roll" id="strengthroll-dis" name="strength-roll-dis" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Strength }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS.</button>
                  --><!-- <button type="roll" hidden name="strength-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Strength }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button>
-                 --> <button type="action" name="act_strengthroll" id="strengthroll" data-name="Strength" data-die-one="@{strength}" data-die-two="0" data-adv="0" data-push="@{charactertype}" class="attribute yellow">STRENGTH</button>
+                 --> <button type="action" name="act_strengthroll" id="strengthroll" data-name="Strength" data-die-one="@{strength}" data-die-two="0" data-die-one-size="@{strength}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="attribute yellow">STRENGTH</button>
                 </div>
             <div class="border-3 w20pc lighter-box attribute-rank">
                 <input type="text" name="attr_strength" hidden /> 
@@ -196,75 +220,87 @@
             <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_strength" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w60pc yellow-border-bottom dark-box skill">
-                <button type="action" name="act_handtohandrolladv" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-<!--                 <button type="roll" id="handtohandroll-adv" name="handtohand-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}">ADV</button> -->                <!-- <label for="handtohandroll" class="yellow skill">Close&nbsp;Combat</label> -->
-                <button type="action" name="act_handtohandroll" id="handtohandroll" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Hand-to-Hand</button>
-                <button type="action" name="act_handtohandrolldis" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="handtohandroll-dis" name="handtohand-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}">DIS</button>
-                 --><!-- <button type="roll" hidden id="handtohandroll" name="handtohand-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}"></button>
-             --></div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_handtohand" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc yellow-border-bottom dark-box skill">
+                    <button type="action" name="act_handtohandrolladv" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+    <!--                 <button type="roll" id="handtohandroll-adv" name="handtohand-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}">ADV</button> -->                <!-- <label for="handtohandroll" class="yellow skill">Close&nbsp;Combat</label> -->
+                    <button type="action" name="act_handtohandroll" id="handtohandroll" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Hand-to-Hand</button>
+                    <button type="action" name="act_handtohandrolldis" data-name="Hand-to-Hand" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="handtohandroll-dis" name="handtohand-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}">DIS</button>
+                    --><!-- <button type="roll" hidden id="handtohandroll" name="handtohand-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Hand-to-Hand }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{handtohand}]] }} {{die-two-adv=[[1d@{handtohand}]] }}"></button>
+                --></div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_handtohand" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_handtohand" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_handtohandrollhelp" class="w100pc help-button" data-name="Help: Hand-to-Hand" data-die-one="0" data-die-two="@{handtohand}" data-die-one-size="0" data-die-two-size="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_handtohand" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc yellow-border-bottom skill">
+                    <button type="action" name="act_forcerolladv" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-die-one-size="@{strength}" data-die-two-size="@{force}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <!-- <button type="roll" id="forceroll-adv" name="force-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">ADV</button>
+    -->             <!-- <label for="forceroll" class="yellow skill">Force</label> -->
+                    <button type="action" name="act_forceroll" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-die-one-size="@{strength}" data-die-two-size="@{force}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Force</button>
+                    <button type="action" name="act_forcerolldis" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-die-one-size="@{strength}" data-die-two-size="@{force}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+    <!--                 <button type="roll" id="forceroll-dis" name="force-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">DIS</button>
+                    <button type="roll" hidden id="forceroll" name="force-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}"></button>
+    -->            </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_force" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_force" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_forcerollhelp" class="w100pc help-button" data-name="Help: Force" data-die-one="0" data-die-two="@{force}" data-die-one-size="0" data-die-two-size="@{force}" data-die-one-size="0" data-die-two-size="@{force}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w60pc yellow-border-bottom skill">
-                <button type="action" name="act_forcerolladv" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <!-- <button type="roll" id="forceroll-adv" name="force-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">ADV</button>
--->             <!-- <label for="forceroll" class="yellow skill">Force</label> -->
-                <button type="action" name="act_forceroll" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Force</button>
-                <button type="action" name="act_forcerolldis" data-name="Force" data-die-one="@{strength}" data-die-two="@{force}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-<!--                 <button type="roll" id="forceroll-dis" name="force-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}">DIS</button>
-                <button type="roll" hidden id="forceroll" name="force-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Force }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{force}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{force}]] }} {{die-two-adv=[[1d@{force}]] }}"></button>
- -->            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_force" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_force" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
+            <div class="w100pc dark-box skill-row">
             <div class="w60pc skill">
-                <button type="action" name="act_staminarolladv" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <!-- <button type="roll" id="staminaroll-adv" name="stamina-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">ADV</button> -->
-                <!-- <label for="staminaroll" class="yellow skill">Stamina</label> -->
-                <button type="action" name="act_staminaroll" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Stamina</button>
-                <button type="action" name="act_staminarolldis" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="staminaroll-dis" name="stamina-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">DIS</button>
-                <button type="roll" hidden id="staminaroll" name="stamina-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}"></button> -->
-                
+                    <button type="action" name="act_staminarolladv" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-die-one-size="@{strength}" data-die-two-size="@{stamina}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <!-- <button type="roll" id="staminaroll-adv" name="stamina-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">ADV</button> -->
+                    <!-- <label for="staminaroll" class="yellow skill">Stamina</label> -->
+                    <button type="action" name="act_staminaroll" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-die-one-size="@{strength}" data-die-two-size="@{stamina}" data-adv="0" data-push="@{charactertype}" class="skill yellow">Stamina</button>
+                    <button type="action" name="act_staminarolldis" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-die-one-size="@{strength}" data-die-two-size="@{stamina}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="staminaroll-dis" name="stamina-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}">DIS</button>
+                    <button type="roll" hidden id="staminaroll" name="stamina-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}"></button> -->
+                    
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_stamina" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_stamina" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_staminarollhelp" class="w100pc help-button" data-name="Help: Stamina" data-die-one="0" data-die-two="@{stamina}" data-die-one-size="0" data-die-two-size="@{stamina}" data-die-one-size="0" data-die-two-size="@{stamina}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_stamina" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_stamina" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
+
         </div>
         <div class="w25pc border-23">
             <div class="border-3 w60pc dark-box table-header"></div>
             <div class="border-23 w20pc dark-box table-header smaller text-center rating">RATING</div>
             <div class="border-3 w20pc dark-box table-header smaller text-center die">DIE</div>
+
             <div class="border-3 w60pc yellow-border-bottom attribute">
                 <!-- <button type="roll" id="agilityroll-adv" name="agility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button> -->
                  <!-- <label for="agilityroll" class="yellow attribute">AGILITY</label> -->
-                 <button type="action" name="act_agilityroll" data-name="Stamina" data-die-one="@{agility}" data-die-two="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Agility</button>
+                 <button type="action" name="act_agilityroll" data-name="Stamina" data-die-one="@{agility}" data-die-two="0" data-die-one-size="@{agility}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Agility</button>
                  <!-- <button type="roll" id="agilityroll-dis" name="agility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button> -->
                  <!-- <button type="roll" hidden id="agilityroll" name="agility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button> -->
                 
@@ -280,67 +316,78 @@
             <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_agility" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w60pc yellow-border-bottom skill">
-                <!-- <button type="roll" id="firearmsroll-adv" name="firearms-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">ADV</button>
-                <label for="firearmsroll" class="yellow skill">Firearms</label> -->
-                <button type="action" name="act_firearmsrolladv" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_firearmsroll" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Firearms</button>
-                <button type="action" name="act_firearmsrolldis" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="firearmsroll-dis" name="firearms-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">DIS</button>
-                <button type="roll" hidden id="firearmsroll" name="firearms-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}"></button> -->
-                
+
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc yellow-border-bottom skill">
+                    <!-- <button type="roll" id="firearmsroll-adv" name="firearms-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">ADV</button>
+                    <label for="firearmsroll" class="yellow skill">Firearms</label> -->
+                    <button type="action" name="act_firearmsrolladv" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_firearmsroll" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Firearms</button>
+                    <button type="action" name="act_firearmsrolldis" data-name="Firearms" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="firearmsroll-dis" name="firearms-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}">DIS</button>
+                    <button type="roll" hidden id="firearmsroll" name="firearms-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Firearms }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }}"></button> -->
+                    
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_firearms" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_firearms" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_firearmsrollhelp" class="w100pc help-button" data-name="Help: Firearms" data-die-one="0" data-die-two="@{firearms}" data-die-one-size="0" data-die-two-size="@{firearms}" data-die-one-size="0" data-die-two-size="@{firearms}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_firearms" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
+
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc yellow-border-bottom skill">
+                    <!-- <button type="roll" id="mobilityroll-adv" name="mobility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">ADV</button>
+                    <label for="mobilityroll" class="yellow skill">Mobility</label> -->
+                    <button type="action" name="act_mobilityrolladv" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-die-one-size="@{agility}" data-die-two-size="@{mobility}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_mobilityroll" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-die-one-size="@{agility}" data-die-two-size="@{mobility}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Mobility</button>
+                    <button type="action" name="act_mobilityrolldis" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-die-one-size="@{agility}" data-die-two-size="@{mobility}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!--  <button type="roll" id="mobilityroll-dis" name="mobility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">DIS</button>
+                    <button type="roll" hidden id="mobilityroll" name="mobility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}"></button> -->
+                    
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_mobility" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_mobility" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_mobilityrollhelp" class="w100pc help-button" data-name="Help: Mobility" data-die-one="0" data-die-two="@{mobility}" data-die-one-size="0" data-die-two-size="@{mobility}" data-die-one-size="0" data-die-two-size="@{mobility}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_firearms" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
-            <div class="w60pc yellow-border-bottom skill">
-                <!-- <button type="roll" id="mobilityroll-adv" name="mobility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">ADV</button>
-                <label for="mobilityroll" class="yellow skill">Mobility</label> -->
-                <button type="action" name="act_mobilityrolladv" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_mobilityroll" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Mobility</button>
-                <button type="action" name="act_mobilityrolldis" data-name="Mobility" data-die-one="@{agility}" data-die-two="@{mobility}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!--  <button type="roll" id="mobilityroll-dis" name="mobility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}">DIS</button>
-                <button type="roll" hidden id="mobilityroll" name="mobility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Mobility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{mobility}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{mobility}]] }} {{die-two-adv=[[1D@{mobility}]] }}"></button> -->
-                
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_mobility" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_mobility" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
-            <div class="w60pc skill">
-                <!-- <button type="roll" id="stealthroll-adv" name="stealth-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">ADV</button>
-                <label for="stealthroll" class="dark-box yellow skill">Stealth</label> -->
-                <button type="action" name="act_stealthrolladv" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_stealthroll" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Stealth</button>
-                <button type="action" name="act_stealthrolldis" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="stealthroll-dis" name="stealth-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">DIS</button>
-                <button type="roll" hidden id="stealthroll" name="stealth-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}"></button>                 -->
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_stealth" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_stealth" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc skill">
+                    <!-- <button type="roll" id="stealthroll-adv" name="stealth-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">ADV</button>
+                    <label for="stealthroll" class="dark-box yellow skill">Stealth</label> -->
+                    <button type="action" name="act_stealthrolladv" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-die-one-size="@{agility}" data-die-two-size="@{stealth}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_stealthroll" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-die-one-size="@{agility}" data-die-two-size="@{stealth}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Stealth</button>
+                    <button type="action" name="act_stealthrolldis" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-die-one-size="@{agility}" data-die-two-size="@{stealth}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="stealthroll-dis" name="stealth-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}">DIS</button>
+                    <button type="roll" hidden id="stealthroll" name="stealth-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}"></button>                 -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_stealth" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_stealth" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_stealthrollhelp" class="w100pc help-button" data-name="Help: Stealth" data-die-one="0" data-die-two="@{stealth}" data-die-one-size="0" data-die-two-size="@{stealth}" data-die-one-size="0" data-die-two-size="@{stealth}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
         </div>
         <div class="w25pc border-23">
@@ -348,7 +395,7 @@
             <div class="border-23 w20pc dark-box smaller text-center rating">RATING</div>
             <div class="border-3 w20pc dark-box smaller text-center die">DIE</div>
             <div class="border-3 w60pc attribute">
-                <button type="action" name="act_intelligenceroll" data-name="Intelligence" data-die-one="@{intelligence}" data-die-two="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Intelligence</button>
+                <button type="action" name="act_intelligenceroll" data-name="Intelligence" data-die-one="@{intelligence}" data-die-two="0" data-die-one-size="@{intelligence}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Intelligence</button>
                 <!-- <button type="roll" id="intelligenceroll-adv" name="intelligence-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Intelligence }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button>    
                 <label for="intelligenceroll" class="dark-box yellow attribute">INTELLIGENCE</label>
                 <button type="roll" id="intelligenceroll-dis" name="intelligence-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Intelligence }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button>    
@@ -365,99 +412,115 @@
             <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_intelligence" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w60pc dark-box yellow-border-bottom skill">
-                <button type="action" name="act_medicalaidrolladv" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_medicalaidroll" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Medical Aid</button>
-                <button type="action" name="act_medicalaidrolldis" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="medicalaidroll-adv" name="medicalaid-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">ADV</button>
-                <label for="medicalaidroll" class="yellow skill">Medical Aid</label>
-                <button type="roll" id="medicalaidroll-dis" name="medicalaid-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">DIS</button>
-                <button type="roll" hidden id="medicalaidroll" name="medicalaid-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}"></button> -->
-                
+
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box yellow-border-bottom skill">
+                    <button type="action" name="act_medicalaidrolladv" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-die-one-size="@{intelligence}" data-die-two-size="@{medicalaid}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_medicalaidroll" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-die-one-size="@{intelligence}" data-die-two-size="@{medicalaid}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Medical Aid</button>
+                    <button type="action" name="act_medicalaidrolldis" data-name="Medical Aid" data-die-one="@{intelligence}" data-die-two="@{medicalaid}" data-die-one-size="@{intelligence}" data-die-two-size="@{medicalaid}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="medicalaidroll-adv" name="medicalaid-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">ADV</button>
+                    <label for="medicalaidroll" class="yellow skill">Medical Aid</label>
+                    <button type="roll" id="medicalaidroll-dis" name="medicalaid-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}">DIS</button>
+                    <button type="roll" hidden id="medicalaidroll" name="medicalaid-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Medical Aid }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{medicalaid}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{medicalaid}]] }} {{die-two-adv=[[1D@{medicalaid}]] }}"></button> -->
+                    
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_medicalaid" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_medicalaid" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_medicalaidrollhelp" class="w100pc help-button" data-name="Help: Medical Aid" data-die-one="0" data-die-two="@{medicalaid}" data-die-one-size="0" data-die-two-size="@{medicalaid}" data-die-one-size="0" data-die-two-size="@{medicalaid}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_medicalaid" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
+            
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box yellow-border-bottom skill">
+                    <button type="action" name="act_observationrolladv" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-die-one-size="@{intelligence}" data-die-two-size="@{observation}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_observationroll" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-die-one-size="@{intelligence}" data-die-two-size="@{observation}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Observation</button>
+                    <button type="action" name="act_observationrolldis" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-die-one-size="@{intelligence}" data-die-two-size="@{observation}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="observationroll-adv" name="observation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">ADV</button>
+                    <label for="observationroll" class="yellow skill">Observation</label>
+                    <button type="roll" id="observationroll-dis" name="observation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">DIS</button>
+                    <button type="roll" hidden id="observationroll" name="observation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}"></button> -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_observation" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_observation" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_observationrollhelp" class="w100pc help-button" data-name="Help: Observation" data-die-one="0" data-die-two="@{observation}" data-die-one-size="0" data-die-two-size="@{observation}" data-die-one-size="0" data-die-two-size="@{observation}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_medicalaid" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
-            <div class="w60pc dark-box yellow-border-bottom skill">
-                <button type="action" name="act_observationrolladv" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_observationroll" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Observation</button>
-                <button type="action" name="act_observationrolldis" data-name="Observation" data-die-one="@{intelligence}" data-die-two="@{observation}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="observationroll-adv" name="observation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">ADV</button>
-                <label for="observationroll" class="yellow skill">Observation</label>
-                <button type="roll" id="observationroll-dis" name="observation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}">DIS</button>
-                <button type="roll" hidden id="observationroll" name="observation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Observation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{observation}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{observation}]] }} {{die-two-adv=[[1D@{observation}]] }}"></button> -->
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_observation" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_observation" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
-            <div class="w60pc dark-box skill">
-                <button type="action" name="act_techrolladv" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_techroll" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Tech</button>
-                <button type="action" name="act_techrolldis" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="techroll-adv" name="tech-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">ADV</button>
-                <label for="techroll" class="yellow skill">Tech</label>
-                <button type="roll" id="techroll-dis" name="tech-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">DIS</button>
-                <button type="roll" hidden id="techroll" name="tech-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}"></button> -->
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_tech" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8" selected>C</option>
-                    <option value="6">D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_tech" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
+            
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box skill">
+                    <button type="action" name="act_techrolladv" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_techroll" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Tech</button>
+                    <button type="action" name="act_techrolldis" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="techroll-adv" name="tech-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">ADV</button>
+                    <label for="techroll" class="yellow skill">Tech</label>
+                    <button type="roll" id="techroll-dis" name="tech-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}">DIS</button>
+                    <button type="roll" hidden id="techroll" name="tech-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Tech }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{tech}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{tech}]] }} {{die-two-adv=[[1D@{tech}]] }}"></button> -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_tech" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8" selected>C</option>
+                        <option value="6">D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_tech" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_techrollhelp" class="w100pc help-button" data-name="Help: Tech" data-die-one="0" data-die-two="@{tech}" data-die-one-size="0" data-die-two-size="@{tech}" data-die-one-size="0" data-die-two-size="@{tech}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
+            </div>            
         </div>
         <div class="w25pc border-23">
-            <div class="border-3 w40pc lighter-box skill">
-                <button type="action" name="act_drivingrolladv" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_drivingroll" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Driving</button>
-                <button type="action" name="act_drivingrolldis" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="drivingroll-adv" name="driving-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">ADV</button>
-                <label for="drivingroll" class="yellow skill">Driving</label>
-                <button type="roll" id="drivingroll-dis" name="driving-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">DIS</button>
-                <button type="roll" hidden id="drivingroll" name="driving-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[0]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}"></button> -->
+            <div class="w100pc dark-box skill-row">
+                <div class="border-3 w40pc lighter-box skill">
+                    <button type="action" name="act_drivingrolladv" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-die-one-size="@{manouverability}" data-die-two-size="@{driving}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_drivingroll" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-die-one-size="@{manouverability}" data-die-two-size="@{driving}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Driving</button>
+                    <button type="action" name="act_drivingrolldis" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-die-one-size="@{manouverability}" data-die-two-size="@{driving}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="drivingroll-adv" name="driving-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">ADV</button>
+                    <label for="drivingroll" class="yellow skill">Driving</label>
+                    <button type="roll" id="drivingroll-dis" name="driving-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}">DIS</button>
+                    <button type="roll" hidden id="drivingroll" name="driving-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Driving }} {{roll-adv=[[0]] }} {{die-one-size=[[@{manouverability}]]}} {{die-two-size=[[@{driving}]]}} {{die-one=[[1D@{manouverability}]] }} {{die-one-adv=[[1D@{manouverability}]] }} {{die-two=[[1D@{driving}]] }} {{die-two-adv=[[1D@{driving}]] }}"></button> -->
+                </div>
+                <div class="border-3 w20pc lighter-box skill-rank">
+                    <select name="attr_manouverability" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="border-3 w20pc lighter-box skill-rank">
+                    <select name="attr_driving" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="border-3 w20pc lighter-box skill-die">
+                    <span type="text" name="attr_driving" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_drivingrollhelp" class="w100pc help-button" data-name="Help: Driving" data-die-one="0" data-die-two="@{driving}" data-die-one-size="0" data-die-two-size="@{driving}" data-die-one-size="0" data-die-two-size="@{driving}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="border-3 w20pc lighter-box skill-rank">
-                <select name="attr_manouverability" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="border-3 w20pc lighter-box skill-rank">
-                <select name="attr_driving" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="border-3 w20pc lighter-box skill-die">
-                <span type="text" name="attr_driving" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
+            
             <div class="border-3 w60pc dark-box attribute">
-                <button type="action" name="act_empathyroll" data-name="Empathy" data-die-one="@{empathy}" data-die-two="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Empathy</button>
+                <button type="action" name="act_empathyroll" data-name="Empathy" data-die-one="@{empathy}" data-die-two="0" data-die-one-size="@{empathy}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Empathy</button>
                 <!-- <button type="roll" id="empathyroll-adv" name="empathy-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Empathy }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button>
                 <label for="empathyroll" class="yellow attribute">EMPATHY</label>
                 <button type="roll" id="empathyroll-dis" name="empathy-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Empathy }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button>
@@ -474,66 +537,79 @@
             <div class="border-3 w20pc lighter-box attribute-die">
                 <span type="text" name="attr_empathy" class="w100pc-4px text-center attribute-d-die" disabled readonly></span>
             </div>
-            <div class="w60pc dark-box yellow-border-bottom skill">
-                <button type="action" name="act_connectionsrolladv" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_connectionsroll" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Connections</button>
-                <button type="action" name="act_connectionsrolldis" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="connectionsroll-adv" name="connections-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">ADV</button>
-                <label for="connectionsroll" class="yellow skill">Connections</label>
-                <button type="roll" id="connectionsroll-dis" name="connections-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">DIS</button>
-                <button type="roll" hidden id="connectionsroll" name="connections-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}"></button> -->
+
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box yellow-border-bottom skill">
+                    <button type="action" name="act_connectionsrolladv" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-die-one-size="@{empathy}" data-die-two-size="@{connections}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_connectionsroll" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-die-one-size="@{empathy}" data-die-two-size="@{connections}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Connections</button>
+                    <button type="action" name="act_connectionsrolldis" data-name="Connections" data-die-one="@{empathy}" data-die-two="@{connections}" data-die-one-size="@{empathy}" data-die-two-size="@{connections}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="connectionsroll-adv" name="connections-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">ADV</button>
+                    <label for="connectionsroll" class="yellow skill">Connections</label>
+                    <button type="roll" id="connectionsroll-dis" name="connections-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}">DIS</button>
+                    <button type="roll" hidden id="connectionsroll" name="connections-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Connections }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{connections}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{connections}]] }} {{die-two-adv=[[1D@{connections}]] }}"></button> -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_connections" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_connections" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_connectionsrollhelp" class="w100pc help-button" data-name="Help: Connections" data-die-one="0" data-die-two="@{connections}" data-die-one-size="0" data-die-two-size="@{connections}" data-die-one-size="0" data-die-two-size="@{connections}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_connections" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
+            
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box yellow-border-bottom skill">
+                    <button type="action" name="act_insightrolladv" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-die-one-size="@{empathy}" data-die-two-size="@{insight}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_insightroll" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-die-one-size="@{empathy}" data-die-two-size="@{insight}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Insight</button>
+                    <button type="action" name="act_insightrolldis" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-die-one-size="@{empathy}" data-die-two-size="@{insight}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" hidden id="insightroll-adv" name="insight-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">ADV</button>
+                    <label for="insightroll" class="yellow skill">Insight</label>
+                    <button type="roll" hidden id="insightroll-dis" name="insight-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">DIS</button>
+                    <button type="roll" hidden id="insightroll" name="insight-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}"></button> -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_insight" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_insight" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                    <button type="action" name="act_insightrollhelp" class="w100pc help-button" data-name="Help: Insight" data-die-one="0" data-die-two="@{insight}" data-die-one-size="0" data-die-two-size="@{insight}" data-die-one-size="0" data-die-two-size="@{insight}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_connections" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+            
+            <div class="w100pc dark-box skill-row">
+                <div class="w60pc dark-box skill">
+                    <button type="action" name="act_manipulationrolladv" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
+                    <button type="action" name="act_manipulationroll" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Manipulation</button>
+                    <button type="action" name="act_manipulationrolldis" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
+                    <!-- <button type="roll" id="manipulationroll-adv" name="manipulation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">ADV</button>
+                    <label for="manipulationroll" class="yellow skill">Manipulation</label>
+                    <button type="roll" id="manipulationroll-dis" name="manipulation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">DIS</button>
+                    <button type="roll" hidden id="manipulationroll" name="manipulation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}"></button> -->
+                </div>
+                <div class="w20pc lighter-box skill-rank">
+                    <select name="attr_manipulation" class="w100pc-4px">
+                        <option value="12">A</option>
+                        <option value="10">B</option>
+                        <option value="8">C</option>
+                        <option value="6" selected>D</option>
+                    </select>
+                </div>
+                <div class="w20pc lighter-box skill-die">
+                    <span type="text" name="attr_manipulation" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
+                    <button type="action" name="act_manipulationrollhelp" class="w100pc help-button" data-name="Help: Manipulation" data-die-one="0" data-die-two="@{manipulation}" data-die-one-size="0" data-die-two-size="@{manipulation}" data-die-one-size="0" data-die-two-size="@{manipulation}" data-adv="0" data-push="@{charactertype}">HELP</button>
+                </div>
             </div>
-            <div class="w60pc dark-box yellow-border-bottom skill">
-                <button type="action" name="act_insightrolladv" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_insightroll" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Insight</button>
-                <button type="action" name="act_insightrolldis" data-name="Insight" data-die-one="@{empathy}" data-die-two="@{insight}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" hidden id="insightroll-adv" name="insight-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">ADV</button>
-                <label for="insightroll" class="yellow skill">Insight</label>
-                <button type="roll" hidden id="insightroll-dis" name="insight-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}">DIS</button>
-                <button type="roll" hidden id="insightroll" name="insight-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Insight }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{insight}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{insight}]] }} {{die-two-adv=[[1D@{insight}]] }}"></button> -->
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_insight" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_insight" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
-            </div>
-            <div class="w60pc dark-box skill">
-                <button type="action" name="act_manipulationrolladv" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage">ADV</button>
-                <button type="action" name="act_manipulationroll" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-adv="0" data-push="@{charactertype}" class="yellow skill">Manipulation</button>
-                <button type="action" name="act_manipulationrolldis" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage">DIS</button>
-                <!-- <button type="roll" id="manipulationroll-adv" name="manipulation-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">ADV</button>
-                <label for="manipulationroll" class="yellow skill">Manipulation</label>
-                <button type="roll" id="manipulationroll-dis" name="manipulation-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}">DIS</button>
-                <button type="roll" hidden id="manipulationroll" name="manipulation-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Manipulation }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{manipulation}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{manipulation}]] }} {{die-two-adv=[[1D@{manipulation}]] }}"></button> -->
-            </div>
-            <div class="w20pc lighter-box skill-rank">
-                <select name="attr_manipulation" class="w100pc-4px">
-                    <option value="12">A</option>
-                    <option value="10">B</option>
-                    <option value="8">C</option>
-                    <option value="6" selected>D</option>
-                </select>
-            </div>
-            <div class="w20pc lighter-box skill-die">
-                <span type="text" name="attr_manipulation" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
-            </div>
+            
         </div>
     </div>
     <div class="border-3 w20px">&nbsp;</div>
@@ -607,14 +683,14 @@
             <input type="text" name="attr_weapon1_comment" class="w100pc-4px" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolladv" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolladv" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolladv" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolladv" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
             
-            <button type="action" class="w60pc h100pc cc" name="act_weapon1ccroll" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
-            <button type="action" class="w60pc h100pc rc" name="act_weapon1rcroll" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc cc" name="act_weapon1ccroll" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc rc" name="act_weapon1rcroll" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
             
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolldis" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolldis" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolldis" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolldis" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                 
             <!-- <button type="roll" name="weapon1rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
             <button type="roll" name="weapon1cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
@@ -684,14 +760,14 @@
             <input type="text" name="attr_weapon2_comment" class="w100pc-4px" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolladv" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolladv" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolladv" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolladv" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
             
-            <button type="action" class="w60pc h100pc cc" name="act_weapon2ccroll" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
-            <button type="action" class="w60pc h100pc rc" name="act_weapon2rcroll" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc cc" name="act_weapon2ccroll" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc rc" name="act_weapon2rcroll" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
             
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolldis" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolldis" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolldis" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolldis" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                 
             <!-- <button type="roll" name="weapon2rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
             <button type="roll" name="weapon2cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
@@ -761,14 +837,14 @@
             <input type="text" name="attr_weapon3_comment" class="w100pc-4px" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolladv" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolladv" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolladv" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolladv" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
             
-            <button type="action" class="w60pc h100pc cc" name="act_weapon3ccroll" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
-            <button type="action" class="w60pc h100pc rc" name="act_weapon3rcroll" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc cc" name="act_weapon3ccroll" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc rc" name="act_weapon3rcroll" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
             
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolldis" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolldis" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolldis" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolldis" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                 
             <!-- <button type="roll" name="weapon3rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
             <button type="roll" name="weapon3cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
@@ -840,14 +916,14 @@
             <input type="text" name="attr_comment" class="w100pc-4px" />
         </div>
         <div class="border-23 w8pc lighter-box">
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolladv" data-name="@{@name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolladv" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolladv" data-name="@{@name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolladv" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
             
-            <button type="action" class="w60pc h100pc cc" name="act_weaponccroll" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
-            <button type="action" class="w60pc h100pc rc" name="act_weaponrcroll" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc cc" name="act_weaponccroll" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
+            <button type="action" class="w60pc h100pc rc" name="act_weaponrcroll" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
             
-            <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolldis" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-            <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolldis" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolldis" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+            <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolldis" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                 
             <!-- <button type="roll" name="weaponrc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon_comment} }}">ADV</button>
             <button type="roll" name="weaponcc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon_comment} }}">ADV</button>
@@ -1212,26 +1288,77 @@
         <div class="template-div w50pc border-23">
             <span class="failures">Failures: </span>
         </div>
-        <!-- {{#push}}
-            {{#rollGreater() push 0}}
-            <div class="template-div w100pc border-23 push-button">                        
-                [Push](~{{character-name}}|pushroll)            
-            </div>
-            {{/rollGreater() push 0}}
-        {{/push}}
         {{#push}}
             {{#rollGreater() push 0}}
-            <div class="template-div w100pc border-23 push-button">  
-                <span>[#1](~{{character-name}}|push)</span>     
-                <span>[#1 #2](~{{character-name}}|push)</span>     
-                <span>[#2](~{{character-name}}|push)</span>     
-                <span>[ALL](~{{character-name}}|push)</span>     
-                <span>[#1 #3](~{{character-name}}|push)</span>   
-                <span>[#2 #3](~{{character-name}}|push)</span>   
-                <span>[#3](~{{character-name}}|push)</span>          
+                <div class="template-div w100pc border-24 push-button"> Push </div>
+            {{/rollGreater() push 0}}
+            {{#^rollGreater() push 0}}
+                <div class="template-div w100pc border-234 push-button"> Maximum Push reached </div>
+            {{/^rollGreater() push 0}}
+        {{/push}}
+        <!----> 
+        {{#push}}
+            {{#rollGreater() push 0}}
+            <div class="template-div w100pc border-234 push-button">  
+                {{#rollLess() roll-adv 0}}
+                    {{#rollGreater() die-one-size die-two-size}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
+                    {{/rollGreater() die-one-size die-two-size}}
+                    {{#rollTotal() die-one-size die-two-size}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
+                    {{/rollTotal() die-one-size die-two-size}}
+                    {{#rollGreater() die-two-size die-one-size}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_2)</span>   
+                    {{/rollGreater() die-two-size die-one-size}}  
+                {{/rollLess() roll-adv 0}}
+
+                {{#rollTotal() roll-adv 0}}   
+                    {{#rollGreater() roll-one-size 0}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                        <span class="push-link">[BOTH](~{{character-name}}|pushroll_12)</span>  
+                    {{/rollGreater() roll-one-size 0}}
+                    <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>   
+                {{/rollTotal() roll-adv 0}}
+
+                {{#rollGreater() roll-adv 0}}  
+                    {{#^rollGreater() die-one-size die-two-size}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                        <span class="push-link">[1&2](~{{character-name}}|pushroll_13)</span>  
+                        <!-- <span class="push-link">[1&3](~{{character-name}}|pushroll_12)</span>   -->
+                        <span class="push-link">[2](~{{character-name}}|pushroll_3)</span>  
+                    {{/^rollGreater() die-one-size die-two-size}} 
+                    <!-- {{#rollTotal() die-one-size die-two-size}}
+                        <span class="push-link">[1&2](~{{character-name}}|pushroll_13)</span>   
+                        <span class="push-link">[2](~{{character-name}}|pushroll_3)</span>  
+                    {{/rollTotal() die-one-size die-two-size}}  -->
+                    {{#rollGreater() die-one-size die-two-size}}
+                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                        <span class="push-link">[1&2](~{{character-name}}|pushroll_12)</span> 
+                        <!-- <span class="push-link">[1&3](~{{character-name}}|pushroll_13)</span> -->  
+                        <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>     
+                    {{/rollGreater() die-one-size die-two-size}} 
+                    <span class="push-link">[ALL](~{{character-name}}|pushroll_123)</span>  
+                    <!-- {{#rollLess() die-two-size die-one-size}}    
+                        <span class="push-link">[2](~{{character-name}}|pushroll_2)</span> 
+                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span> 
+                    {{/rollLess() die-two-size die-one-size}} -->
+                    {{#^rollGreater() die-one-size die-two-size}}    
+                        <span class="push-link">[1&3](~{{character-name}}|pushroll_12)</span>   
+                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
+                        <span class="push-link">[3](~{{character-name}}|pushroll_2)</span>    
+                    {{/^rollGreater() die-one-size die-two-size}} 
+                    {{#rollGreater() die-one-size die-two-size}}    
+                        <span class="push-link">[1&3](~{{character-name}}|pushroll_13)</span>   
+                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
+                        <span class="push-link">[3](~{{character-name}}|pushroll_3)</span>    
+                    {{/rollGreater() die-one-size die-two-size}}  
+                    <!-- {{#^rollGreater() die-one-size die-two-size}}                     
+                        <span class="push-link">[3](~{{character-name}}|pushroll_3)</span>   
+                    {{/^rollGreater() die-one-size die-two-size}}     -->
+                {{/rollGreater() roll-adv 0}}    
             </div>
             {{/rollGreater() push 0}}
-        {{/push}} -->
+        {{/push}} 
         {{#comment}}
         <div class="template-div w100pc border-234">
             <span class="comments">{{comment}}</span>
@@ -1441,28 +1568,21 @@
     }
 
     // The actual parsed roll
-    const parsedRoll = async (rollaction, rollname, dieone, dietwo, push, comment, adv = 0 ) => {
+    const parsedRoll = async (rollname, dieone, dieoneadv, dieonesize, dietwo, dietwoadv, dietwosize, push, comment, adv = 0 ) => {
         //const rolladv = checkAdvantageRoll(rollaction);
+        clog(`Starting parsed roll with Roll: ${rollname}, Die 1: ${dieone}, ${dieoneadv}, ${dieonesize}, Die 2:  ${dietwo}, ${dietwoadv}, ${dietwosize}, Other: ${push}, ${comment}, ${adv}`)
         
-        const attrs = await asw.getAttrs(["charactertype"]),
-            pushleft = int(attrs.charactertype),
-            chartype = int(attrs.charactertype);
-
-        if ( int(push) == 0 && !("@{charactertype}") ) {
-            const abort = await startRoll('/em Maximum push reached');
-            finishRoll(abort.rollId);
-            return 0;
-        }
         var commentStr = "";
         if ( comment && comment != "" ) {
             commentStr = `{{comment=${comment}}}`;
         }
 
-        let rollBase = `@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=${rollname}}} ${commentStr} {{roll-adv=[[${adv}]]}} {{die-one-size=[[${dieone}]]}} {{die-two-size=[[${dietwo}]]}} {{die-one=[[1D${dieone}]]}}  {{die-one-adv=[[1D${dieone}]]}} {{die-two=[[1D${dietwo}]]}} {{die-two-adv=[[1D${dietwo}]]}} {{push=${push}}} {{button=[Push](&#37;push)}}`;
+        let rollBase = `@{rollcommand} &{template:bladerunner} {{roll-adv=[[${adv}]]}} {{die-one-size=[[${dieonesize}]]}} {{die-two-size=[[${dietwosize}]]}} {{die-one=[[${dieone}]]}}  {{die-one-adv=[[${dieoneadv}]]}} {{die-two=[[${dietwo}]]}} {{die-two-adv=[[${dietwoadv}]]}} {{push=[[${push}]]}} {{character-name=@{character_name}}} {{roll-name=${rollname}}} ${commentStr}`;
         let firstRoll = await startRoll(rollBase);
+
         //    rollValue = firstRoll.results.roll1.result;
         clog(`First roll data: ${JSON.stringify(firstRoll)}`);
-        clog(`First roll data: ${JSON.stringify(firstRoll.results)}`);
+        clog(`First roll results: ${JSON.stringify(firstRoll.results)}`);
         // Storing all the passthrough data required for the next roll in an Object helps for larger rolls
 
         /* let rollData = {
@@ -1475,17 +1595,29 @@
         clog(`die 1 adv: ${JSON.stringify(results['die-one-adv'])}`);
         clog(`die 2 adv: ${JSON.stringify(results['die-two-adv'])}`);
 
-        setAttrs({
-            pushrollname: `Push: ${rollname}`,
+        const rollnameStr = rollname.startsWith("Push: ") ? rollname : "Push: "+rollname; 
+
+        clog(`ROll name is now: ${rollnameStr}`);
+
+        clog(`Values for push are: ${rollnameStr}, ${dieone}, ${dietwo}, ${dieoneadv}, ${dietwoadv}, ${dieonesize}, ${dietwosize}, ${adv}, ${push}, ${results['die-one'].result}, ${results['die-one-adv'].result}, ${results['die-two'].result}, ${results['die-two-adv'].result} `);
+        clog(`Push die two advantage: ${JSON.stringify(dietwoadv)}`);
+        await asw.setAttrs({
+            pushrollname: rollnameStr,
             pushdieone: dieone,
             pushdietwo: dietwo,
+            pushdieoneadv: dieoneadv,
+            pushdietwoadv: dietwoadv,
+            pushdieonesize: dieonesize,
+            pushdietwosize: dietwosize,
             pushrolladv: adv,
-            push: pushleft,
+            push: int(push)-1,
             pushdieoner1: results['die-one'].result,
             pushdieoner2: results['die-one-adv'].result,
             pushdietwor1: results['die-two'].result,
             pushdietwor2: results['die-two-adv'].result
         });
+
+        clog('Finishing roll...');
 
         // Finish the roll, passing the escaped rollData object into the template as computed::passthroughdata
         // Our roll template then inserts that into [butonlabel](~selected|buttonlink||<computed::passthroughdata>)
@@ -1493,18 +1625,20 @@
         // to default to whichever character is active in the sandbox when the button is created
         /**/
         finishRoll(firstRoll.rollId);
-        
     }
+
+
     const actions = ['', 'push', 'custom', 'strength', 'handtohand', 'force', 'stamina', 'agility', 'firearms', 'mobility', 'stealth', 
                     'intelligence', 'medicalaid', 'observation', 'tech', 'driving', 'empathy', 'connections', 'insight', 'manipulation',
                     'weapon1cc', 'weapon1rc', 'weapon2cc','weapon2rc', 'weapon3cc', 'weapon3rc',
                     'repeating_weapon:weaponcc', 'repeating_weapon:weaponrc'];
     const actionList = _.reduce(actions, (m,n) => {
-        return m + "clicked:"+n+"roll clicked:"+n+"rolladv clicked:"+n+"rolldis ";
+        return m + "clicked:"+n+"roll clicked:"+n+"rolladv clicked:"+n+"rolldis clicked:"+n+"rollhelp ";
     });
     clog(actionList);
 
-    // CUSTOM ROLL PARSING
+
+    // Sheet rolls handler
     on(actionList, async (ev) => {
         clog(`Starting first roll`);
         // We'll pretend we've done a getAttrs on the attacker's weapon for all the required values
@@ -1513,12 +1647,32 @@
         //clog(`Event name: ${ev.htmlAttributes.name}`);  
 
         const rollAction = (ev.htmlAttributes.name).slice(4)||""; 
-        var rollName = ev.htmlAttributes['data-name']; 
-        const dieone = ev.htmlAttributes['data-die-one']; 
-        const dietwo = ev.htmlAttributes['data-die-two']; 
-        const advtge = ev.htmlAttributes['data-adv']; 
-        var comment = ev.htmlAttributes['data-comment']; 
-        const push = ev.htmlAttributes['data-push']; 
+        var rollName = ev.htmlAttributes['data-name']||""; 
+
+        var dieone = "0", dietwo = "0";
+        const dieoneData = ev.htmlAttributes['data-die-one']; 
+        clog(`Die one Data: ${dieoneData}`);
+        if ( dieoneData !== "0" ) {
+            const dieoneStr = (dieoneData.split("@{",2)[1]).split("}")[0]; 
+            clog(`Die one test = ${JSON.stringify(dieoneStr)}`);
+            dieone = (await asw.getAttrs([dieoneStr]))[dieoneStr];
+        }
+        clog(`Die one = ${dieone}`);
+        const dietwoData = ev.htmlAttributes['data-die-two']; 
+        clog(`Die two Data: ${dietwoData}`);
+        if ( dietwoData !== "0" ) {
+            const dietwoStr = (dietwoData.split("@{",2)[1]).split("}")[0]; 
+            clog(`Die two test = ${JSON.stringify(dietwoStr)}`);
+            dietwo = (await asw.getAttrs([dietwoStr]))[dietwoStr];
+        }
+        clog(`Die two = ${dietwo}`);
+        
+        const advtge = ev.htmlAttributes['data-adv']||0; 
+        var comment = ev.htmlAttributes['data-comment']||""; 
+
+        //const push = ev.htmlAttributes['data-push']||0; 
+        const push = (await asw.getAttrs(['charactertype'])).charactertype;
+        clog(`Picked up push amount: ${push}`);
 
         let sourceAttribute = ev.sourceAttribute||""; 
         clog(`Source attribute: ${sourceAttribute}`);
@@ -1530,38 +1684,84 @@
             rollName = datarepeating[`${attributePrefix}_name`];
         }
 
-        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 2: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
+        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${"1D"+dieone}, Die 1 Size: ${dieone}, Die 2: ${"1D"+dietwo}, Die 2 Size: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
 
-        //let modifiers = await getQuery(`?{Modifiers?|0}`);
-        //const attrs = await asw.getAttrs(['customdieone','customdietwo']);
-        //const dieone = int(attrs.customdieone),
-        //    dietwo = int(attrs.customdietwo);
-
-        parsedRoll(rollAction, rollName, dieone, dietwo, push, comment, advtge);
-
+        parsedRoll(rollName, "1D"+dieone, "1D"+dieone, dieone, "1D"+dietwo, "1D"+dietwo, dietwo, push, comment, advtge);
     });
+
     
-    // PUSHED ROLL HANDLING
-    on('clicked:pushroll', async (ev) => {
+    // Pushed roll handler
+    on('clicked:pushroll clicked:pushroll_1 clicked:pushroll_12 clicked:pushroll_13 clicked:pushroll_2 clicked:pushroll_23 clicked:pushroll_3 clicked:pushroll_123', async (ev) => {
         clog(`Starting push roll`);
         clog(`First event: ${JSON.stringify(ev)}`);
-        //clog(`Event name: ${ev.htmlAttributes.name}`);  
+        clog(`Push type: ${(ev.triggerName).split('_')[1]}`);  
+        const pushType = (ev.triggerName).split('_')[1];
 
-
-        const pushedAttrs = await asw.getAttrs(["pushrollname", "pushrollcomment", "pushdieone", "pushdietwo", "pushrolladv", "push", "pushdieoner1", "pushdieoner2", "pushdietwor1", "pushdietwor1"]);
+        const pushedAttrs = await asw.getAttrs(["pushrollname", "pushrollcomment", "pushdieone", "pushdietwo", "pushdieoneadv", "pushdietwoadv", "pushdieonesize", "pushdietwosize", "pushrolladv", "push", "pushdieoner1", "pushdieoner2", "pushdietwor1", "pushdietwor2"]);
         clog(`Pushed Attributes: ${JSON.stringify(pushedAttrs)}`);
 
-        const rollAction = pushedAttrs.pushrollname; 
+
         var rollName = pushedAttrs.pushrollname; 
         const dieone = pushedAttrs.pushdieone; 
-        const dietwo = pushedAttrs.pushdietwo; 
+        const dietwo = pushedAttrs.pushdietwo;
+        const dieoneadv = pushedAttrs.pushdieoneadv; 
+        const dietwoadv = pushedAttrs.pushdietwoadv;
+        const dieonesize = pushedAttrs.pushdieonesize; 
+        const dietwosize = pushedAttrs.pushdietwosize;  
+        const dieoneres = pushedAttrs.pushdieoner1; 
+        const dieoneadvres = pushedAttrs.pushdieoner2; 
+        const dietwores = pushedAttrs.pushdietwor1; 
+        const dietwoadvres = pushedAttrs.pushdietwor2;
         const advtge = pushedAttrs.pushrolladv; 
         var comment = pushedAttrs.pushrollcomment; 
-        const push = pushedAttrs.push; 
+        const push = int(pushedAttrs.push); 
+        const advdie = int(dieonesize) <= int(dietwosize) ? 1 : 2; 
 
-        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 2: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
+        clog(`Roll name: ${rollName}, Die 1: ${dieone}, Die 1 Size: ${dieonesize}, Die 2: ${dietwo}, Die 2 Size: ${dietwosize}, Push: ${push}, Advantage: ${advtge}`);
 
-        parsedRoll(rollAction, rollName, dieone, dietwo, push, comment, advtge);
+        switch (true) {
+            case pushType === '1' : {
+                    parsedRoll(rollName, "1D"+dieonesize, dieoneadvres, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '2' : {
+                    parsedRoll(rollName, dieoneres, dieoneadvres, dieonesize, "1D"+dietwosize, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '3' && advdie === 1  : {
+                    parsedRoll(rollName, dieoneres, "1D"+dieonesize, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '3' && advdie === 2  : {
+                    parsedRoll(rollName, dieoneres, dieoneadvres, dieonesize, dietwores, "1D"+dietwosize, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '12' : {
+                    parsedRoll(rollName, "1D"+dieonesize, dieoneadvres, dieonesize, "1D"+dietwosize, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '13' && advdie === 1  : {
+                    parsedRoll(rollName, "1D"+dieonesize, "1D"+dieonesize, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '13' && advdie === 2  : {
+                    parsedRoll(rollName, "1D"+dieonesize, dieoneadvres, dieonesize, dietwores, "1D"+dietwosize, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '23' && advdie === 1  : {
+                    parsedRoll(rollName, dieoneres, "1D"+dieonesize, dieonesize, "1D"+dietwosize, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '23' && advdie === 2  : {
+                    parsedRoll(rollName, dieoneres, dieoneadvres, dieonesize, "1D"+dietwosize, "1D"+dietwosize, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '123' : {
+                    parsedRoll(rollName, "1D"+dieonesize, "1D"+dieonesize, dieonesize, "1D"+dietwosize, "1D"+dietwosize, dietwosize, push, comment, advtge);
+                    break;
+                }
+        }
+        //parsedRoll(rollName, dieone, dieonesize, dietwo, dietwosize, push, comment, advtge);
 
     });
 
