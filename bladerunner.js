@@ -1,4 +1,3 @@
-    
     /* number and log handling */
     const int = (score, on_error = 0) => parseInt(score) || on_error;
     const float = (score, on_error = 0) => parseFloat(score) || on_error;
@@ -177,7 +176,7 @@
     }
 
     // The actual parsed roll
-    const parsedRoll = async (rollaction, rollname, dieone, dietwo, push, comment, adv = 0 ) => {
+    const parsedRoll = async (rollaction, rollname, dieone, dieoneadv, dieonesize, dietwo, dietwoadv, dietwosize, push, comment, adv = 0 ) => {
         //const rolladv = checkAdvantageRoll(rollaction);
         
         const attrs = await asw.getAttrs(["charactertype"]),
@@ -194,11 +193,12 @@
             commentStr = `{{comment=${comment}}}`;
         }
 
-        let rollBase = `@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=${rollname}}} ${commentStr} {{roll-adv=[[${adv}]]}} {{die-one-size=[[${dieone}]]}} {{die-two-size=[[${dietwo}]]}} {{die-one=[[1D${dieone}]]}}  {{die-one-adv=[[1D${dieone}]]}} {{die-two=[[1D${dietwo}]]}} {{die-two-adv=[[1D${dietwo}]]}} {{push=${push}}} {{button=[Push](&#37;push)}}`;
+        let rollBase = `@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=${rollname}}} ${commentStr} {{roll-adv=[[${adv}]]}} {{die-one-size=[[${dieonesize}]]}} {{die-two-size=[[${dietwosize}]]}} {{die-one=[[1D${dieone}]]}}  {{die-one-adv=[[1D${dieone}]]}} {{die-two=[[1D${dietwo}]]}} {{die-two-adv=[[1D${dietwo}]]}} {{push=${push}}} {{button=[Push](&#37;push)}}`;
         let firstRoll = await startRoll(rollBase);
+
         //    rollValue = firstRoll.results.roll1.result;
         clog(`First roll data: ${JSON.stringify(firstRoll)}`);
-        clog(`First roll data: ${JSON.stringify(firstRoll.results)}`);
+        clog(`First roll results: ${JSON.stringify(firstRoll.results)}`);
         // Storing all the passthrough data required for the next roll in an Object helps for larger rolls
 
         /* let rollData = {
@@ -211,10 +211,21 @@
         clog(`die 1 adv: ${JSON.stringify(results['die-one-adv'])}`);
         clog(`die 2 adv: ${JSON.stringify(results['die-two-adv'])}`);
 
+        const rollnameStr = rollname.startsWith("Push: ") ? rollname : "Push: "+rollname; 
+
+        clog(`ROll name is now: ${rollnameStr}`);
+
+        clog(`Values are: ${rollnameStr}, ${dieone}, ${dietwo}, ${dieoneadv}, ${dietwoadv}, ${dieonesize}, ${dietwosize}, ${adv}, ${pushleft}, ${results['die-one'].result}, ${results['die-one-adv'].result}, ${results['die-two'].result}, ${results['die-two-adv'].result} `);
+
         setAttrs({
-            pushrollname: `Push: ${rollname}`,
+            pushrollaction: rollaction,
+            pushrollname: rollnameStr,
             pushdieone: dieone,
             pushdietwo: dietwo,
+            pushdieoneadv: dieoneadv,
+            pushdietwoadv: dietwoadv,
+            pushdieonesize: dieonesize,
+            pushdietwosize: dietwosize,
             pushrolladv: adv,
             push: pushleft,
             pushdieoner1: results['die-one'].result,
@@ -223,14 +234,17 @@
             pushdietwor2: results['die-two-adv'].result
         });
 
+        clog('Finishing roll...');
+
         // Finish the roll, passing the escaped rollData object into the template as computed::passthroughdata
         // Our roll template then inserts that into [butonlabel](~selected|buttonlink||<computed::passthroughdata>)
         // ~selected allows anyone to click the button with their token selected. Omitting this will cause the button
         // to default to whichever character is active in the sandbox when the button is created
         /**/
         finishRoll(firstRoll.rollId);
-        
     }
+
+
     const actions = ['', 'push', 'custom', 'strength', 'handtohand', 'force', 'stamina', 'agility', 'firearms', 'mobility', 'stealth', 
                     'intelligence', 'medicalaid', 'observation', 'tech', 'driving', 'empathy', 'connections', 'insight', 'manipulation',
                     'weapon1cc', 'weapon1rc', 'weapon2cc','weapon2rc', 'weapon3cc', 'weapon3rc',
@@ -240,7 +254,8 @@
     });
     clog(actionList);
 
-    // CUSTOM ROLL PARSING
+
+    // Sheet rolls handler
     on(actionList, async (ev) => {
         clog(`Starting first roll`);
         // We'll pretend we've done a getAttrs on the attacker's weapon for all the required values
@@ -249,12 +264,14 @@
         //clog(`Event name: ${ev.htmlAttributes.name}`);  
 
         const rollAction = (ev.htmlAttributes.name).slice(4)||""; 
-        var rollName = ev.htmlAttributes['data-name']; 
-        const dieone = ev.htmlAttributes['data-die-one']; 
-        const dietwo = ev.htmlAttributes['data-die-two']; 
-        const advtge = ev.htmlAttributes['data-adv']; 
-        var comment = ev.htmlAttributes['data-comment']; 
-        const push = ev.htmlAttributes['data-push']; 
+        var rollName = ev.htmlAttributes['data-name']||""; 
+        const dieone = ev.htmlAttributes['data-die-one']||0; 
+        const dieonesize = ev.htmlAttributes['data-die-one-size']||dieone; 
+        const dietwo = ev.htmlAttributes['data-die-two']||0; 
+        const dietwosize = ev.htmlAttributes['data-die-two-size']||dietwo; 
+        const advtge = ev.htmlAttributes['data-adv']||0; 
+        var comment = ev.htmlAttributes['data-comment']||""; 
+        const push = ev.htmlAttributes['data-push']||0; 
 
         let sourceAttribute = ev.sourceAttribute||""; 
         clog(`Source attribute: ${sourceAttribute}`);
@@ -266,37 +283,89 @@
             rollName = datarepeating[`${attributePrefix}_name`];
         }
 
-        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 2: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
+        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 1 Size: ${dieonesize}, Die 2: ${dietwo}, Die 2 Size: ${dietwosize}, Push: ${push}, Advantage: ${advtge}`);
 
         //let modifiers = await getQuery(`?{Modifiers?|0}`);
         //const attrs = await asw.getAttrs(['customdieone','customdietwo']);
         //const dieone = int(attrs.customdieone),
         //    dietwo = int(attrs.customdietwo);
 
-        parsedRoll(rollAction, rollName, dieone, dietwo, push, comment, advtge);
-
+        parsedRoll(rollAction, rollName, dieone, dieone, dieonesize, dietwo, dietwo, dietwosize, push, comment, advtge);
     });
+
     
-    // PUSHED ROLL HANDLING
-    on('clicked:pushroll', async (ev) => {
+    // Pushed roll handler
+    on('clicked:pushroll clicked:pushroll_1 clicked:pushroll_12 clicked:pushroll_13 clicked:pushroll_2 clicked:pushroll_23 clicked:pushroll_3 clicked:pushroll_123', async (ev) => {
         clog(`Starting push roll`);
         clog(`First event: ${JSON.stringify(ev)}`);
-        //clog(`Event name: ${ev.htmlAttributes.name}`);  
+        clog(`Push type: ${(ev.triggerName).split('_')[1]}`);  
+        const pushType = (ev.triggerName).split('_')[1];
 
-
-        const pushedAttrs = await asw.getAttrs(["pushrollname", "pushrollcomment", "pushdieone", "pushdietwo", "pushrolladv", "push", "pushdieoner1", "pushdieoner2", "pushdietwor1", "pushdietwor1"]);
+        const pushedAttrs = await asw.getAttrs(["pushrollaction","pushrollname", "pushrollcomment", "pushdieone", "pushdietwo", "pushdieoneadv", "pushdietwoadv", "pushdieonesize", "pushdietwosize", "pushrolladv", "push", "pushdieoner1", "pushdieoner2", "pushdietwor1", "pushdietwor1"]);
         clog(`Pushed Attributes: ${JSON.stringify(pushedAttrs)}`);
 
-        const rollAction = pushedAttrs.pushrollname; 
+        const rollAction = pushedAttrs.pushrollaction; 
         var rollName = pushedAttrs.pushrollname; 
         const dieone = pushedAttrs.pushdieone; 
-        const dietwo = pushedAttrs.pushdietwo; 
+        const dietwo = pushedAttrs.pushdietwo;
+        const dieoneadv = pushedAttrs.pushdieoneadv; 
+        const dietwoadv = pushedAttrs.pushdietwoadv;
+        const dieonesize = pushedAttrs.pushdieonesize; 
+        const dietwosize = pushedAttrs.pushdietwosize;  
+        const dieoneres = pushedAttrs.pushdieoner1; 
+        const dieoneadvres = pushedAttrs.pushdieoner2; 
+        const dietwores = pushedAttrs.pushdietwor1; 
+        const dietwoadvres = pushedAttrs.pushdietwor2;
         const advtge = pushedAttrs.pushrolladv; 
         var comment = pushedAttrs.pushrollcomment; 
         const push = pushedAttrs.push; 
+        const advdie = int(dieonesize) <= int(dietwosize) ? 1 : 2; 
 
-        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 2: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
+        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${dieone}, Die 1 Size: ${dieonesize}, Die 2: ${dietwo}, Die 2 Size: ${dietwosize}, Push: ${push}, Advantage: ${advtge}`);
 
-        parsedRoll(rollAction, rollName, dieone, dietwo, push, comment, advtge);
+        switch (true) {
+            case pushType === '1' : {
+                    parsedRoll(rollAction, rollName, dieone, dieoneadvres, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '2' : {
+                    parsedRoll(rollAction, rollName, dieoneres, dieoneadvres, dieonesize, dietwo, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '3' && advdie === 1  : {
+                    parsedRoll(rollAction, rollName, dieoneres, dieoneadv, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '3' && advdie === 2  : {
+                    parsedRoll(rollAction, rollName, dieoneres, dieoneadvres, dieonesize, dietwores, dietwoadv, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '12' : {
+                    parsedRoll(rollAction, rollName, dieone, dieoneadvres, dieonesize, dietwo, dietwoadv, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '13' && asvdie === 1  : {
+                    parsedRoll(rollAction, rollName, dieone, dieoneadvr, dieonesize, dietwores, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '13' && asvdie === 2  : {
+                    parsedRoll(rollAction, rollName, dieone, dieoneadvres, dieonesize, dietwores, dietwoadv, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '23' && asvdie === 1  : {
+                    parsedRoll(rollAction, rollName, dieoneres, dieoneadv, dieonesize, dietwo, dietwoadvres, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '23' && asvdie === 2  : {
+                    parsedRoll(rollAction, rollName, dieoneres, dieoneadvres, dieonesize, dietwo, dietwoadv, dietwosize, push, comment, advtge);
+                    break;
+                }
+            case pushType === '123' : {
+                    parsedRoll(rollAction, rollName, dieone, dieoneadv, dieonesize, dietwo, dietwoadv, dietwosize, push, comment, advtge);
+                    break;
+                }
+        }
+
+        parsedRoll(rollAction, rollName, dieone, dieonesize, dietwo, dietwosize, push, comment, advtge);
 
     });

@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;700&family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;700&family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow+Semi+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&family=Inconsolata&family=Source+Code+Pro&display=swap');
 @import url('https://fonts.cdnfonts.com/css/blade-runner-movie-font');
 
 html {
@@ -17,9 +18,7 @@ html {
 .main-box {
     min-width: 845px;
 }
-.logo {
-    justify-content: center;
-}
+
 .dark-box {
     -background-color: #1b1e21; 
 }
@@ -160,7 +159,43 @@ html {
 
 .ui-dialog .charsheet .blade-runner {
     font-family: 'Blade Runner Movie Font', sans-serif;
-    font-size: 2rem;
+    color: #617b83;
+    line-height: 1.7rem;
+    font-size: 1.6rem;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 1rem;
+}
+.logo {
+    justify-content: flex-start;
+    align-content: flex-end;
+    padding-left: 1.5rem;
+    color: #617b83;
+}
+.ui-dialog .charsheet .main-box span.sheet-tab {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    text-indent: 0;
+    padding: 0 0.5rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.1rem;
+    color: #617b83;
+}
+.profile-database {
+    align-self: baseline;
+    font-family: 'Source Code Pro', 'Inconsolata', monospace;
+    color: #617b83;
+    height: 50%;
+    line-height: 1rem;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-end;
+    align-self: baseline;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: .3rem;
 }
 
 div, span, label, p, h1, h2, h3,
@@ -261,6 +296,10 @@ select {
     justify-content: flex-end;
     text-indent: 0;
     padding-right: 5px;
+}
+.separator {
+    width: 5px;
+    margin-right: 3px;
 }
 
 .ui-dialog .charsheet :is(input[type="radio"],input[type="checkbox"]) {
@@ -397,6 +436,7 @@ select {
     cursor: pointer;
     background-color: transparent;
     color: #4e6e6e;
+    color: #92b9c3;
     text-align: center;
     align-content: center;
     justify-content: center;
@@ -569,7 +609,8 @@ div.main-box {
 }
 
 .ui-dialog .charsheet div.attribute,
-.ui-dialog .charsheet div.skill {
+.ui-dialog .charsheet div.skill,
+.ui-dialog .charsheet div.skill-die {
     position: relative;
     z-index: 200;
     flex-wrap: nowrap;
@@ -601,11 +642,16 @@ div.main-box {
     text-indent: 0.5rem;
 }
 .ui-dialog .charsheet div.attribute:hover,
-.ui-dialog .charsheet div.skill:hover,
 .ui-dialog .charsheet div.attribute:hover + div,
-.ui-dialog .charsheet div.skill:hover + div,
 .ui-dialog .charsheet div.attribute:hover + div + div,
-.ui-dialog .charsheet div.skill:hover + div + div {
+.ui-dialog .charsheet .attribute-row:hover,
+/* .ui-dialog .charsheet div.skill:hover,
+.ui-dialog .charsheet div.skill:hover + div,
+.ui-dialog .charsheet div.skill:hover + div + div,
+.ui-dialog .charsheet .skill-row:hover, */
+.ui-dialog .charsheet .skill-row:hover .skill,
+.ui-dialog .charsheet .skill-row:hover .skill-rank,
+.ui-dialog .charsheet .skill-row:hover .skill-die {
     background-color: rgb(180, 191, 146, 0.3);
     padding-right: 0;
     text-align: center;
@@ -622,9 +668,17 @@ div.main-box {
     text-align: center;
     text-indent: 0rem;
 }
+.ui-dialog .charsheet div.attribute:hover button.adv-button,
+.ui-dialog .charsheet div.skill:hover button.adv-button,
+.ui-dialog .charsheet div.skill-row:hover button.help-button {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
 
 .ui-dialog .charsheet div.attribute button.adv-button,
-.ui-dialog .charsheet div.skill button.adv-button {
+.ui-dialog .charsheet div.skill button.adv-button,
+.ui-dialog .charsheet div.skill-die button.help-button {
     display: none; 
     height: 0.8rem;
     font-size: 0.75rem;
@@ -641,9 +695,26 @@ div.main-box {
     height: 1.6rem;
     border: 0;
 }
-.ui-dialog .charsheet div.attribute:hover button.adv-button,
-.ui-dialog .charsheet div.skill:hover button.adv-button {
-    display: block;
+.ui-dialog .charsheet div.main-box div.attribute button.adv-button:hover,
+.ui-dialog .charsheet div.main-box div.skill button.adv-button:hover,
+.ui-dialog .charsheet div.main-box div.skill-die button.help-button:hover {
+    color: rgb(225, 231, 57, 0.6);
+    background-color: rgb(180, 191, 146, 0.6);
+}
+.ui-dialog .charsheet div.main-box div.attribute button.attribute:hover,
+.ui-dialog .charsheet div.main-box div.skill button.skill:hover {
+    color: rgb(225, 231, 57, 0.6);
+}
+.ui-dialog .charsheet div.main-box div.skill-row div.skill-die button.help-button {
+    position: absolute; 
+    z-index: 500;
+    right: 0;
+    bottom: 0;
+    height: 2rem;
+    align-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    line-height: 1rem;
 }
 .ui-dialog .charsheet div.attribute button.advantage,
 .ui-dialog .charsheet div.skill button.advantage {
@@ -956,6 +1027,10 @@ div.crit-effects {
     border-bottom: 2px solid #6e8991; 
     border-left: 2px solid #6e8991; 
 }
+.sheet-rolltemplate-bladerunner .sheet-border-24 { 
+    border-right: 2px solid #6e8991; 
+    border-left: 2px solid #6e8991; 
+}
 .sheet-rolltemplate-bladerunner .sheet-border-4 { 
     border-left: 2px solid #6e8991; 
 }
@@ -992,12 +1067,31 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner .sheet-failures:after {
     content: counter(origami);
 }
+
+.sheet-rolltemplate-bladerunner div.sheet-push-button {
+    height: auto;
+    min-height: unset;
+}
+.sheet-rolltemplate-bladerunner .sheet-push-link {
+    padding: 1px;
+    margin: 0 2px;
+}
 .sheet-rolltemplate-bladerunner .sheet-push-button a[href^="~"] {
     background-color: transparent;
-    padding: 3px;
+    padding: 1px;
     color: #92b9c3;
     border: 0;
+    line-height: 80%;
 }
+.sheet-rolltemplate-bladerunner .sheet-push-button a[href^="~"]:hover {
+    background-color:#92b9c3;
+    color:#202427;
+    line-height: 80%;
+}
+.sheet-rolltemplate-bladerunner .sheet-push-link:hover,
+.sheet-rolltemplate-bladerunner .sheet-push-link:hover a { background-color:#92b9c3; color:#202427; }
+.sheet-rolltemplate-bladerunner .sheet-push-link:before { content: "[";}
+.sheet-rolltemplate-bladerunner .sheet-push-link:after { content: "]";} 
 .sheet-rolltemplate-bladerunner  span.sheet-result-1 {
     background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/origami-bl.png?raw=true');
     background-repeat: no-repeat;
