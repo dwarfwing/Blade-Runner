@@ -28,6 +28,13 @@ html {
 .lighter-box {
     -background-color: #cae2e4;
 }
+.lightblue-box {
+    background-color: #92b9c3;
+}
+.ui-dialog .charsheet div.grey-box {
+    background-color:#6e8991;
+    color:#202429;
+}
 .background {
     background-color: #202427;
     -background: url(https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.png?raw=true) no-repeat center center fixed; 
