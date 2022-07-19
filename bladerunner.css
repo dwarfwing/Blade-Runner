@@ -4,12 +4,14 @@
 @import url('https://fonts.cdnfonts.com/css/blade-runner-movie-font');
 
 html {
-    font-size: 14px; 
+    font-size: 15px; 
 }
 
 .characterviewer label {
+    display: flex;
+    align-items: center;
     font-weight: normal;
-    font-size: 1em;
+    font-size: 1rem;
     margin-bottom: unset;
 }
 
@@ -100,12 +102,14 @@ html {
 
 .w4pc { width: 4%; min-width: 4%; max-width: 4%; box-sizing: border-box;}
 .w5pc { width: 5%; min-width: 5%; max-width: 5%; box-sizing: border-box;}
+.w6pc { width: 6%; min-width: 6%; max-width: 6%; box-sizing: border-box;}
 .w8pc { width: 8%; min-width: 8%; max-width: 8%; box-sizing: border-box;}
 .w10pc { width: 10%; min-width: 10%; max-width: 10%; box-sizing: border-box;}
 .w12pc { width: 12%; min-width: 12%; max-width: 12%; box-sizing: border-box;}
 .w15pc { width: 15%; min-width: 15%; max-width: 15%; box-sizing: border-box;}
 .w20pc { width: 20%; min-width: 20%; max-width: 20%; box-sizing: border-box;}
 .w20pc-4px { width: calc(20% - 4px); min-width: calc(20% - 4px); max-width: calc(20% - 4px); box-sizing: border-box;}
+.w21pc { width: 21%; min-width: 21%; max-width: 21%; box-sizing: border-box;}
 .w22pc { width: 22%; min-width: 22%; max-width: 22%; box-sizing: border-box;}
 .w23pc { width: 23%; min-width: 23%; max-width: 23%; box-sizing: border-box;}
 .w24pc { width: 24%; min-width: 24%; max-width: 24%; box-sizing: border-box;}
@@ -221,7 +225,7 @@ html {
     align-self: baseline;
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: .3rem;
+    letter-spacing: .2rem;
 }
 
 div, span, label, p, h1, h2, h3,
@@ -325,8 +329,8 @@ select {
     line-height: 0.85rem;
 }
 .ui-dialog .charsheet .main-box :is(button.smaller,label.smaller,div.smaller,input.smaller,span.smaller) {
-    font-size: 0.7rem;
-    line-height: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
 }
 .ui-dialog .charsheet .main-box .text-center {
     text-align: center;
@@ -676,6 +680,7 @@ div.main-box {
     z-index: 200;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    align-items: center;
     cursor: pointer;
 }
 .ui-dialog .charsheet .main-box div.attribute button.attribute, 

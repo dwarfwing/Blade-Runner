@@ -199,7 +199,7 @@
             </div> -->
             <div class="w25pc">
                 <div class="w40pc"></div>
-                <div class="w20p smaller text-center rating">MANOUVER.</div>
+                <div class="w20pc smaller text-center rating">MANOUVER.</div>
                 <div class="w20pc border-2 smaller text-center rating">RATING</div>
                 <div class="w20pc smaller text-center die">DIE</div>
             </div>        
@@ -690,10 +690,10 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-23 w21pc lighter-box">
                 <input type="text" name="attr_weapon1_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-23 w10pc lighter-box">
                 <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolladv" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolladv" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
@@ -767,10 +767,10 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-23 w21pc lighter-box">
                 <input type="text" name="attr_weapon2_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-23 w10pc lighter-box">
                 <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolladv" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolladv" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
@@ -844,10 +844,10 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-23 w21pc lighter-box">
                 <input type="text" name="attr_weapon3_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-23 w10pc lighter-box">
                 <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolladv" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolladv" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
@@ -923,10 +923,10 @@
                             <option value="4">Extreme</option>
                         </select>
                     </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-23 w21pc lighter-box">
                 <input type="text" name="attr_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-23 w10pc lighter-box">
                 <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolladv" data-name="@{@name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolladv" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
@@ -1669,16 +1669,18 @@
     });*/
 
     /* SET MAX HEALTH */
-    on("change:health_max change:health_mod change:strength change:agility sheet:opened", async () => {
-        const attrs = await asw.getAttrs(['strength','agility','health_max','health_mod']);
-        const health = Math.ceil( ( int(attrs['strength']) + int(attrs['agility'])) / 4 ) + int(attrs['health_mod']);
+    on("change:health_max change:health_mod change:strength change:agility change:charactertype sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['strength','agility','health_max','health_mod','charactertype']);
+        const replicant = int(attrs['charactertype']) === 2 ? 2 : 0; 
+        const health = Math.ceil( ( int(attrs['strength']) + int(attrs['agility'])) / 4 ) + int(attrs['health_mod']) + replicant;
         clog(`Max health is ${health}`);
         await asw.setAttrs({health_max: health});
     });
     /* SET MAX RESOLVE */
-    on("change:resolve_max change:resolve_mod change:intelligence change:empathy sheet:opened", async () => {
-        const attrs = await asw.getAttrs(['intelligence','empathy','resolve_max','resolve_mod']);
-        const resolve = Math.ceil( ( int(attrs['intelligence']) + int(attrs['empathy'])) / 4 ) + int(attrs['resolve_mod']);
+    on("change:resolve_max change:resolve_mod change:intelligence change:empathy change:charactertype sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['intelligence','empathy','resolve_max','resolve_mod','charactertype']);
+        const replicant = int(attrs['charactertype']) === 2 ? 2 : 0; 
+        const resolve = Math.ceil( ( int(attrs['intelligence']) + int(attrs['empathy'])) / 4 ) + int(attrs['resolve_mod']) - replicant;
         clog(`Max resolve is ${resolve}`);
         await asw.setAttrs({resolve_max: resolve});
     });
