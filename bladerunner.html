@@ -131,7 +131,7 @@
             </div>
             <div class="w50pc border-23 customdice">
                 <div class="w25pc border-2 text-center">
-                    <div class="w100pc border-3">
+                    <div class="w100pc initiative">
                         <button id="initiative-roll" type="roll" name="initiative" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
                         <label for="initiative-roll" class="w100pc yellow text-center initiative-label">INITIATIVE</label>
                         <button id="initiative-token-roll" type="roll" name="initiativetoken" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10 &{tracker}]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
@@ -173,15 +173,15 @@
                         <input type="text" name="attr_customroll_name" class="w100pc-4px" value="Custom roll" placeholder="Custom roll">
                     </div>
                     <div class="w100pc-4px h50pc">
-                        <button type="action" name="act_customrolladv" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">ADV</span></button>
+                        <button type="action" name="act_customrolladv" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="1" data-push="@{charactertype}" class="customdice-roll w25pc h100pc-4px"><span class="disadvantage-roll  smaller">ADV</span></button>
                         <!-- <button type="roll" name="custom-adv" class="customdice-roll w20pc h50pc" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} ">
                             <span class="advantage-roll  smaller">ADV</span>
                         </button> -->
-                        <button type="action" name="act_customroll" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="0" data-push="@{charactertype}" class="customdice-roll normal-roll w60pc h100pc-4px">ROLL</button>
+                        <button type="action" name="act_customroll" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="0" data-push="@{charactertype}" class="customdice-roll normal-roll w50pc h100pc-4px">ROLL</button>
         <!--                 <button type="roll" name="custom" class="customdice-roll normal-roll w60pc h50pc " value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} {{button=[Push](&#37;push)}} {{push-command=push1d@{customdieone}1d@{customdietwo}adv0}}">ROLL</button>
         --><!--                 <button type="roll" name="custom" class="customdice-roll normal-roll w60pc h50pc " value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{customroll_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{customdieone}]]}} {{die-two-size=[[@{customdietwo}]]}} {{die-one=[[1D@{customdieone}]] }}  {{die-one-adv=[[1D@{customdieone}]] }} {{die-two=[[1D@{customdietwo}]] }} {{die-two-adv=[[1D@{customdietwo}]] }} {{button=[Push](!&#64;{pushedrollcommand} &#64;{template:bladerunner} {{roll-adv=[[&#64;{pushedrolladv}]]}} {{die-one=1D&#64;{pusheddieone}} {{die-one-size=&#64;{pusheddieone}}} )}}">ROLL</button> -->                
                         <!-- <input type="hidden" name="attr_customrolldis_action" value=""> -->
-                        <button type="action" name="act_customrolldis" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="-1" data-push="@{charactertype}" class="customdice-roll w20pc h100pc-4px"><span class="disadvantage-roll  smaller">DIS</span></button>
+                        <button type="action" name="act_customrolldis" data-name="@{customroll_name}" data-die-one="@{customdieone}" data-die-two="@{customdietwo}" data-die-one-size="@{customdieone}" data-die-two-size="@{customdietwo}" data-adv="-1" data-push="@{charactertype}" class="customdice-roll w25pc h100pc-4px"><span class="disadvantage-roll  smaller">DIS</span></button>
                         <!-- <button type="roll" name="roll_customrolldis" class="customdice-roll w20pc h50pc" value="@{customrolldis_action}">
                             <span class="disadvantage-roll  smaller">DIS</span>
                         </button> -->
@@ -199,7 +199,7 @@
             </div> -->
             <div class="w25pc">
                 <div class="w40pc"></div>
-                <div class="w20p smaller text-center rating">MANOUVER.</div>
+                <div class="w20pc smaller text-center rating">MANOUVER.</div>
                 <div class="w20pc border-2 smaller text-center rating">RATING</div>
                 <div class="w20pc smaller text-center die">DIE</div>
             </div>        
@@ -311,7 +311,7 @@
                 <div class="border-3 w60pc yellow-border-bottom attribute">
                     <!-- <button type="roll" id="agilityroll-adv" name="agility-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">ADV</button> -->
                     <!-- <label for="agilityroll" class="yellow attribute">AGILITY</label> -->
-                    <button type="action" name="act_agilityroll" data-name="Stamina" data-die-one="@{agility}" data-die-two="0" data-die-one-size="@{agility}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Agility</button>
+                    <button type="action" name="act_agilityroll" data-name="Agility" data-die-one="@{agility}" data-die-two="0" data-die-one-size="@{agility}" data-die-two-size="0" data-adv="0" data-push="@{charactertype}" class="yellow attribute">Agility</button>
                     <!-- <button type="roll" id="agilityroll-dis" name="agility-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}">DIS</button> -->
                     <!-- <button type="roll" hidden id="agilityroll" name="agility-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Agility }} {{roll-adv=[[0]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[0]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[0]] }} {{die-two-adv=[[0]] }}"></button> -->
                     
@@ -631,21 +631,21 @@
             <div class="w5pc  text-center smaller">DAMAGE</div>
             <div class="w8pc  text-center smaller">CRIT</div>
             <div class="w12pc  text-center smaller">TYPE</div>
-            <div class="w8pc  text-center smaller">RANGE</div>
+            <div class="w6pc  text-center smaller">RANGE</div>
             <div class="w8pc  text-center smaller">MIN RANGE</div>
             <div class="w8pc  text-center smaller">MAX RANGE</div>
             <div class="w22pc  text-center smaller">COMMENT</div>
         </div>
         <div class="w20px">&nbsp;</div>
         <div class="border-2 w20px">&nbsp;</div>
-        <div class="w100pc-40px weapon-row">
-            <div class="border-23 w20pc">
+        <div class="border-23 w100pc-40px weapon-row">
+            <div class="border-2 w20pc">
                 <input type="text" spellcheck="false" name="attr_weapon1_name" class="" />
             </div>
-            <div class="border-23 w5pc lighter-box">
+            <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon1_damage" class="w100pc-4px text-center" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon1_critdie" class="w100pc-4px" >                
                     <option value="" selected disabled></option>               
                     <option value="12">D12</option>
@@ -656,7 +656,7 @@
                     <option value="0">-</option>
                 </select>
             </div>
-            <div class="border-23 w12pc lighter-box">
+            <div class="border-2 w12pc lighter-box">
                 <select type="text" name="attr_weapon1_type" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Piercing</option>
@@ -666,11 +666,11 @@
                     <option value="4">Crushing (Expl.)</option>
                 </select>
             </div>
-            <input type="radio" id="combatclose1" name="attr_weapon1_combattype" value="@{handtohand}" class="w4pc cc" hidden />
-            <label for="combatclose1" class="border-23 w4pc toggle-box">HtH</label>
-            <input type="radio" id="combatranged1" name="attr_weapon1_combattype" value="@{firearms}" class="w4pc rc" hidden checked /> 
-            <label for="combatranged1" class="border-23 w4pc toggle-box">RC</label>
-            <div class="border-23 w8pc lighter-box">
+            <input type="radio" id="combatclose1" name="attr_weapon1_combattype" value="@{handtohand}" class="w3pc cc" hidden />
+            <label for="combatclose1" class="border-2 w3pc toggle-box" title="Hand-to-Hand combat">HtH</label>
+            <input type="radio" id="combatranged1" name="attr_weapon1_combattype" value="@{firearms}" class="w3pc rc" hidden checked /> 
+            <label for="combatranged1" class="border-2 w3pc toggle-box" title="Ranged combat">RC</label>
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon1_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -680,7 +680,7 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon1_maxrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -690,18 +690,18 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-2 w21pc lighter-box">
                 <input type="text" name="attr_weapon1_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolladv" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolladv" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <div class="w12pc lighter-box">
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon1ccrolladv" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon1rcrolladv" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
-                <button type="action" class="w60pc h100pc cc" name="act_weapon1ccroll" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
-                <button type="action" class="w60pc h100pc rc" name="act_weapon1rcroll" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc cc" name="act_weapon1ccroll" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc rc" name="act_weapon1rcroll" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon1_comment}" data-push="@{charactertype}">ROLL</button>
                 
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon1ccrolldis" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon1rcrolldis" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon1ccrolldis" data-name="@{weapon1_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon1rcrolldis" data-name="@{weapon1_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon1_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                     
                 <!-- <button type="roll" name="weapon1rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
                 <button type="roll" name="weapon1cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon1_comment} }}">ADV</button>
@@ -715,14 +715,14 @@
         </div>
         <div class="w20px">&nbsp;</div>
         <div class="border-2 w20px">&nbsp;</div>
-        <div class="w100pc-40px weapon-row">
-            <div class="border-23 w20pc">
+        <div class="border-23 w100pc-40px weapon-row">
+            <div class="border-2 w20pc">
                 <input type="text" spellcheck="false" name="attr_weapon2_name" class="" />
             </div>
-            <div class="border-23 w5pc lighter-box">
+            <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon2_damage" class="w100pc-4px text-center" />
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon2_critdie" class="w100pc-4px" >                
                     <option value="" selected disabled></option>               
                     <option value="12">D12</option>
@@ -733,7 +733,7 @@
                     <option value="0">-</option>
                 </select>
             </div>
-            <div class="border-23 w12pc lighter-box">
+            <div class="border-2 w12pc lighter-box">
                 <select type="text" name="attr_weapon2_type" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Piercing</option>
@@ -744,10 +744,10 @@
                 </select>
             </div>
             <input type="radio" id="combatclose2" name="attr_weapon2_combattype" value="@{handtohand}" class="cc" hidden />
-            <label for="combatclose2" class="border-23 w4pc toggle-box">HtH</label>
+            <label for="combatclose2" class="border-2 w3pc toggle-box" title="Hand-to-Hand combat">HtH</label>
             <input type="radio" id="combatranged2" name="attr_weapon2_combattype" value="@{firearms}" class="rc" hidden checked />
-            <label for="combatranged2" class="border-23 w4pc toggle-box">RC</label>
-            <div class="border-23 w8pc lighter-box">
+            <label for="combatranged2" class="border-2 w3pc toggle-box" title="Ranged combat">RC</label>
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon2_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -757,7 +757,7 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon2_maxrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -767,18 +767,18 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-2 w21pc lighter-box">
                 <input type="text" name="attr_weapon2_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolladv" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolladv" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <div class="w12pc lighter-box">
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon2ccrolladv" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon2rcrolladv" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
-                <button type="action" class="w60pc h100pc cc" name="act_weapon2ccroll" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
-                <button type="action" class="w60pc h100pc rc" name="act_weapon2rcroll" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc cc" name="act_weapon2ccroll" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc rc" name="act_weapon2rcroll" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon2_comment}" data-push="@{charactertype}">ROLL</button>
                 
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon2ccrolldis" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon2rcrolldis" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon2ccrolldis" data-name="@{weapon2_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon2rcrolldis" data-name="@{weapon2_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon2_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                     
                 <!-- <button type="roll" name="weapon2rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
                 <button type="roll" name="weapon2cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon2_comment} }}">ADV</button>
@@ -792,11 +792,11 @@
         </div>
         <div class="w20px">&nbsp;</div>
         <div class="border-2 w20px">&nbsp;</div>
-        <div class="border-box w100pc-40px weapon-row">
-            <div class="border-23 w20pc">
+        <div class="border-23 border-box w100pc-40px weapon-row">
+            <div class="border-2 w20pc">
                 <input type="text" spellcheck="false" name="attr_weapon3_name" class="" />
             </div>
-            <div class="border-23 w5pc lighter-box">
+            <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon3_damage" class="w100pc-4px text-center" />
             </div>
             <div class="border-23 w8pc lighter-box">
@@ -810,7 +810,7 @@
                     <option value="0">-</option>
                 </select>
             </div>
-            <div class="border-23 w12pc lighter-box">
+            <div class="border-2 w12pc lighter-box">
                 <select type="text" name="attr_weapon3_type" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Piercing</option>
@@ -821,10 +821,10 @@
                 </select>
             </div>
             <input type="radio" id="combatclose3" name="attr_weapon3_combattype" value="@{handtohand}" class="cc" hidden />
-            <label for="combatclose3" class="border-23 w4pc lighter-box toggle-box">HtH</label>
+            <label for="combatclose3" class="border-2 w3pc lighter-box toggle-box" title="Hand-to-Hand combat">HtH</label>
             <input type="radio" id="combatranged3" name="attr_weapon3_combattype" value="@{firearms}" class="rc" hidden checked />
-            <label for="combatranged3" class="border-23 w4pc lighter-box toggle-box">RC</label>
-            <div class="border-23 w8pc lighter-box">
+            <label for="combatranged3" class="border-2 w3pc lighter-box toggle-box" title="Ranged combat">RC</label>
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon3_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -834,7 +834,7 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w8pc lighter-box">
+            <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon3_maxrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
                     <option value="0">Engaged</option>
@@ -844,18 +844,18 @@
                     <option value="4">Extreme</option>
                 </select>
             </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-2 w21pc lighter-box">
                 <input type="text" name="attr_weapon3_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolladv" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolladv" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <div class="w12pc lighter-box">
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon3ccrolladv" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon3rcrolladv" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
-                <button type="action" class="w60pc h100pc cc" name="act_weapon3ccroll" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
-                <button type="action" class="w60pc h100pc rc" name="act_weapon3rcroll" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc cc" name="act_weapon3ccroll" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc rc" name="act_weapon3rcroll" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{weapon3_comment}" data-push="@{charactertype}">ROLL</button>
                 
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weapon3ccrolldis" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weapon3rcrolldis" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weapon3ccrolldis" data-name="@{weapon3_name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weapon3rcrolldis" data-name="@{weapon3_name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{weapon3_comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                     
                 <!-- <button type="roll" name="weapon3rc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
                 <button type="roll" name="weapon3cc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon3_comment} }}">ADV</button>
@@ -871,14 +871,14 @@
         <div class="border-23 w20px">&nbsp;</div>    
         <div class="border-3 w100pc-40px weapon-row repeating-weapons">
             <fieldset class="repeating_weapon">
-                <div class="w100pc repeating-weapon">
-                    <div class="border-23 w20pc">
-                        <input type="text" spellcheck="false" name="attr_name" class="" />
+                <div class="border-23 w100pc repeating-weapon">
+                    <div class="border-2 w20pc">
+                        <input type="text" name="attr_name" spellcheck="false" class="" />
                     </div>
-                    <div class="border-23 w5pc lighter-box">
+                    <div class="border-2 w5pc lighter-box">
                         <input type="number" name="attr_damage" class="w100pc-4px text-center" />
                     </div>
-                    <div class="border-23 w8pc lighter-box">
+                    <div class="border-2 w8pc lighter-box">
                         <select type="text" name="attr_critdie" class="w100pc-4px" >                
                             <option value="" selected disabled></option>               
                             <option value="12">D12</option>
@@ -889,7 +889,7 @@
                             <option value="0">-</option>
                         </select>
                     </div>
-                    <div class="border-23 w12pc lighter-box">
+                    <div class="border-2 w12pc lighter-box">
                         <select type="text" name="attr_type" class="w100pc-4px text-center" >   
                             <option value="" selected disabled></option>             
                             <option value="0">Piercing</option>
@@ -899,11 +899,11 @@
                             <option value="4">Crushing (Expl.)</option>
                         </select>
                     </div>
-                    <input type="radio" name="attr_combattype" title="CC" value="@{handtohand}" class="border-23 w4pc toggle-box repeating-toggle-box close-combat cc" />
-                    <label class="border-23 w4pc toggle-box repeating-toggle-box">HtH</label>
-                    <input type="radio" name="attr_combattype" title="RC" value="@{firearms}" class="border-23 w4pc toggle-box repeating-toggle-box ranged-combat rc" checked>
-                    <label class="border-23 w4pc toggle-box repeating-toggle-box">RC</label>
-                    <div class="border-23 w8pc lighter-box">
+                    <input type="radio" name="attr_combattype" title="Hand-to-Hand combat" value="@{handtohand}" class="border-23 w3pc toggle-box repeating-toggle-box close-combat cc" />
+                    <label class="border-2 w3pc toggle-box repeating-toggle-box" title="Hand-to-Hand combat">HtH</label>
+                    <input type="radio" name="attr_combattype" title="Ranged combat" value="@{firearms}" class="border-23 w3pc toggle-box repeating-toggle-box ranged-combat rc" checked>
+                    <label class="border-2 w3pc toggle-box repeating-toggle-box" title="Ranged combat">RC</label>
+                    <div class="border-2 w8pc lighter-box">
                         <select type="text" name="attr_minrange" class="w100pc-4px text-center" >   
                             <option value="" selected disabled></option>             
                             <option value="0">Engaged</option>
@@ -913,7 +913,7 @@
                             <option value="4">Extreme</option>
                         </select>
                     </div>
-                    <div class="border-23 w8pc lighter-box">
+                    <div class="border-2 w8pc lighter-box">
                         <select type="text" name="attr_maxrange" class="w100pc-4px text-center" >   
                             <option value="" selected disabled></option>             
                             <option value="0">Engaged</option>
@@ -923,18 +923,18 @@
                             <option value="4">Extreme</option>
                         </select>
                     </div>
-            <div class="border-23 w23pc lighter-box">
+            <div class="border-2 w21pc lighter-box">
                 <input type="text" name="attr_comment" class="w100pc-4px" />
             </div>
-            <div class="border-23 w8pc lighter-box">
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolladv" data-name="@{@name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolladv" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+            <div class="w12pc lighter-box">
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weaponccrolladv" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weaponrcrolladv" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="1" data-comment="@{comment}" data-push="@{charactertype}"><span class="advantage-roll smaller">ADV</span></button>
                 
-                <button type="action" class="w60pc h100pc cc" name="act_weaponccroll" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
-                <button type="action" class="w60pc h100pc rc" name="act_weaponrcroll" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc cc" name="act_weaponccroll" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
+                <button type="action" class="w50pc h100pc rc" name="act_weaponrcroll" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="0" data-comment="@{comment}" data-push="@{charactertype}">ROLL</button>
                 
-                <button type="action" class="w20pc h100pc smaller cc" name="act_weaponccrolldis" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
-                <button type="action" class="w20pc h100pc smaller rc" name="act_weaponrcrolldis" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller cc" name="act_weaponccrolldis" data-name="@{name}" data-die-one="@{strength}" data-die-two="@{handtohand}" data-die-one-size="@{strength}" data-die-two-size="@{handtohand}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
+                <button type="action" class="w25pc h100pc smaller rc" name="act_weaponrcrolldis" data-name="@{name}" data-die-one="@{agility}" data-die-two="@{firearms}" data-die-one-size="@{agility}" data-die-two-size="@{firearms}" data-adv="-1" data-comment="@{comment}" data-push="@{charactertype}"><span class="disadvantage-roll smaller">DIS</span></button>
                     
                 <!-- <button type="roll" name="weaponrc-adv" class="w100pc h50pc smaller rc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{firearms}]]}} {{die-one=[[1D@{agility}]] }}  {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{firearms}]] }} {{die-two-adv=[[1D@{firearms}]] }} {{comment=@{weapon_comment} }}">ADV</button>
                 <button type="roll" name="weaponcc-adv" class="w100pc h50pc smaller cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon_name} }} {{roll-adv=[[1]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon_comment} }}">ADV</button>
@@ -971,7 +971,7 @@
                     <input type="text" name="attr_armorname" class="w70pc-4px border-1" />
                     <!-- <input type="number" name="attr_armorrating" class="w25pc-4px border-1" /> -->
                     <select type="text" name="attr_armorrating" class="w15pc text-center" >                
-                        <option value="" selected disabled hidden></option>               
+                        <option value="0" selected>-</option>               
                         <option value="12">A</option>
                         <option value="10">B</option>
                         <option value="8">C</option>
@@ -999,18 +999,18 @@
             <div class="w33pc  align-top">
 
                 <span class="w100pc border-3 ">HEALTH</span>
-                <span class="w60pc  yellow">Maximum Health</span>
-                <div class="w40pc">
+                <span class="w50pc  yellow">Maximum Health</span>
+                <div class="w50pc float-right">
+                    <span name="attr_health_max" class="text-center value-display"></span>
                     <select name="attr_health_mod" value="0" class="w50pc-4px text-center">
-                        <option value="0" selected disbaled hidden>Modifier</option>
-                        <option value="0"></option>
+                        <option value="-" selected disbaled hidden>Modifier</option>
+                        <option value="0">+0</option>
                         <option value="1">+1</option>
                         <option value="2">+2</option>
                         <option value="3">+3</option>
                         <option value="4">+4</option>
                         <option value="5">+5</option>
                     </select>  
-                    <span name="attr_health_max" class="text-center value-display"></span>
                     <!-- <input type="number" name="attr_health_max_display" value="(@{health_max})" class="text-center" disabled /> -->            
                     <!-- <span name="attr_health_max" class="" disabled readonly></span> -->
                 </div>
@@ -1046,37 +1046,43 @@
                 </div>
                 <div class="w100pc border-1 crit-effects">
                     <textarea class="border-1" placeholder="CRITICAL INJURIES"></textarea>
-                    <span>CRITICAL ROLL </span>:
+                    <span>Critical roll </span>:
                     <select name="attr_rollcritdamagedie" class="w50px">
+                        <option value="" selected disabled hidden>Die</option>
                         <option value="12">D12</option>
                         <option value="10">D10</option>
                         <option value="8">D8</option>
-                        <option value="6" selected>D6</option>
+                        <option value="6">D6</option>
                     </select>
                     <select type="text" name="attr_rollcritdamagetype" class="w85px text-center" >   
-                        <option value="" selected disabled></option>             
+                        <option value="-1" selected disabled hidden>Type</option>             
                         <option value="0">Piercing</option>
                         <option value="1">Crushing</option>
                         <option value="2">Slashing</option>
                         <option value="3">Piercing (Expl.)</option>
                         <option value="4">Crushing (Expl.)</option>
                     </select>
-                    <button type="roll" name="critdamageroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Damage }} {{critroll=[[1]] }} {{critrolltype=@{rollcritdamagetype} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritdamagedie}]]}} {{die-one=[[1D@{rollcritdamagedie}]] }} {{die-one-adv=[[1D@{rollcritdamagedie}]] }} ">ROLL</button>
+                    <button type="roll" name="critdamageroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Damage }} {{critroll=[[1]] }} {{critrolltype=[[@{rollcritdamagetype}]] }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritdamagedie}]]}} {{die-one=[[1D@{rollcritdamagedie}]] }} {{die-one-adv=[[1D@{rollcritdamagedie}]] }} ">ROLL</button>
                 </div>
 
-                <span class="w100pc  border-12">RESOLVE</span>
-                <span class="w60pc  yellow">Maximum Resolve</span>
-                <div class="w40pc">     
+                <span class="w100pc border-12">RESOLVE</span>
+                <span class="w50pc yellow">Maximum Resolve</span>
+                <div class="w50pc float-right">   
+                    <span name="attr_resolve_max" class="text-center value-display"></span>     
                     <select name="attr_resolve_mod" value="0" class="w50pc-4px text-center">
-                        <option value="0" selected disbaled hidden>Modifier</option>
-                        <option value="0"></option>
+                        <option value="-" selected disbaled hidden>Modifier</option>
+                        <option value="-5">-5</option>
+                        <option value="-4">-4</option>
+                        <option value="-3">-3</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="0">+0</option>
                         <option value="1">+1</option>
                         <option value="2">+2</option>
                         <option value="3">+3</option>
                         <option value="4">+4</option>
                         <option value="5">+5</option>
-                    </select>     
-                    <span name="attr_resolve_max" class="text-center value-display"></span>
+                    </select>  
                     <!-- <input type="number" name="attr_resolve_max" value="0" class="text-center" disabled />  -->     
                 </div>
                 <div class="w100pc lighter-box border-1 resolve-boxes" title="Stress">                               
@@ -1111,9 +1117,18 @@
                 </div>
                 <div class="w100pc border-1 crit-effects">
                     <textarea class=" border-1" placeholder="CRITICAL STRESS EFFECTS"></textarea>
-                    <span>CRITICAL ROLL </span>:
+                    <span>Critical roll </span>:
+                    <select name="attr_stressroll_mod" value="0" class="w50px text-center">
+                        <option value="-" selected disbaled hidden>Modifier</option>
+                        <option value="0">+0</option>
+                        <option value="1">+1</option>
+                        <option value="2">+2</option>
+                        <option value="3">+3</option>
+                        <option value="4">+4</option>
+                        <option value="5">+5</option>
+                    </select>  
                     <input name="attr_rollcritstressdie" class="w50px hidden" value="@{empathy}">
-                    <button type="roll" name="critstressroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Stress }} {{critroll=[[2]] }} {{critrolltype=@{charactertype} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritstressdie}]]}} {{die-one=[[1D@{rollcritstressdie}]] }} {{die-one-adv=[[1D@{rollcritstressdie}]] }} ">ROLL</button>
+                    <button type="roll" name="critstressroll" class="critroll-button" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Critical Stress }} {{critroll=[[2]] }} {{critrolltype=[[@{charactertype}]] }} {{roll-adv=[[0]] }} {{die-one-size=[[@{rollcritstressdie}]]}} {{die-one=[[1D@{rollcritstressdie}+@{stressroll_mod}]] }} {{die-one-adv=[[1D@{rollcritstressdie}+@{stressroll_mod}]] }} ">ROLL</button>
                 </div>
             </div>
         </div>
@@ -1243,8 +1258,16 @@
         </div>
         <div class="template-div w100pc border-234 header">
             {{roll-name}} {{#roll-type}} ({{roll-type}}) {{/roll-type}}
+            {{#critroll}}
+                {{#rollTotal() critroll 1}}
+                    {{#rollTotal() critrolltype 0}} : Piercing {{/rollTotal() critrolltype 0}}
+                    {{#rollTotal() critrolltype 1}} : Crushing {{/rollTotal() critrolltype 1}}
+                    {{#rollTotal() critrolltype 2}} : SLashing {{/rollTotal() critrolltype 2}}
+                    {{#rollTotal() critrolltype 3}} : Piercing (Expl.) {{/rollTotal() critrolltype 3}}
+                    {{#rollTotal() critrolltype 4}} : Piercing (Expl.) {{/rollTotal() critrolltype 4}}
+                {{/rollTotal() critroll 1}}
+            {{/critroll}}
         </div>
-
         <div class="template-div w50pc border-234 rollinfo right">
             {{#rollGreater() die-one-size die-two-size}}
                 {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
@@ -1264,17 +1287,37 @@
             {{#rollTotal() die-one-size 10}}<span class="rollinfo border-4 yellow">D10</span>{{/rollTotal() die-one-size 10}}
             {{#rollTotal() die-one-size 12}}<span class="rollinfo border-4 yellow">D12</span>{{/rollTotal() die-one-size 12}}            
         </div>
-        <div class="template-div w50pc border-23 rollinfo left">
-            {{#rollTotal() die-two-size 6}}<span class="rollinfo border-2 yellow">D6</span>{{/rollTotal() die-two-size 6}}
-            {{#rollTotal() die-two-size 8}}<span class="rollinfo border-2 yellow">D8</span>{{/rollTotal() die-two-size 8}}
-            {{#rollTotal() die-two-size 10}}<span class="rollinfo border-2 yellow">D10</span>{{/rollTotal() die-two-size 10}}
-            {{#rollTotal() die-two-size 12}}<span class="rollinfo border-2 yellow">D12</span>{{/rollTotal() die-two-size 12}}  
-            {{#rollLess() die-one-size die-two-size}}
-                {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
-                {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
-                {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
-            {{/rollLess() die-one-size die-two-size}}
-        </div>
+        
+        {{^critroll}}
+            <div class="template-div w50pc border-23 rollinfo left">
+                {{#rollTotal() die-two-size 6}}<span class="rollinfo border-2 yellow">D6</span>{{/rollTotal() die-two-size 6}}
+                {{#rollTotal() die-two-size 8}}<span class="rollinfo border-2 yellow">D8</span>{{/rollTotal() die-two-size 8}}
+                {{#rollTotal() die-two-size 10}}<span class="rollinfo border-2 yellow">D10</span>{{/rollTotal() die-two-size 10}}
+                {{#rollTotal() die-two-size 12}}<span class="rollinfo border-2 yellow">D12</span>{{/rollTotal() die-two-size 12}}  
+                {{#rollLess() die-one-size die-two-size}}
+                    {{#rollTotal() roll-adv 0}}<span class="rollinfo yellow">Normal</span>{{/rollTotal() roll-adv 0}}
+                    {{#rollGreater() roll-adv 0}}<span class="rollinfo yellow">Advantage</span>{{/rollGreater() roll-adv 0}}
+                    {{#rollLess() roll-adv 0}}<span class="rollinfo yellow">Disadvantage</span>{{/rollLess() roll-adv 0}}
+                {{/rollLess() die-one-size die-two-size}}
+            </div>
+        {{/critroll}}
+        {{#critroll}}
+            <div class="template-div w50pc border-23 rollinfo center yellow">
+                {{#^rollTotal() critrolltype 1}}
+                    {{#^rollTotal() critrolltype 4}}
+                        {{#rollGreater() die-one 4}} LETHAL {{/rollGreater() die-one 4}}
+                    {{/^rollTotal() critrolltype 4}}
+                {{/^rollTotal() critrolltype 1}}
+                {{#^rollTotal() critrolltype 0}}
+                    {{#^rollTotal() critrolltype 2}}
+                        {{#^rollTotal() critrolltype 3}}
+                            {{#rollGreater() die-one 6}} LETHAL {{/rollGreater() die-one 6}}
+                        {{/^rollTotal() critrolltype 3}}
+                    {{/^rollTotal() critrolltype 2}}
+                {{/^rollTotal() critrolltype 0}}
+            </div>
+        {{/critroll}}
+        
         <div class="template-div w50pc border-234 rollresult">
             {{#rollLess() roll-adv 0}}
                 {{#^rollLess() die-one-size die-two-size}}                        
@@ -1339,6 +1382,7 @@
             {{/rollGreater() roll-adv -1}}
         </div>
         <div class="template-div w50pc border-23 rollresult">
+        {{^critroll}}
             {{#rollLess() roll-adv 0}}
                 {{#rollLess() die-one-size die-two-size}}                        
                     {{#rollTotal() die-two 1}}<span class="w50pc die-1 result-1">{{die-two}}</span>{{/rollTotal() die-two 1}}
@@ -1368,18 +1412,6 @@
                 {{#rollTotal() die-two 10}}<span class="w50pc die-1 result-10">{{die-two}}</span>{{/rollTotal() die-two 10}}
                 {{#rollTotal() die-two 11}}<span class="w50pc die-1 result-11">{{die-two}}</span>{{/rollTotal() die-two 11}}
                 {{#rollTotal() die-two 12}}<span class="w50pc die-1 result-12">{{die-two}}</span>{{/rollTotal() die-two 12}}
-<!--                     {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 die-1-adv result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
-                    {{#rollTotal() die-two-adv 2}}<span class="w50pc border-4 die-1-adv result-2">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 2}}
-                    {{#rollTotal() die-two-adv 3}}<span class="w50pc border-4 die-1-adv result-3">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 3}}
-                    {{#rollTotal() die-two-adv 4}}<span class="w50pc border-4 die-1-adv result-4">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 4}}
-                    {{#rollTotal() die-two-adv 5}}<span class="w50pc border-4 die-1-adv result-5">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 5}}
-                    {{#rollTotal() die-two-adv 6}}<span class="w50pc border-4 die-1-adv result-6">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 6}}
-                    {{#rollTotal() die-two-adv 7}}<span class="w50pc border-4 die-1-adv result-7">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 7}}
-                    {{#rollTotal() die-two-adv 8}}<span class="w50pc border-4 die-1-adv result-8">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 8}}
-                    {{#rollTotal() die-two-adv 9}}<span class="w50pc border-4 die-1-adv result-9">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 9}}
-                    {{#rollTotal() die-two-adv 10}}<span class="w50pc border-4 die-1-adv result-10">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 10}}
-                    {{#rollTotal() die-two-adv 11}}<span class="w50pc border-4 die-1-adv result-11">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 11}}
-                    {{#rollTotal() die-two-adv 12}}<span class="w50pc border-4 die-1-adv result-12">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 12}}  --> 
                 {{#rollGreater() roll-adv 0}}
                     {{#rollLess() die-two-size die-one-size}}
                         {{#rollTotal() die-two-adv 1}}<span class="w50pc border-4 result-1">{{die-two-adv}}</span>{{/rollTotal() die-two-adv 1}}
@@ -1397,87 +1429,294 @@
                     {{/rollLess() die-two-size die-one-size}}
                 {{/rollGreater() roll-adv 0}}
             {{/rollGreater() roll-adv -1}}
+        {{/critroll}}
+        {{#critroll}}
+            <!-- PHYSICAL CRITS -->        
+            {{#rollTotal() critroll 1}}
+                {{#^rollTotal() critrolltype 1}}
+                    {{#^rollTotal() critrolltype 4}}
+                        {{#rollTotal() die-one 1}}<span class=""> Ear torn off</span>{{/rollTotal() die-one 1}}
+                        {{#rollTotal() die-one 2}}<span class=""> Hand impaled</span>{{/rollTotal() die-one 2}}
+                        {{#rollTotal() die-one 3}}<span class=""> Pierced eye</span>{{/rollTotal() die-one 3}}
+                        {{#rollTotal() die-one 4}}<span class=""> Shoulder hit</span>{{/rollTotal() die-one 4}}
+                        {{#rollTotal() die-one 5}}<span class=""> Bleeding gut</span>{{/rollTotal() die-one 5}}
+                        {{#rollTotal() die-one 6}}<span class=""> Cracked skull</span>{{/rollTotal() die-one 6}}
+                        {{#rollTotal() die-one 7}}<span class=""> Punctured lung</span>{{/rollTotal() die-one 7}}
+                        {{#rollTotal() die-one 8}}<span class=""> Brains blown out</span>{{/rollTotal() die-one 8}}
+                        {{#rollTotal() die-one 9}}<span class=""> Massive internal organ damage</span>{{/rollTotal() die-one 9}}
+                        {{#rollTotal() die-one 10}}<span class=""> Pierced heart</span>{{/rollTotal() die-one 10}}
+                        {{#rollTotal() die-one 11}}<span class=""> Severed leg</span>{{/rollTotal() die-one 11}}
+                        {{#rollTotal() die-one 12}}<span class=""> Shattered head</span>{{/rollTotal() die-one 12}}
+                    {{/^rollTotal() critrolltype 4}}
+                {{/^rollTotal() critrolltype 1}}
+                {{#rollTotal() critrolltype 1}}
+                    {{#rollTotal() die-one 1}}<span class=""> Teeth knocked out</span>{{/rollTotal() die-one 1}}
+                    {{#rollTotal() die-one 2}}<span class=""> Broken nose</span>{{/rollTotal() die-one 2}}
+                    {{#rollTotal() die-one 3}}<span class=""> Broken fingers</span>{{/rollTotal() die-one 3}}
+                    {{#rollTotal() die-one 4}}<span class=""> Gouged eye</span>{{/rollTotal() die-one 4}}
+                    {{#rollTotal() die-one 5}}<span class=""> Cracked ribs</span>{{/rollTotal() die-one 5}}
+                    {{#rollTotal() die-one 6}}<span class=""> Concussion</span>{{/rollTotal() die-one 6}}
+                    {{#rollTotal() die-one 7}}<span class=""> Broken leg</span>{{/rollTotal() die-one 7}}
+                    {{#rollTotal() die-one 8}}<span class=""> Broken arm</span>{{/rollTotal() die-one 8}}
+                    {{#rollTotal() die-one 9}}<span class=""> Internal bleeding</span>{{/rollTotal() die-one 9}}
+                    {{#rollTotal() die-one 10}}<span class=""> Broken neck</span>{{/rollTotal() die-one 10}}
+                    {{#rollTotal() die-one 11}}<span class=""> Shattered pelvis</span>{{/rollTotal() die-one 11}}
+                    {{#rollTotal() die-one 12}}<span class=""> Crushed skull</span>{{/rollTotal() die-one 12}}
+                {{/rollTotal() critrolltype 1}}
+                {{#rollTotal() critrolltype 4}}
+                    {{#rollTotal() die-one 1}}<span class=""> Teeth knocked out</span>{{/rollTotal() die-one 1}}
+                    {{#rollTotal() die-one 2}}<span class=""> Broken nose</span>{{/rollTotal() die-one 2}}
+                    {{#rollTotal() die-one 3}}<span class=""> Broken fingers</span>{{/rollTotal() die-one 3}}
+                    {{#rollTotal() die-one 4}}<span class=""> Gouged eye</span>{{/rollTotal() die-one 4}}
+                    {{#rollTotal() die-one 5}}<span class=""> Cracked ribs</span>{{/rollTotal() die-one 5}}
+                    {{#rollTotal() die-one 6}}<span class=""> Concussion</span>{{/rollTotal() die-one 6}}
+                    {{#rollTotal() die-one 7}}<span class=""> Broken leg</span>{{/rollTotal() die-one 7}}
+                    {{#rollTotal() die-one 8}}<span class=""> Broken arm</span>{{/rollTotal() die-one 8}}
+                    {{#rollTotal() die-one 9}}<span class=""> Internal bleeding</span>{{/rollTotal() die-one 9}}
+                    {{#rollTotal() die-one 10}}<span class=""> Broken neck</span>{{/rollTotal() die-one 10}}
+                    {{#rollTotal() die-one 11}}<span class=""> Shattered pelvis</span>{{/rollTotal() die-one 11}}
+                    {{#rollTotal() die-one 12}}<span class=""> Crushed skull</span>{{/rollTotal() die-one 12}}
+                {{/rollTotal() critrolltype 4}}            
+            {{/rollTotal() critroll 1}}
+            <!-- STRESS CRITS -->  
+            {{#rollTotal() critroll 2}}
+                <!-- HUMAN -->
+                {{#rollTotal() critrolltype 1}}
+                    {{#rollTotal() die-one 1}} TO LIVE IN FEAR. {{/rollTotal() die-one 1}}
+                    {{#rollTotal() die-one 2}} TOO BAD SHE WON'T LIVE. {{/rollTotal() die-one 2}}
+                    {{#rollTotal() die-one 3}} NO CHOICE, PAL. {{/rollTotal() die-one 3}}
+                    {{#rollTotal() die-one 4}} TELL HIM I'M EATING. {{/rollTotal() die-one 4}}
+                    {{#rollTotal() die-one 5}} TWICE AS QUIT. {{/rollTotal() die-one 5}}
+                    {{#rollGreater() die-one 5}} SHAKES? ME TOO. {{/rollGreater() die-one 5}}
+                {{/rollTotal() critrolltype 1}}
+                <!-- REPLICANT -->
+                {{#rollTotal() critrolltype 2}}
+                    {{#rollTotal() die-one 1}} LET ME TELL YOU ABOUT MY MOTHER. {{/rollTotal() die-one 1}}
+                    {{#rollTotal() die-one 2}} TIME TO DIE. {{/rollTotal() die-one 2}}
+                    {{#rollTotal() die-one 3}} MORE HUMAN THAN HUMAN. {{/rollTotal() die-one 3}}
+                    {{#rollTotal() die-one 4}} WE'RE PHYSICAL. {{/rollTotal() die-one 4}}
+                    {{#rollTotal() die-one 5}} I'VE SEEN THINGS. {{/rollTotal() die-one 5}}
+                    {{#rollGreater() die-one 5}} TWICE AS BRIGHT. {{/rollGreater() die-one 5}}
+                {{/rollTotal() critrolltype 2}}
+            {{/rollTotal() critroll 2}}
+        {{/critroll}}
         </div>
-        <div class="template-div w50pc border-234">
-            <span class="successes">Successes: </span>
-        </div>
-        <div class="template-div w50pc border-23">
-            <span class="failures">Failures: </span>
-        </div>
-        {{#push}}
-            {{#rollGreater() push 0}}
-                <div class="template-div w100pc border-24 push-button"> Push </div>
-            {{/rollGreater() push 0}}
-            {{#^rollGreater() push 0}}
-                <div class="template-div w100pc border-234 push-button"> Maximum Push reached </div>
-            {{/^rollGreater() push 0}}
-        {{/push}}
-        <!----> 
-        {{#push}}
-            {{#rollGreater() push 0}}
-            <div class="template-div w100pc border-234 push-button">  
-                {{#rollLess() roll-adv 0}}
-                    {{#rollGreater() die-one-size die-two-size}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
-                    {{/rollGreater() die-one-size die-two-size}}
-                    {{#rollTotal() die-one-size die-two-size}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
-                    {{/rollTotal() die-one-size die-two-size}}
-                    {{#rollGreater() die-two-size die-one-size}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_2)</span>   
-                    {{/rollGreater() die-two-size die-one-size}}  
-                {{/rollLess() roll-adv 0}}
-
-                {{#rollTotal() roll-adv 0}}   
-                    {{#rollGreater() die-one-size 0}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
-                        <span class="push-link">[BOTH](~{{character-name}}|pushroll_12)</span>  
-                    {{/rollGreater() die-one-size 0}}
-                    <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>   
-                {{/rollTotal() roll-adv 0}}
-
-                {{#rollGreater() roll-adv 0}}  
-                    {{#^rollGreater() die-one-size die-two-size}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
-                        <span class="push-link">[1&2](~{{character-name}}|pushroll_13)</span>  
-                        <!-- <span class="push-link">[1&3](~{{character-name}}|pushroll_12)</span>   -->
-                        <span class="push-link">[2](~{{character-name}}|pushroll_3)</span>  
-                    {{/^rollGreater() die-one-size die-two-size}} 
-                    <!-- {{#rollTotal() die-one-size die-two-size}}
-                        <span class="push-link">[1&2](~{{character-name}}|pushroll_13)</span>   
-                        <span class="push-link">[2](~{{character-name}}|pushroll_3)</span>  
-                    {{/rollTotal() die-one-size die-two-size}}  -->
-                    {{#rollGreater() die-one-size die-two-size}}
-                        <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
-                        <span class="push-link">[1&2](~{{character-name}}|pushroll_12)</span> 
-                        <!-- <span class="push-link">[1&3](~{{character-name}}|pushroll_13)</span> -->  
-                        <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>     
-                    {{/rollGreater() die-one-size die-two-size}} 
-                    <span class="push-link">[ALL](~{{character-name}}|pushroll_123)</span>  
-                    <!-- {{#rollLess() die-two-size die-one-size}}    
-                        <span class="push-link">[2](~{{character-name}}|pushroll_2)</span> 
-                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span> 
-                    {{/rollLess() die-two-size die-one-size}} -->
-                    {{#^rollGreater() die-one-size die-two-size}}    
-                        <span class="push-link">[1&3](~{{character-name}}|pushroll_12)</span>   
-                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
-                        <span class="push-link">[3](~{{character-name}}|pushroll_2)</span>    
-                    {{/^rollGreater() die-one-size die-two-size}} 
-                    {{#rollGreater() die-one-size die-two-size}}    
-                        <span class="push-link">[1&3](~{{character-name}}|pushroll_13)</span>   
-                        <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
-                        <span class="push-link">[3](~{{character-name}}|pushroll_3)</span>    
-                    {{/rollGreater() die-one-size die-two-size}}  
-                    <!-- {{#^rollGreater() die-one-size die-two-size}}                     
-                        <span class="push-link">[3](~{{character-name}}|pushroll_3)</span>   
-                    {{/^rollGreater() die-one-size die-two-size}}     -->
-                {{/rollGreater() roll-adv 0}}    
+        {{^critroll}}
+            <div class="template-div w50pc border-234">
+                <span class="successes">Successes: </span>
             </div>
-            {{/rollGreater() push 0}}
-        {{/push}} 
+            <div class="template-div w50pc border-23">
+                <span class="failures">Failures: </span>
+            </div>
+            {{#push}}
+                {{#^rollGreater() push 0}}
+                    <div class="template-div w100pc border-234 push-button"> Maximum Push reached </div>
+                {{/^rollGreater() push 0}}
+                {{#rollGreater() push 0}}
+                    <div class="template-div w100pc border-24 push-button"> Push </div>
+                    <div class="template-div w100pc border-234 push-button">  
+                        {{#rollLess() roll-adv 0}}
+                            {{#rollGreater() die-one-size die-two-size}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
+                            {{/rollGreater() die-one-size die-two-size}}
+                            {{#rollTotal() die-one-size die-two-size}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>   
+                            {{/rollTotal() die-one-size die-two-size}}
+                            {{#rollGreater() die-two-size die-one-size}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_2)</span>   
+                            {{/rollGreater() die-two-size die-one-size}}  
+                        {{/rollLess() roll-adv 0}}
+
+                        {{#rollTotal() roll-adv 0}}   
+                            {{#rollGreater() die-one-size 0}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                                <span class="push-link">[BOTH](~{{character-name}}|pushroll_12)</span>  
+                            {{/rollGreater() die-one-size 0}}
+                            <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>   
+                        {{/rollTotal() roll-adv 0}}
+                        {{#rollGreater() roll-adv 0}}  
+                            {{#^rollGreater() die-one-size die-two-size}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                                <span class="push-link">[1&2](~{{character-name}}|pushroll_13)</span>  
+                                <span class="push-link">[2](~{{character-name}}|pushroll_3)</span>  
+                            {{/^rollGreater() die-one-size die-two-size}} 
+                            {{#rollGreater() die-one-size die-two-size}}
+                                <span class="push-link">[1](~{{character-name}}|pushroll_1)</span>  
+                                <span class="push-link">[1&2](~{{character-name}}|pushroll_12)</span>  
+                                <span class="push-link">[2](~{{character-name}}|pushroll_2)</span>     
+                            {{/rollGreater() die-one-size die-two-size}} 
+                            <span class="push-link">[ALL](~{{character-name}}|pushroll_123)</span>  
+                            {{#^rollGreater() die-one-size die-two-size}}    
+                                <span class="push-link">[1&3](~{{character-name}}|pushroll_12)</span>   
+                                <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
+                                <span class="push-link">[3](~{{character-name}}|pushroll_2)</span>    
+                            {{/^rollGreater() die-one-size die-two-size}} 
+                            {{#rollGreater() die-one-size die-two-size}}    
+                                <span class="push-link">[1&3](~{{character-name}}|pushroll_13)</span>   
+                                <span class="push-link">[2&3](~{{character-name}}|pushroll_23)</span>              
+                                <span class="push-link">[3](~{{character-name}}|pushroll_3)</span>    
+                            {{/rollGreater() die-one-size die-two-size}}  
+                        {{/rollGreater() roll-adv 0}}    
+                    </div>
+                {{/rollGreater() push 0}}
+            {{/push}}         
+        {{/critroll}}
+
+        {{#critroll}}
+            {{#rollTotal() critroll 1}}
+            <div class="template-div w50pc border-234">            
+                <span class="" title="Death save">Save: </span>
+                <span class="">
+                    <!-- PHYSICAL CRITS -->                      
+                    <!-- PIERCING -->
+                    {{#^rollTotal() critrolltype 1}}
+                        {{#^rollTotal() critrolltype 4}}
+                            {{#rollLess() die-one 5}} - {{/rollLess() die-one 5}}
+                            {{#rollBetween() die-one 5 7}} Shift {{/rollBetween() die-one 5 7}}
+                            {{#rollTotal() die-one 8}} - {{/rollTotal() die-one 8}}
+                            {{#rollTotal() die-one 9}} Round {{/rollTotal() die-one 9}}
+                            {{#rollTotal() die-one 10}} - {{/rollTotal() die-one 10}}
+                            {{#rollTotal() die-one 11}} Shift {{/rollTotal() die-one 11}}
+                            {{#rollTotal() die-one 12}} - {{/rollTotal() die-one 12}}
+                        {{/^rollTotal() critrolltype 4}}
+                    {{/^rollTotal() critrolltype 1}}
+                    <!-- CRUSHING -->
+                    {{#^rollTotal() critrolltype 0}}
+                        {{#^rollTotal() critrolltype 2}}
+                            {{#^rollTotal() critrolltype 3}}
+                                {{#rollLess() die-one 9}} - {{/rollLess() die-one 9}}
+                                {{#rollTotal() die-one 9}} Shift {{/rollTotal() die-one 9}}
+                                {{#rollBetween() die-one 10 11}} Round {{/rollBetween() die-one 10 11}}
+                                {{#rollTotal() die-one 12}} - {{/rollTotal() die-one 12}}
+                            {{/^rollTotal() critrolltype 3}}
+                        {{/^rollTotal() critrolltype 2}}
+                    {{/^rollTotal() critrolltype 0}}
+                </span>
+            </div>
+            <div class="template-div w50pc border-23">
+                <span class="" title="Healing time">Heal: </span>
+                <span class="">
+                    <!-- PHYSICAL CRITS -->  
+                    <!-- PIERCING -->
+                    {{#^rollTotal() critrolltype 1}}
+                        {{#^rollTotal() critrolltype 4}}
+                            {{#rollLess() die-one 4}} Week {{/rollLess() die-one 4}}
+                            {{#rollTotal() die-one 4}} Month {{/rollTotal() die-one 4}}
+                            {{#rollBetween() die-one 5 6}} Week {{/rollBetween() die-one 5 6}}
+                            {{#rollBetween() die-one 7 8}} Month {{/rollBetween() die-one 7 8}}
+                            {{#rollTotal() die-one 9}} Week {{/rollTotal() die-one 9}}
+                            {{#rollTotal() die-one 10}} Permanent {{/rollTotal() die-one 10}}
+                            {{#rollTotal() die-one 11}} Month {{/rollTotal() die-one 11}}
+                            {{#rollTotal() die-one 12}} - {{/rollTotal() die-one 12}}
+                        {{/^rollTotal() critrolltype 4}}
+                    {{/^rollTotal() critrolltype 1}}
+                    <!-- CRUSHING -->
+                    {{#^rollTotal() critrolltype 0}}
+                        {{#^rollTotal() critrolltype 2}}
+                            {{#^rollTotal() critrolltype 3}}
+                                {{#rollLess() die-one 3}} Week {{/rollLess() die-one 3}}
+                                {{#rollTotal() die-one 3}} Month {{/rollTotal() die-one 3}}
+                                {{#rollBetween() die-one 4 6}} Week {{/rollBetween() die-one 4 6}}
+                                {{#rollTotal() die-one 7}} Month {{/rollTotal() die-one 7}}
+                                {{#rollTotal() die-one 8}} Permanent {{/rollTotal() die-one 8}}
+                                {{#rollTotal() die-one 9}} Month {{/rollTotal() die-one 9}}
+                                {{#rollGreater() die-one 9}} Permanent {{/rollGreater() die-one 9}}
+                            {{/^rollTotal() critrolltype 3}}
+                        {{/^rollTotal() critrolltype 2}}
+                    {{/^rollTotal() critrolltype 0}}  
+                <!-- {{/rollTotal() critroll 1}}     -->              
+                </span>
+            </div>      
+            <div class="template-div w100pc border-234 comments">
+                <span class="comment">
+                    <!-- PIERCING -->
+                    {{#^rollTotal() critrolltype 1}}
+                        {{#^rollTotal() critrolltype 4}}
+                            {{#rollTotal() die-one 1}} Disadvantage to all OBSERVATION rolls. {{/rollTotal() die-one 1}}
+                            {{#rollTotal() die-one 2}} Disadvantage to FIREARMS and HAND-TO-HAND  COMBAT. {{/rollTotal() die-one 2}}
+                            {{#rollTotal() die-one 3}} Disadvantage to FIREARMS and OBSERVATION. {{/rollTotal() die-one 3}}
+                            {{#rollTotal() die-one 4}} Disadvantage to MOBILITY and FIREARMS
+                            rolls. {{/rollTotal() die-one 4}}
+                            {{#rollTotal() die-one 5}} Any MOBILITY roll re-opens the wound. {{/rollTotal() die-one 5}}
+                            {{#rollTotal() die-one 6}} Disadvantage to OBSERVATION and TECH. {{/rollTotal() die-one 6}}
+                            {{#rollTotal() die-one 7}} Disadvantage to STAMINA and MOBILITY. {{/rollTotal() die-one 7}}
+                            {{#rollTotal() die-one 8}} Instant death. {{/rollTotal() die-one 8}}
+                            {{#rollTotal() die-one 9}} You can't stand upright. Crawling is the only possible mode of movement. {{/rollTotal() die-one 9}}
+                            {{#rollTotal() die-one 10}} Instant death. {{/rollTotal() die-one 10}}
+                            {{#rollTotal() die-one 11}} You can't stand upright. Crawling is the only possible mode of movement. {{/rollTotal() die-one 11}}
+                            {{#rollGreater() die-one 11}} Instant death. {{/rollGreater() die-one 11}}
+                        {{/^rollTotal() critrolltype 4}}
+                    {{/^rollTotal() critrolltype 1}}
+                    <!-- CRUSHING -->
+                    {{#^rollTotal() critrolltype 0}}
+                        {{#^rollTotal() critrolltype 2}}
+                            {{#^rollTotal() critrolltype 3}}
+                            {{#rollTotal() die-one 1}} Disadvantage to MANIPULATION rolls. {{/rollTotal() die-one 1}}
+                            {{#rollTotal() die-one 2}} Disadvantage to OBSERVATION rolls. {{/rollTotal() die-one 2}}
+                            {{#rollTotal() die-one 3}} Disadvantage to FIREARMS and HAND-TO-HAND COMBAT. {{/rollTotal() die-one 3}}
+                            {{#rollTotal() die-one 4}} Disadvantage to FIREARMS and OBSERVATION. {{/rollTotal() die-one 4}}
+                            {{#rollTotal() die-one 5}} Disadvantage to MOBILITY rolls. {{/rollTotal() die-one 5}}
+                            {{#rollTotal() die-one 6}} Disadvantage to OBSERVATION and TECH. {{/rollTotal() die-one 6}}
+                            {{#rollTotal() die-one 7}} You can't stand upright. Crawling is the only possible mode of movement. {{/rollTotal() die-one 7}}
+                            {{#rollTotal() die-one 8}} One of your arms cannot be used. {{/rollTotal() die-one 8}}
+                            {{#rollTotal() die-one 9}} Disadvantage to STAMINA and MOBILITY. {{/rollTotal() die-one 9}}
+                            {{#rollTotal() die-one 10}} You cannot move at all. {{/rollTotal() die-one 10}}
+                            {{#rollTotal() die-one 11}} You can't stand upright. Crawling is the only possible mode of movement. {{/rollTotal() die-one 11}}
+                            {{#rollGreater() die-one 11}} Instant death. {{/rollGreater() die-one 11}}
+                            {{/^rollTotal() critrolltype 3}}
+                        {{/^rollTotal() critrolltype 2}}
+                    {{/^rollTotal() critrolltype 0}}  
+                <!-- {{/rollTotal() critroll 1}}   -->
+                </span>
+            </div>  
+            {{/rollTotal() critroll 1}}
+            
+            {{#rollTotal() critroll 2}}
+            <div class="template-div w100pc border-234 comments">
+                <span class="comment">
+                    <!-- HUMAN -->
+                    {{#rollTotal() critrolltype 1}}
+                            {{#rollTotal() die-one 1}} You're paralyzed by fear or indecision. You just can't force yourself to do anything
+                            at all, even to the point of putting your own life in jeopardy due to your inaction. {{/rollTotal() die-one 1}}
+                            {{#rollTotal() die-one 2}} You break down in despair – roleplay this effect as appropriate for the
+                            situation. During the breakdown, you can move to safety, but you can't perform any action that would
+                            require a skill roll. {{/rollTotal() die-one 2}}
+                            {{#rollTotal() die-one 3}} You surrender to whatever obstacle you are facing. In combat or conflict, you
+                            surrender to your adversary. In other situations, you just give up – see result #2 on this table. {{/rollTotal() die-one 3}}
+                            {{#rollTotal() die-one 4}} You lash out against a friendly or neutral character nearby. This could very well
+                            be another PC, and the row could even turn violent. The effect needs to be roleplayed. {{/rollTotal() die-one 4}}
+                            {{#rollTotal() die-one 5}} You can't take it anymore and just leave the scene, to go home, get drunk, get laid, or
+                            just wander the streets. You can't actively work on the case or make any skill rolls. {{/rollTotal() die-one 5}}
+                            {{#rollGreater() die-one 5}} You get the shakes, bad ones. You can continue to function, but with a disadvantage
+                            to all skill rolls, and no rolls can be pushed. {{/rollGreater() die-one 5}}
+                    {{/rollTotal() critrolltype 1}}
+                    <!-- REPLICANT -->
+                    {{#rollTotal() critrolltype 2}}
+                                {{#rollTotal() die-one 1}} You must immediately attack the nearest person, friendly
+                                or not. You won't stop until you or the target is Broken. After the spree is over, see result #2 on
+                                this table. {{/rollTotal() die-one 1}}
+                                {{#rollTotal() die-one 2}} You lose the will to live, and simply collapse on the ground. You just can't force yourself
+                                to do anything at all, even to the point of putting your own life in jeopardy due to your inaction. {{/rollTotal() die-one 2}}
+                                {{#rollTotal() die-one 3}} You break down in complete despair – roleplay this effect as appropriate
+                                for the situation. During the breakdown, you can move to safety, but you can't perform any action that
+                                would require a skill roll. {{/rollTotal() die-one 3}}
+                                {{#rollTotal() die-one 4}} You perform some act of physical self-harm. It won't be lethal, but will typically
+                                inflict one point of damage. If this makes you Broken, roll a D6 Crit Die on the appropriate table. {{/rollTotal() die-one 4}}
+                                {{#rollTotal() die-one 5}} You feel a strong urge to connect to someone emotionally, to talk to someone. It
+                                can be anyone around you. Roleplay this effect as appropriate. You cannot make any skill rolls and you
+                                will not leave, unless your life is in immediate danger. {{/rollTotal() die-one 5}}
+                                {{#rollGreater() die-one 5}} The stress pushes you forward to perform an extraordinary feat. You gain a bonus
+                                action that you can perform immediately, breaking the initiative order. You gain an advantage to the
+                                roll. After the action, see result #2 above. {{/rollGreater() die-one 5}}
+                    {{/rollTotal() critrolltype 2}}   
+                </span>
+            </div>  
+            {{/rollTotal() critroll 2}}
+        {{/critroll}}
+
         {{#comment}}
-        <div class="template-div w100pc border-234">
-            <span class="comments">{{comment}}</span>
+        <div class="template-div w100pc border-234 comments">
+            <span class="comment">{{comment}}</span>
         </div>
         {{/comment}}
         <!-- <div>
@@ -1648,7 +1887,7 @@
 
     /* TAB HANDLING */
     const buttonlist = ["character","timereport"];
-    clog(`Button list: ${buttonlist}`);
+    //clog(`Button list: ${buttonlist}`);
     _.each(buttonlist, (button) => {
         on(`clicked:${button}`, function() {
             setAttrs({
@@ -1660,26 +1899,28 @@
     const main_tabs = {"character":"character","timereport":"timereport"","config":"config"};
     _.mapObject(main_tabs, (main,tab) => {
         on(`clicked:${tab}`, function() {
-            clog(`${tab} button clicked`);
+            //clog(`${tab} button clicked`);
             setAttrs({ 
                 sheetTab: main
             });
-            clog(`Sheet tab Set To: ${main}`);
+            //clog(`Sheet tab Set To: ${main}`);
         });
     });*/
 
     /* SET MAX HEALTH */
-    on("change:health_max change:health_mod change:strength change:agility sheet:opened", async () => {
-        const attrs = await asw.getAttrs(['strength','agility','health_max','health_mod']);
-        const health = Math.ceil( ( int(attrs['strength']) + int(attrs['agility'])) / 4 ) + int(attrs['health_mod']);
-        clog(`Max health is ${health}`);
+    on("change:health_max change:health_mod change:strength change:agility change:charactertype sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['strength','agility','health_max','health_mod','charactertype']);
+        const replicant = int(attrs['charactertype']) === 2 ? 2 : 0; 
+        const health = Math.ceil( ( int(attrs['strength']) + int(attrs['agility'])) / 4 ) + int(attrs['health_mod']) + replicant;
+        //clog(`Max health is ${health}`);
         await asw.setAttrs({health_max: health});
     });
     /* SET MAX RESOLVE */
-    on("change:resolve_max change:resolve_mod change:intelligence change:empathy sheet:opened", async () => {
-        const attrs = await asw.getAttrs(['intelligence','empathy','resolve_max','resolve_mod']);
-        const resolve = Math.ceil( ( int(attrs['intelligence']) + int(attrs['empathy'])) / 4 ) + int(attrs['resolve_mod']);
-        clog(`Max resolve is ${resolve}`);
+    on("change:resolve_max change:resolve_mod change:intelligence change:empathy change:charactertype sheet:opened", async () => {
+        const attrs = await asw.getAttrs(['intelligence','empathy','resolve_max','resolve_mod','charactertype']);
+        const replicant = int(attrs['charactertype']) === 2 ? 2 : 0; 
+        const resolve = Math.ceil( ( int(attrs['intelligence']) + int(attrs['empathy'])) / 4 ) + int(attrs['resolve_mod']) - replicant;
+        //clog(`Max resolve is ${resolve}`);
         await asw.setAttrs({resolve_max: resolve});
     });
 
@@ -1689,7 +1930,7 @@
             //clog(`Secret roll update: ${JSON.stringify(ev)}`);
             const s = int(values.secretrolls);
             var r = "/w gm";
-            clog(`Secret rolls (${s}): `+ !( s == "0" || !s ));
+            //clog(`Secret rolls (${s}): `+ !( s == "0" || !s ));
             if ( s == "0" || !s ) {
                 r = "";
             } 
@@ -1719,26 +1960,26 @@
         let firstRoll = await startRoll(rollBase);
 
         //    rollValue = firstRoll.results.roll1.result;
-        clog(`First roll data: ${JSON.stringify(firstRoll)}`);
-        clog(`First roll results: ${JSON.stringify(firstRoll.results)}`);
+        //clog(`First roll data: ${JSON.stringify(firstRoll)}`);
+        //clog(`First roll results: ${JSON.stringify(firstRoll.results)}`);
         // Storing all the passthrough data required for the next roll in an Object helps for larger rolls
 
         /* let rollData = {
             roller: attrs.character_name,
         } */
         const results = firstRoll.results; 
-        clog(`results: ${JSON.stringify(results)}`);
-        clog(`die 1: ${JSON.stringify(results['die-one'])}`);
-        clog(`die 2: ${JSON.stringify(results['die-two'])}`);
-        clog(`die 1 adv: ${JSON.stringify(results['die-one-adv'])}`);
-        clog(`die 2 adv: ${JSON.stringify(results['die-two-adv'])}`);
+        //clog(`results: ${JSON.stringify(results)}`);
+        //clog(`die 1: ${JSON.stringify(results['die-one'])}`);
+        //clog(`die 2: ${JSON.stringify(results['die-two'])}`);
+        //clog(`die 1 adv: ${JSON.stringify(results['die-one-adv'])}`);
+        //clog(`die 2 adv: ${JSON.stringify(results['die-two-adv'])}`);
 
         const rollnameStr = rollname.startsWith("Push: ") ? rollname : "Push: "+rollname; 
 
-        clog(`ROll name is now: ${rollnameStr}`);
+        //clog(`ROll name is now: ${rollnameStr}`);
 
         clog(`Values for push are: ${rollnameStr}, ${dieone}, ${dietwo}, ${dieoneadv}, ${dietwoadv}, ${dieonesize}, ${dietwosize}, ${adv}, ${push}, ${results['die-one'].result}, ${results['die-one-adv'].result}, ${results['die-two'].result}, ${results['die-two-adv'].result} `);
-        clog(`Push die two advantage: ${JSON.stringify(dietwoadv)}`);
+        //clog(`Push die two advantage: ${JSON.stringify(dietwoadv)}`);
         await asw.setAttrs({
             pushrollname: rollnameStr,
             pushdieone: dieone,
@@ -1778,32 +2019,33 @@
 
     // Sheet rolls handler
     on(actionList, async (ev) => {
-        clog(`Starting first roll`);
+        //clog(`Starting first roll`);
         // We'll pretend we've done a getAttrs on the attacker's weapon for all the required values
         // Row ID's must be provided when using action buttons too, we'll skip all of that here though
-        clog(`First event: ${JSON.stringify(ev)}`);
+        //clog(`First event: ${JSON.stringify(ev)}`);
         //clog(`Event name: ${ev.htmlAttributes.name}`);  
 
         const rollAction = (ev.htmlAttributes.name).slice(4)||""; 
-        var rollName = ev.htmlAttributes['data-name']||""; 
+        var rollname = ev.htmlAttributes['data-name']||""; 
+
 
         var dieone = "0", dietwo = "0";
         const dieoneData = ev.htmlAttributes['data-die-one']; 
-        clog(`Die one Data: ${dieoneData}`);
+        //clog(`Die one Data: ${dieoneData}`);
         if ( dieoneData !== "0" ) {
             const dieoneStr = (dieoneData.split("@{",2)[1]).split("}")[0]; 
-            clog(`Die one test = ${JSON.stringify(dieoneStr)}`);
+            //clog(`Die one test = ${JSON.stringify(dieoneStr)}`);
             dieone = (await asw.getAttrs([dieoneStr]))[dieoneStr];
         }
-        clog(`Die one = ${dieone}`);
+        //clog(`Die one = ${dieone}`);
         const dietwoData = ev.htmlAttributes['data-die-two']; 
-        clog(`Die two Data: ${dietwoData}`);
+        //clog(`Die two Data: ${dietwoData}`);
         if ( dietwoData !== "0" ) {
             const dietwoStr = (dietwoData.split("@{",2)[1]).split("}")[0]; 
-            clog(`Die two test = ${JSON.stringify(dietwoStr)}`);
+            //clog(`Die two test = ${JSON.stringify(dietwoStr)}`);
             dietwo = (await asw.getAttrs([dietwoStr]))[dietwoStr];
         }
-        clog(`Die two = ${dietwo}`);
+        //clog(`Die two = ${dietwo}`);
         
         const advtge = ev.htmlAttributes['data-adv']||0; 
         var comment = ev.htmlAttributes['data-comment']||""; 
@@ -1812,27 +2054,31 @@
         const push = (await asw.getAttrs(['charactertype'])).charactertype;
         clog(`Picked up push amount: ${push}`);
 
-        let sourceAttribute = ev.sourceAttribute||""; 
-        clog(`Source attribute: ${sourceAttribute}`);
-        if ( sourceAttribute.startsWith("repeating_") ) {
-            let attributePrefix = sourceAttribute.slice(0, -13); 
-            clog(`Repeating attribute: ${attributePrefix}`);
-            const datarepeating = await asw.getAttrs([`${attributePrefix}_name`, `${attributePrefix}_comment`]);
-            comment = datarepeating[`${attributePrefix}_comment`];
-            rollName = datarepeating[`${attributePrefix}_name`];
+        var repeatingId = '';
+        //clog(`Testing sourceAttribute: ${!!(ev.sourceAttribute != undefined)}`);
+        //clog(`Testing sourceAttribute: ${!!(ev.sourceAttribute)}`);
+        //clog(`Testing sourceAttribute: ${!!(ev.sourceAttribute).startsWith('repeating_weapon')}`);
+        if ( ev.sourceAttribute != undefined && (ev.sourceAttribute).startsWith('repeating_weapon') ) {
+            repeatingId = (ev.sourceAttribute).split("_")[2];
+            //clog(`Repeating weapon id : ${repeatingId}`);           
+            const datarepeating = await asw.getAttrs([`repeating_weapon_${repeatingId}_name`, `repeating_weapon_${repeatingId}_comment`]);
+            comment = datarepeating[`repeating_weapon_${repeatingId}_comment`];
+            rollname = datarepeating[`repeating_weapon_${repeatingId}_name`];
+            //clog(`Repeating weapon name : ${rollname}`);
+            //clog(`Repeating weapon comment : ${comment}`);
         }
 
-        clog(`Roll action: ${rollAction}, roll name: ${rollName}, Die 1: ${"1D"+dieone}, Die 1 Size: ${dieone}, Die 2: ${"1D"+dietwo}, Die 2 Size: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
+        clog(`Roll action: ${rollAction}, roll name: ${rollname}, Die 1: ${"1D"+dieone}, Die 1 Size: ${dieone}, Die 2: ${"1D"+dietwo}, Die 2 Size: ${dietwo}, Push: ${push}, Advantage: ${advtge}`);
 
-        parsedRoll(rollName, "1D"+dieone, "1D"+dieone, dieone, "1D"+dietwo, "1D"+dietwo, dietwo, push, comment, advtge);
+        parsedRoll(rollname, "1D"+dieone, "1D"+dieone, dieone, "1D"+dietwo, "1D"+dietwo, dietwo, push, comment, advtge);
     });
 
     
     // Pushed roll handler
     on('clicked:pushroll clicked:pushroll_1 clicked:pushroll_12 clicked:pushroll_13 clicked:pushroll_2 clicked:pushroll_23 clicked:pushroll_3 clicked:pushroll_123', async (ev) => {
         clog(`Starting push roll`);
-        clog(`First event: ${JSON.stringify(ev)}`);
-        clog(`Push type: ${(ev.triggerName).split('_')[1]}`);  
+        //clog(`First event: ${JSON.stringify(ev)}`);
+        //clog(`Push type: ${(ev.triggerName).split('_')[1]}`);  
         const pushType = (ev.triggerName).split('_')[1];
 
         const pushedAttrs = await asw.getAttrs(["pushrollname", "pushrollcomment", "pushdieone", "pushdietwo", "pushdieoneadv", "pushdietwoadv", "pushdieonesize", "pushdietwosize", "pushrolladv", "push", "pushdieoner1", "pushdieoner2", "pushdietwor1", "pushdietwor2"]);
