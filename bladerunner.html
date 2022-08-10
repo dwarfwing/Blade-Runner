@@ -1,6 +1,6 @@
 
 <!-- SHEET INFO -->
-<input type="hidden" name="attr_sheetversion" value="1.00">
+<input type="hidden" name="attr_sheetversion" value="1.01">
 <input type="hidden" name="attr_version" value="0">
 <input type="hidden" name="attr_newchar" value="1">
 
@@ -135,7 +135,7 @@
                         <button id="initiative-roll" type="roll" name="initiative" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
                         <label for="initiative-roll" class="w100pc yellow text-center initiative-label" data-i18n="initiative-u">INITIATIVE</label>
                         <button id="initiative-token-roll" type="roll" name="initiativetoken" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10 &{tracker}]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
-                        <label for="initiative-token-roll" class="w100pc yellow text-center initiative-label smaller" data-i18n="tracker-brackets-u">(TRACKER)</label>
+                        <label for="initiative-token-roll" class="w100pc yellow text-center initiative-label smaller">(<span class="initiative-label text-center yellow smaller" data-i18n="tracker-u">TRACKER</span>)</label>
                     </div>
                     <div class="w100pc-4px secretrolls">
                         <label for="secretroll" class="yellow text-center pointer" data-i18n="secret-rolls-u">SECRET ROLLS</label><input type="checkbox" id="secretroll" name="attr_secretrolls" value="1" class="text-center" unchecked>
@@ -1506,10 +1506,10 @@
         </div>
         {{^critroll}}
             <div class="template-div w50pc border-234">
-                <span class="successes" data-i18n="successes">Successes: </span>
+                <span class="successes" data-i18n="successes-colon">Successes: </span>
             </div>
             <div class="template-div w50pc border-23">
-                <span class="failures" data-i18n="failures">Failures: </span>
+                <span class="failures" data-i18n="failures-colon">Failures: </span>
             </div>
             {{#push}}
                 {{#^rollGreater() push 0}}
