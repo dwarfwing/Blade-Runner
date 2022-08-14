@@ -566,7 +566,9 @@ select {
 .ui-dialog .charsheet .initiative-label:hover {
     background-color: rgb(180, 191, 146, 0.3); 
 }
-
+.ui-dialog .charsheet span.initiative-label {
+    margin-top: 0;
+}
 
 input[type="number"]:hover {
     -moz-appearance: auto;
@@ -705,6 +707,10 @@ div.main-box {
     margin-bottom: unset;
     color: #b4bf92;
     background-color: transparent;
+}
+.ui-dialog .charsheet .main-box div.attribute button.attribute {
+    font-weight: bold;
+    letter-spacing: 0.05rem;
 }
 .ui-dialog .charsheet button.attribute,
 .ui-dialog .charsheet button.skill,
@@ -1162,6 +1168,9 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner .sheet-push-link {
     padding: 1px;
     margin: 0 2px;
+}
+.sheet-rolltemplate-bladerunner .sheet-push-link span {
+    padding: 0;
 }
 .sheet-rolltemplate-bladerunner .sheet-push-button a[href^="~"] {
     background-color: transparent;
