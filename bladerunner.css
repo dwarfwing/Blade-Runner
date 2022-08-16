@@ -1211,11 +1211,11 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner .sheet-push-link:hover a { background-color:#92b9c3; color:#202427; }
 .sheet-rolltemplate-bladerunner .sheet-push-link:before { content: "[";}
 .sheet-rolltemplate-bladerunner .sheet-push-link:after { content: "]";} 
-.sheet-rolltemplate-bladerunner  span.sheet-result-1 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/fail-bl.png?raw=true');
+.sheet-rolltemplate-bladerunner  span.sheet-result-1 { 
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/1f7f874816c2242a6cbab21acbdf406203c883ff/images/fail-bl.png?raw=true);
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 30%;
+    background-size: 20%;
     background-position:  55% bottom;
     counter-increment: origami;
     padding-bottom: 9px;
@@ -1224,11 +1224,11 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner span.sheet-result-7,
 .sheet-rolltemplate-bladerunner span.sheet-result-8,
 .sheet-rolltemplate-bladerunner span.sheet-result-9 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true');
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/1f7f874816c2242a6cbab21acbdf406203c883ff/images/crosshair-bl.png?raw=true);
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 30%;
+    background-size: 20%;
     background-position: 50% bottom;
     counter-increment: eye;
     padding-bottom: 7px;
@@ -1236,28 +1236,17 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner  span.sheet-result-10,
 .sheet-rolltemplate-bladerunner span.sheet-result-11,
 .sheet-rolltemplate-bladerunner span.sheet-result-12 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true'), url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true');
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/1f7f874816c2242a6cbab21acbdf406203c883ff/images/crosshair-bl.png?raw=true), url(https://github.com/dwarfwing/Blade-Runner/blob/1f7f874816c2242a6cbab21acbdf406203c883ff/images/crosshair-bl.png?raw=true);
     background-color: transparent;
     background-repeat: no-repeat;  
     background-repeat: no-repeat, no-repeat;
     background-size: cover;
-    background-size: 25%;
+    background-size: 15%;
     background-position: bottom center;
     background-position: 30% bottom, 70% bottom;
     counter-increment: eye 2;
     padding-bottom: 7px;
 }
-/* .sheet-rolltemplate-bladerunner span.sheet-result-12 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true'), url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true'), url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true');
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: cover;
-    background-size: 20%;
-    background-position: center center;
-    background-position: 20% bottom, 50% bottom, 80% bottom;
-    counter-increment: eye 3;
-    padding-bottom: 7px;
-} */
+
 
 
