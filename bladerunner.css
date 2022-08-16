@@ -1,10 +1,17 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;700&family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow+Semi+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&family=Inconsolata&family=Source+Code+Pro&display=swap');
-@import url('https://fonts.cdnfonts.com/css/blade-runner-movie-font');
+/* @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@100;400;700&family=Barlow+Semi+Condensed:wght@100;400;700&family=Barlow:wght@100;400;700&family=Inconsolata&family=Source+Code+Pro&display=swap');
+ */
+ /* @import url('https://fonts.cdnfonts.com/css/blade-runner-movie-font'); */
+ @import url('http://fonts.cdnfonts.com/css/tox-typewriter?styles=18184&display=swap');
+ @import url("https://fonts.googleapis.com/css?family=Special+Elite|Anton|Abel|Chilanka|Delius&display=swap");
+/*  @font-face {
+    font-family: DaisyWheel;
+    src: url(https://github.com/dwarfwing/twilight2000/raw/main/Twilight%202000/assets/fonts/daisywhl.otf?raw=true) format("opentype");
+  } */
 
 html {
-    font-size: 16px; 
+    font-size: 14px; 
 }
 
 .characterviewer label {
@@ -34,7 +41,7 @@ html {
     background-color: #92b9c3;
 }
 .ui-dialog .charsheet div.grey-box {
-    background-color:#6e8991;
+    background-color:#abf9fa;
     color:#202429;
 }
 .background {
@@ -44,13 +51,14 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.jpg?raw=true');
+    -background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.jpg?raw=true');
     background-size: 100% 100%;
     background-position: center;
+    background-color: black;
 }
 
 .ui-dialog .charsheet div {
-    /* border: 1px solid #6e8991; */ 
+    /* border: 1px solid #abf9fa; */ 
     box-sizing: border-box;
     min-height: 2rem; 
     -height: 1.5rem;
@@ -59,42 +67,42 @@ html {
     align-content: center;   
 }
 .ui-dialog .charsheet .border-1234 {
-    border: 2px solid #6e8991; 
+    border: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-1 {
-    border-top: 2px solid #6e8991; 
+    border-top: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-12 {
-    border-top: 2px solid #6e8991;  
-    border-bottom: 2px solid #6e8991; 
+    border-top: 2px solid #abf9fa;  
+    border-bottom: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-123 {
-    border-top: 2px solid #6e8991; 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
+    border-top: 2px solid #abf9fa; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-2 { 
-    border-right: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-23 { 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-24 { 
-    border-right: 2px solid #6e8991; 
-    border-left: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-left: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-3 { 
-    border-bottom: 2px solid #6e8991; 
+    border-bottom: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-34 { 
-    border-bottom: 2px solid #6e8991; 
-    border-left: 2px solid #6e8991; 
+    border-bottom: 2px solid #abf9fa; 
+    border-left: 2px solid #abf9fa; 
 }
 .ui-dialog .charsheet .border-234 { 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
-    border-left: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
+    border-left: 2px solid #abf9fa; 
 }
 .yellow-border-bottom {
     border-bottom: 2px dashed #b4bf92;
@@ -160,7 +168,9 @@ html {
 .float-left { float: left; justify-self: left; justify-content: left;}
 .float-right { float: right; justify-self: right; justify-content: right;}
 .justify-right { display: flex; justify-content:right; justify-items: right; justify-self: right;}
+.justify-center { display: flex; justify-content:center; justify-items: center; justify-self:center;}
 .align-center { display: flex; align-content: center; align-items: center; align-self: center;}
+.align-top { display: flex; align-content: top; align-items: top; align-self: top;}
 
 .ui-dialog .charsheet div.align-center  {
     align-content: center;
@@ -186,6 +196,9 @@ html {
 
 /* TEXT & INPUT */
 
+.ui-dialog .charsheet .deadlands-noir {
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/dln-sm.jpg?raw=true); 
+}
 .ui-dialog .charsheet .blade-runner {
     font-family: 'Blade Runner Movie Font', sans-serif;
     color: #617b83;
@@ -216,7 +229,7 @@ html {
 }
 .profile-database {
     align-self: baseline;
-    font-family: 'Source Code Pro', 'Inconsolata', monospace;
+    -font-family: 'Source Code Pro', 'Inconsolata', monospace;
     color: #617b83;
     height: 50%;
     line-height: 1rem;
@@ -233,12 +246,15 @@ div, span, label, p, h1, h2, h3,
 .sheet-darkmode .characterviewer label,
 input, select, button {
     font-family: 'Barlow Condensed', 'Arimo', Helvetica, Arial, sans-serif; 
+    font-family: 'Tox Typewriter', sans-serif;
+    font-family: "Special Elite", "Abel";
     color: #92b9c3; 
     font-size: 1rem;
     font-weight: 400; 
 }
 input, select, textarea {
-    font-family: /* 'Barlow Semi Condensed',  */'Barlow Condensed','Arimo', Helvetica, Arial, sans-serif ;
+    font-family: 'Tox Typewriter', sans-serif;/* 'Barlow Semi Condensed',  'Barlow Condensed','Arimo', Helvetica, Arial, sans-serif ;*/
+    font-family:"Special Elite", "Abel";
     /* font-weight: bold; */
     color: #202429;
     font-size: 1rem;
@@ -698,8 +714,10 @@ div.main-box {
     appearance: unset;
     cursor: pointer;
     font-family: 'Barlow Condensed', 'Arimo', Helvetica, Arial, sans-serif;
+    font-family: 'Tox Typewriter', sans-serif;
+    font-family: "Special Elite", "Abel";
     line-height: 18px;
-    padding-top: 3px;
+    padding-top: 7px;
     margin-top: 0;
     text-indent: 0.5rem;
     font-weight: normal;
@@ -854,8 +872,9 @@ div.main-box {
     -margin-top: 0.5rem;
     padding-right: 0.5rem;
 }
-.ui-dialog .chasheet .dice-pool-header {
+.ui-dialog .charsheet span.dice-pool-header {
     margin-top: 0;
+    text-indent: 0;
 }
 
 /* HEALTH AND RESOLVE */
@@ -917,6 +936,7 @@ div.crit-effects {
 .ui-dialog .charsheet .repcontrol_del {
     appearance:unset;
     font-family: 'Barlow Condensed', 'Arimo'; 
+    font-family: 'Tox Typewriter', sans-serif;
     -color: #92b9c3;
     background-color: #cae2e4;
     -height: 1.2rem;
@@ -942,7 +962,7 @@ div.crit-effects {
     clear: both;
   }
 .ui-dialog .charsheet .repeating-weapons .repcontrol {
-    border-right: 2px solid #6e8991;
+    border-right: 2px solid #abf9fa;
 }
   
   .ui-dialog .charsheet .repcontrol_add,
@@ -1052,10 +1072,11 @@ div.crit-effects {
     -background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/main/images/background.png?raw=true);
     background-size: 100% 100%;
     background-position: center;
+    background-color: black;
 }
 .sheet-rolltemplate-bladerunner .sheet-template-div {
     box-sizing: border-box;    
-    /* border: 2px solid #6e8991;  */
+    /* border: 2px solid #abf9fa;  */
     min-height: 2.5rem; 
     height: 2.5rem;
     display: flex;
@@ -1067,6 +1088,8 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner div, 
 .sheet-rolltemplate-bladerunner span {
     font-family: 'Barlow Semi Condensed','Barlow','Barlow Condensed', Helvetica, Arial, sans-serif; 
+    font-family: 'Tox Typewriter', sans-serif;
+    font-family: "Special Elite", "Abel";
     color: #92b9c3; 
     font-size: 1.2rem;
     font-weight: 400; 
@@ -1098,34 +1121,34 @@ div.crit-effects {
 }
 
 .sheet-rolltemplate-bladerunner .sheet-border-1234 {
-    border: 2px solid #6e8991; 
+    border: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-123 { 
-    border-top: 2px solid #6e8991; 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
+    border-top: 2px solid #abf9fa; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-2 { 
-    border-right: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-23 { 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-234 { 
-    border-right: 2px solid #6e8991; 
-    border-bottom: 2px solid #6e8991; 
-    border-left: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-bottom: 2px solid #abf9fa; 
+    border-left: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-24 { 
-    border-right: 2px solid #6e8991; 
-    border-left: 2px solid #6e8991; 
+    border-right: 2px solid #abf9fa; 
+    border-left: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-4 { 
-    border-left: 2px solid #6e8991; 
+    border-left: 2px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-border-4-sm { 
-    border-left: 1px solid #6e8991; 
+    border-left: 1px solid #abf9fa; 
 }
 .sheet-rolltemplate-bladerunner .sheet-w25pc { width: 25%; min-width: 25%; max-width: 25%; box-sizing: border-box; } 
 .sheet-rolltemplate-bladerunner .sheet-w35pc { width: 35%; min-width: 35%; max-width: 35%; box-sizing: border-box; } 
@@ -1189,7 +1212,7 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner .sheet-push-link:before { content: "[";}
 .sheet-rolltemplate-bladerunner .sheet-push-link:after { content: "]";} 
 .sheet-rolltemplate-bladerunner  span.sheet-result-1 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/origami-bl.png?raw=true');
+    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/fail-bl.png?raw=true');
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 30%;
@@ -1201,7 +1224,7 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner span.sheet-result-7,
 .sheet-rolltemplate-bladerunner span.sheet-result-8,
 .sheet-rolltemplate-bladerunner span.sheet-result-9 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true');
+    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true');
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1213,7 +1236,7 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner  span.sheet-result-10,
 .sheet-rolltemplate-bladerunner span.sheet-result-11,
 .sheet-rolltemplate-bladerunner span.sheet-result-12 {
-    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true'), url('https://github.com/dwarfwing/Blade-Runner/blob/main/images/eye-blu.png?raw=true');
+    background-image: url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true'), url('https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/crosshair-bl.png?raw=true');
     background-color: transparent;
     background-repeat: no-repeat;  
     background-repeat: no-repeat, no-repeat;

@@ -45,15 +45,17 @@
             <label for="tabtimereport" class="border-2 h100pc sheet-tab" data-i18n="time-tracker-u">TIME TRACKER</label>
         </div>
         <div class="w60pc">
-            <div class="w100pc light-box"><span class="blade-runner">BLDE RUNNER</span></div>
+            <!-- <div class="w100pc light-box"><span class="blade-runner">BLDE RUNNER</span></div> -->
         </div>
-    </div>
+    </div> 
     <!-- <div class="border-3 w100pc grey-box text-center blade-runner">EARlY ACCESS</div> -->
 
     <div class="tab character w100pc">     
         <div class="border-23 w40pc logo light-box">
-            <img src="https://github.com/dwarfwing/Blade-Runner/blob/main/images/LAPD.png?raw=true">
-            <span class="profile-database" data-i18n="profile-database">Profile Database</span>
+            <!-- <img src="https://github.com/dwarfwing/Blade-Runner/blob/main/images/LAPD.png?raw=true"> -->
+            <!-- <span class="profile-database" data-i18n="profile-database">Profile Database</span> -->
+            <!-- <div class="w100pc light-box"><span class="deadlands-noir"></span></div> -->            
+            <img src="https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/dln-sm.jpg?raw=true">
         </div>
 
 
@@ -75,15 +77,15 @@
                 </div>            
             </div>
             <div class="w50pc h100pc align-center">
-                <span class="w100pc text-center" data-i18n="replicant-u">REPLICANT</span>
+                <span class="w100pc text-center" data-i18n="harrowed-u">HARROWED</span>
                 <div class="w100pc text-center">
                     <input type="radio" name="attr_charactertype" value="2" class="">
                 </div>            
             </div>
-        </div>
+        </div> 
 
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px  key-info">
+<!--         <div class="border-23 w20px">&nbsp;</div>
+        <div class="border-23 w100pc  key-info">
             <div class="border-2 w50pc key-memory align-top">
                 <span class="w100pc" data-i18n="key-memory-u">KEY MEMORY</span>
                 <textarea name="attr_keymemory" class=""></textarea>
@@ -93,10 +95,9 @@
                 <textarea name="attr_keyrelationship" class=""></textarea>            
             </div>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
+ -->
 
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px  home-info">
+        <div class="border-3 w100pc  home-info">
             <div class="border-2 w50pc home align-top">
                 <span class="w100pc" data-i18n="home-u">HOME</span>            
                 <textarea name="attr_homedescription" class=""></textarea>
@@ -107,29 +108,27 @@
                 <textarea name="attr_appearance" class=""></textarea>
             </div>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
-        
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="w100pc-40px">
+
+        <div class="w100pc">
             <div class="w50pc border-23  points">
                 <div class="border-23 w50pc force-years">
-                    <span class="w75pc" data-i18n="years-on-force-u">YEARS ON THE FORCE</span>
-                    <input type="number" name="attr_forceyears" class="w25pc-4px text-center" />
+                    <span class="w75pc" data-i18n="years-on-beat-u">YEARS ON THE BEAT</span>
+                    <input type="number" name="attr_beatyears" class="w25pc-4px text-center" />
                 </div>
                 <div class="border-3 w50pc promotion-points">
-                    <span class="w75pc" data-i18n="promotion-points-u">PROMOTION POINTS</span>
-                    <input type="number" name="attr_promotionpoints" class="w25pc-4px text-center" />
+                    <span class="w75pc" data-i18n="publicity-points-u">PUBLICITY</span>
+                    <input type="number" name="attr_publicity" class="w25pc-4px text-center" />
                 </div>
                 <div class="border-2 w50pc humanity-points">
-                    <span class="w75pc" data-i18n="humanity-points-u">HUMANITY POINTS</span>
-                    <input type="number" name="attr_humanitypoints" class="w25pc-4px text-center" />
+                    <span class="w75pc" data-i18n="moxie-points-u">MOXIE</span>
+                    <input type="number" name="attr_moxie" class="w25pc-4px text-center" />
                 </div>
                 <div class="w50pc chinyen-points">
-                    <span class="w75pc" data-i18n="chinyen-points-u">CHINYEN POINTS</span>
-                    <input type="number" name="attr_chinyenpoints" class="w25pc-4px text-center" />
+                    <span class="w75pc" data-i18n="moolah-points-u">MOOLAH</span>
+                    <input type="number" name="attr_moolah" class="w25pc-4px text-center" />
                 </div>
             </div>
-            <div class="w50pc border-23 customdice">
+            <div class="w50pc border-3 customdice">
                 <div class="w25pc border-2 text-center">
                     <div class="w100pc initiative">
                         <button id="initiative-roll" type="roll" name="initiative" value="@{rollcommand} &{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Initiative }} {{roll-adv=[[0]] }} {{die-one-size=[[10]]}} {{die-one=[[1D10]] }}  {{die-one-adv=[[1D10]] }}" class="hidden" hidden></button>
@@ -138,35 +137,40 @@
                         <label for="initiative-token-roll" class="w100pc yellow text-center initiative-label smaller">(<span class="initiative-label text-center yellow smaller" data-i18n="tracker-u">TRACKER</span>)</label>
                     </div>
                     <div class="w100pc-4px secretrolls">
-                        <label for="secretroll" class="yellow text-center pointer" data-i18n="secret-rolls-u">SECRET ROLLS</label><input type="checkbox" id="secretroll" name="attr_secretrolls" value="1" class="text-center" unchecked>
+                        <label for="secretroll" class="yellow text-center pointer smaller" data-i18n="secret-rolls-u">SECRET ROLLS</label><input type="checkbox" id="secretroll" name="attr_secretrolls" value="1" class="text-center" unchecked>
                     </div>
                     <!-- <input type="text" name="attr_customroll_name" class="w80pc" value="Custom roll" placeholder="Custom roll"> -->
                 </div>
-                <div class="w50pc border-2 dice-pool">                
-                    <span class="w33pc border-3 yellow smaller" data-i18n="die-one-u">DIE 1</span>
-                    <span class="w34pc border-3 yellow dice-pool-header" data-i18n="dice-pool-u">DICE POOL</span>
-                    <span class="w33pc border-3 yellow smaller" data-i18n="die-two-u">DIE 2</span>
-                    <input type="radio" name="attr_customdieone" id="customdieone0" value="0" class="customdie" hidden>
-                    <label for="customdieone0" class="customdie-label small" data-i18n="die-zero-u">X</label>
-                    <input type="radio" name="attr_customdieone" id="customdieone6" value="6" class="customdie" hidden>
-                    <label for="customdieone6" class="customdie-label small" data-i18n="die-six-u">D6</label>
-                    <input type="radio" name="attr_customdieone" id="customdieone8" value="8" class="customdie" hidden>
-                    <label for="customdieone8" class="customdie-label small" data-i18n="die-eight-u">D8</label>
-                    <input type="radio" name="attr_customdieone" id="customdieone10" value="10" class="customdie" hidden>
-                    <label for="customdieone10" class="customdie-label small" data-i18n="die-ten-u">D10</label>
-                    <input type="radio" name="attr_customdieone" id="customdieone12" value="12" class="customdie" hidden>
-                    <label for="customdieone12" class="customdie-label small" data-i18n="die-twelve-u">D12</label>
-                    <span class="separator border-2">&nbsp;</span>
-                    <input type="radio" name="attr_customdietwo" id="customdietwo0" value="0" class="customdie" hidden>
-                    <label for="customdietwo0" class="customdie-label small" data-i18n="die-zero-u">X</label>
-                    <input type="radio" name="attr_customdietwo" id="customdietwo6" value="6" class="customdie" hidden>
-                    <label for="customdietwo6" class="customdie-label small" data-i18n="die-six-u">D6</label>
-                    <input type="radio" name="attr_customdietwo" id="customdietwo8" value="8" class="customdie" hidden>
-                    <label for="customdietwo8" class="customdie-label small" data-i18n="die-eight-u">D8</label>
-                    <input type="radio" name="attr_customdietwo" id="customdietwo10" value="10" class="customdie" hidden>
-                    <label for="customdietwo10" class="customdie-label small" data-i18n="die-ten-u">D10</label>
-                    <input type="radio" name="attr_customdietwo" id="customdietwo12" value="12" class="customdie" hidden>
-                    <label for="customdietwo12" class="customdie-label small" data-i18n="die-twelve-u">D12</label>
+                <div class="w50pc border-2 dice-pool">       
+                    <div class="w100pc h50pc dice-pool">         
+                        <span class="w33pc border-3 yellow smaller" data-i18n="die-one-u">DIE 1</span>
+                        <span class="w34pc border-3 yellow dice-pool-header" data-i18n="dice-pool-u">DICE POOL</span>
+                        <span class="w33pc border-3 yellow smaller" data-i18n="die-two-u">DIE 2</span>
+                    </div>
+                    <div class="w100pc h50pc dice-pool">
+                       <input type="radio" name="attr_customdieone" id="customdieone0" value="0" class="customdie" hidden>
+                        <label for="customdieone0" class="customdie-label small" data-i18n="die-zero-u">X</label>
+                        <input type="radio" name="attr_customdieone" id="customdieone6" value="6" class="customdie" hidden>
+                        <label for="customdieone6" class="customdie-label small" data-i18n="die-six-u">D6</label>
+                        <input type="radio" name="attr_customdieone" id="customdieone8" value="8" class="customdie" hidden>
+                        <label for="customdieone8" class="customdie-label small" data-i18n="die-eight-u">D8</label>
+                        <input type="radio" name="attr_customdieone" id="customdieone10" value="10" class="customdie" hidden>
+                        <label for="customdieone10" class="customdie-label small" data-i18n="die-ten-u">D10</label>
+                        <input type="radio" name="attr_customdieone" id="customdieone12" value="12" class="customdie" hidden>
+                        <label for="customdieone12" class="customdie-label small" data-i18n="die-twelve-u">D12</label>
+                        <span class="separator border-2">&nbsp;</span>
+                        <input type="radio" name="attr_customdietwo" id="customdietwo0" value="0" class="customdie" hidden>
+                        <label for="customdietwo0" class="customdie-label small" data-i18n="die-zero-u">X</label>
+                        <input type="radio" name="attr_customdietwo" id="customdietwo6" value="6" class="customdie" hidden>
+                        <label for="customdietwo6" class="customdie-label small" data-i18n="die-six-u">D6</label>
+                        <input type="radio" name="attr_customdietwo" id="customdietwo8" value="8" class="customdie" hidden>
+                        <label for="customdietwo8" class="customdie-label small" data-i18n="die-eight-u">D8</label>
+                        <input type="radio" name="attr_customdietwo" id="customdietwo10" value="10" class="customdie" hidden>
+                        <label for="customdietwo10" class="customdie-label small" data-i18n="die-ten-u">D10</label>
+                        <input type="radio" name="attr_customdietwo" id="customdietwo12" value="12" class="customdie" hidden>
+                        <label for="customdietwo12" class="customdie-label small" data-i18n="die-twelve-u">D12</label> 
+                    </div>
+                    
                 </div>
                 <div class="w25pc custom-roll center">
                     <div class="w100pc h50pc">
@@ -189,10 +193,8 @@
                 </div>         
             </div>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
 
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px  attributes-skills-header">
+        <div class="border-3 w100pc  attributes-skills-header">
             <div class="w75pc"><span data-i18n="attributes-skills-u">ATTRIBUTES & SKILLS</span></div>
             <!-- <div class="w25pc border-2 secretrolls">
                 <span class="yellow text-center">SECRET ROLLS</span><input type="checkbox" name="attr_secretrolls" value="1" class="text-center" unchecked>
@@ -204,11 +206,10 @@
                 <div class="w20pc smaller text-center die" data-i18n="die-u">DIE</div>
             </div>        
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
 
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="w100pc-40px attributes-skills">
-            <div class="w25pc border-23">
+
+        <div class="w100pc attributes-skills">
+            <div class="w25pc border-23 align-top">
                 <div class="border-3 w60pc  table-header"></div>
                 <div class="border-23 w20pc  table-header smaller text-center rating" data-i18n="rating-u">RATING</div>
                 <div class="border-3 w20pc  table-header smaller text-center die" data-i18n="die-u">DIE</div>
@@ -278,7 +279,7 @@
                     </div>
                 </div>
                 <div class="w100pc  skill-row">
-                <div class="w60pc skill">
+                <div class="w60pc yellow-border-bottom skill">
                         <button type="action" name="act_staminarolladv" data-name="Stamina" data-die-one="@{strength}" data-die-two="@{stamina}" data-die-one-size="@{strength}" data-die-two-size="@{stamina}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
                         <!-- <button type="roll" id="staminaroll-adv" name="stamina-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stamina }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{stamina}]]}} {{die-one=[[1D@{strength}]] }} {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1d@{stamina}]] }} {{die-two-adv=[[1d@{stamina}]] }}" data-i18n="advantage-abbr-u">ADV</button> -->
                         <!-- <label for="staminaroll" class="yellow skill">Stamina</label> -->
@@ -303,7 +304,7 @@
                 </div>
 
             </div>
-            <div class="w25pc border-23">
+            <div class="w25pc border-23 align-top">
                 <div class="border-3 w60pc  table-header"></div>
                 <div class="border-23 w20pc  table-header smaller text-center rating" data-i18n="rating-u">RATING</div>
                 <div class="border-3 w20pc  table-header smaller text-center die" data-i18n="die-u">DIE</div>
@@ -378,7 +379,7 @@
                     </div>
                 </div>
                 <div class="w100pc  skill-row">
-                    <div class="w60pc skill">
+                    <div class="w60pc yellow-border-bottom skill">
                         <!-- <button type="roll" id="stealthroll-adv" name="stealth-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=Stealth }} {{roll-adv=[[1]] }} {{die-one-size=[[@{agility}]]}} {{die-two-size=[[@{stealth}]]}} {{die-one=[[1D@{agility}]] }} {{die-one-adv=[[1D@{agility}]] }} {{die-two=[[1D@{stealth}]] }} {{die-two-adv=[[1D@{stealth}]] }}" data-i18n="advantage-abbr-u">ADV</button>
                         <label for="stealthroll" class=" yellow skill">Stealth</label> -->
                         <button type="action" name="act_stealthrolladv" data-name="Stealth" data-die-one="@{agility}" data-die-two="@{stealth}" data-die-one-size="@{agility}" data-die-two-size="@{stealth}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
@@ -401,7 +402,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w25pc border-23">
+            <div class="w25pc border-23 align-top">
                 <div class="border-3 w60pc "></div>
                 <div class="border-23 w20pc  table-header smaller text-center rating" data-i18n="rating-u">RATING</div>
                 <div class="border-3 w20pc  table-header smaller text-center die" data-i18n="die-u">DIE</div>
@@ -474,7 +475,7 @@
                 </div>
                 
                 <div class="w100pc  skill-row">
-                    <div class="w60pc  skill">
+                    <div class="w60pc  yellow-border-bottom skill">
                         <button type="action" name="act_techrolladv" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
                         <button type="action" name="act_techroll" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="0" data-push="@{charactertype}" class="yellow skill" data-i18n="tech">Tech</button>
                         <button type="action" name="act_techrolldis" data-name="Tech" data-die-one="@{intelligence}" data-die-two="@{tech}" data-die-one-size="@{intelligence}" data-die-two-size="@{tech}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage" data-i18n="disadvantage-abbr-u">DIS</button>
@@ -495,9 +496,33 @@
                         <span type="text" name="attr_tech" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
                         <button type="action" name="act_techrollhelp" class="w100pc help-button" data-name="Help: Tech" data-die-one="0" data-die-two="@{tech}" data-die-one-size="0" data-die-two-size="@{tech}" data-die-one-size="0" data-die-two-size="@{tech}" data-adv="0" data-push="@{charactertype}" data-i18n="help-u">HELP</button>
                     </div>
+                </div>  
+                
+                <div class="w100pc  skill-row">
+                    <div class="w60pc yellow-border-bottom skill">
+                        <button type="action" name="act_spellcastingrolladv" data-name="spellcasting" data-die-one="@{intelligence}" data-die-two="@{spellcasting}" data-die-one-size="@{intelligence}" data-die-two-size="@{spellcasting}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
+                        <button type="action" name="act_spellcastingroll" data-name="spellcasting" data-die-one="@{intelligence}" data-die-two="@{spellcasting}" data-die-one-size="@{intelligence}" data-die-two-size="@{spellcasting}" data-adv="0" data-push="@{charactertype}" class="yellow skill" data-i18n="spellcasting">Spellcasting</button>
+                        <button type="action" name="act_spellcastingrolldis" data-name="spellcasting" data-die-one="@{intelligence}" data-die-two="@{spellcasting}" data-die-one-size="@{intelligence}" data-die-two-size="@{spellcasting}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <!-- <button type="roll" id="spellcastingroll-adv" name="spellcasting-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=spellcasting }} {{roll-adv=[[1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{spellcasting}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{spellcasting}]] }} {{die-two-adv=[[1D@{spellcasting}]] }}" data-i18n="advantage-abbr-u">ADV</button>
+                        <label for="spellcastingroll" class="yellow skill">spellcasting</label>
+                        <button type="roll" id="spellcastingroll-dis" name="spellcasting-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=spellcasting }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{spellcasting}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{spellcasting}]] }} {{die-two-adv=[[1D@{spellcasting}]] }}" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <button type="roll" hidden id="spellcastingroll" name="spellcasting-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=spellcasting }} {{roll-adv=[[0]] }} {{die-one-size=[[@{intelligence}]]}} {{die-two-size=[[@{spellcasting}]]}} {{die-one=[[1D@{intelligence}]] }} {{die-one-adv=[[1D@{intelligence}]] }} {{die-two=[[1D@{spellcasting}]] }} {{die-two-adv=[[1D@{spellcasting}]] }}"></button> -->
+                    </div>
+                    <div class="w20pc lighter-box skill-rank">
+                        <select name="attr_spellcasting" class="w100pc-4px">
+                            <option value="12">A</option>
+                            <option value="10">B</option>
+                            <option value="8">C</option>
+                            <option value="6" selected>D</option>
+                        </select>
+                    </div>
+                    <div class="w20pc lighter-box skill-die">
+                        <span type="text" name="attr_spellcasting" class="w100pc-4px skill-d-die text-center" disabled readonly></span>
+                        <button type="action" name="act_spellcastingrollhelp" class="w100pc help-button" data-name="Help: spellcasting" data-die-one="0" data-die-two="@{spellcasting}" data-die-one-size="0" data-die-two-size="@{spellcasting}" data-die-one-size="0" data-die-two-size="@{spellcasting}" data-adv="0" data-push="@{charactertype}" data-i18n="help-u">HELP</button>
+                    </div>
                 </div>            
             </div>
-            <div class="w25pc border-23">
+            <div class="w25pc border-3 align-top">
                 <div class="w100pc  skill-row">
                     <div class="border-3 w40pc lighter-box skill">
                         <button type="action" name="act_drivingrolladv" data-name="Driving" data-die-one="@{manouverability}" data-die-two="@{driving}" data-die-one-size="@{manouverability}" data-die-two-size="@{driving}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
@@ -598,7 +623,7 @@
                 </div>
                 
                 <div class="w100pc  skill-row">
-                    <div class="w60pc  skill">
+                    <div class="w60pc  yellow-border-bottom skill">
                         <button type="action" name="act_manipulationrolladv" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
                         <button type="action" name="act_manipulationroll" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="0" data-push="@{charactertype}" class="yellow skill" data-i18n="manipulation">Manipulation</button>
                         <button type="action" name="act_manipulationrolldis" data-name="Manipulation" data-die-one="@{empathy}" data-die-two="@{manipulation}" data-die-one-size="@{empathy}" data-die-two-size="@{manipulation}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage" data-i18n="disadvantage-abbr-u">DIS</button>
@@ -621,13 +646,59 @@
                     </div>
                 </div>
                 
+                <div class="w100pc  skill-row">
+                    <div class="w60pc  yellow-border-bottom skill">
+                        <button type="action" name="act_performrolladv" data-name="perform" data-die-one="@{empathy}" data-die-two="@{perform}" data-die-one-size="@{empathy}" data-die-two-size="@{perform}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
+                        <button type="action" name="act_performroll" data-name="perform" data-die-one="@{empathy}" data-die-two="@{perform}" data-die-one-size="@{empathy}" data-die-two-size="@{perform}" data-adv="0" data-push="@{charactertype}" class="yellow skill" data-i18n="perform">Perform</button>
+                        <button type="action" name="act_performrolldis" data-name="perform" data-die-one="@{empathy}" data-die-two="@{perform}" data-die-one-size="@{empathy}" data-die-two-size="@{perform}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <!-- <button type="roll" id="performroll-adv" name="perform-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=perform }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{perform}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{perform}]] }} {{die-two-adv=[[1D@{perform}]] }}" data-i18n="advantage-abbr-u">ADV</button>
+                        <label for="performroll" class="yellow skill">perform</label>
+                        <button type="roll" id="performroll-dis" name="perform-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=perform }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{perform}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{perform}]] }} {{die-two-adv=[[1D@{perform}]] }}" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <button type="roll" hidden id="performroll" name="perform-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=perform }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{perform}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{perform}]] }} {{die-two-adv=[[1D@{perform}]] }}"></button> -->
+                    </div>
+                    <div class="w20pc lighter-box skill-rank">
+                        <select name="attr_perform" class="w100pc-4px">
+                            <option value="12">A</option>
+                            <option value="10">B</option>
+                            <option value="8">C</option>
+                            <option value="6" selected>D</option>
+                        </select>
+                    </div>
+                    <div class="w20pc lighter-box skill-die">
+                        <span type="text" name="attr_perform" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
+                        <button type="action" name="act_performrollhelp" class="w100pc help-button" data-name="Help: perform" data-die-one="0" data-die-two="@{perform}" data-die-one-size="0" data-die-two-size="@{perform}" data-die-one-size="0" data-die-two-size="@{perform}" data-adv="0" data-push="@{charactertype}" data-i18n="help-u">HELP</button>
+                    </div>
+                </div>
+                
+                <div class="w100pc  skill-row">
+                    <div class="w60pc skill">
+                        <button type="action" name="act_voodoorolladv" data-name="voodoo" data-die-one="@{empathy}" data-die-two="@{voodoo}" data-die-one-size="@{empathy}" data-die-two-size="@{voodoo}" data-adv="1" data-push="@{charactertype}" class="adv-button advantage" data-i18n="advantage-abbr-u">ADV</button>
+                        <button type="action" name="act_voodooroll" data-name="voodoo" data-die-one="@{empathy}" data-die-two="@{voodoo}" data-die-one-size="@{empathy}" data-die-two-size="@{voodoo}" data-adv="0" data-push="@{charactertype}" class="yellow skill" data-i18n="voodoo">Voodoo</button>
+                        <button type="action" name="act_voodoorolldis" data-name="voodoo" data-die-one="@{empathy}" data-die-two="@{voodoo}" data-die-one-size="@{empathy}" data-die-two-size="@{voodoo}" data-adv="-1" data-push="@{charactertype}" class="adv-button disadvantage" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <!-- <button type="roll" id="voodooroll-adv" name="voodoo-roll" class="adv-button advantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=voodoo }} {{roll-adv=[[1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{voodoo}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{voodoo}]] }} {{die-two-adv=[[1D@{voodoo}]] }}" data-i18n="advantage-abbr-u">ADV</button>
+                        <label for="voodooroll" class="yellow skill">voodoo</label>
+                        <button type="roll" id="voodooroll-dis" name="voodoo-roll" class="adv-button disadvantage" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=voodoo }} {{roll-adv=[[-1]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{voodoo}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{voodoo}]] }} {{die-two-adv=[[1D@{voodoo}]] }}" data-i18n="disadvantage-abbr-u">DIS</button>
+                        <button type="roll" hidden id="voodooroll" name="voodoo-roll" class="hidden" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=voodoo }} {{roll-adv=[[0]] }} {{die-one-size=[[@{empathy}]]}} {{die-two-size=[[@{voodoo}]]}} {{die-one=[[1D@{empathy}]] }} {{die-one-adv=[[1D@{empathy}]] }} {{die-two=[[1D@{voodoo}]] }} {{die-two-adv=[[1D@{voodoo}]] }}"></button> -->
+                    </div>
+                    <div class="w20pc lighter-box skill-rank">
+                        <select name="attr_voodoo" class="w100pc-4px">
+                            <option value="12">A</option>
+                            <option value="10">B</option>
+                            <option value="8">C</option>
+                            <option value="6" selected>D</option>
+                        </select>
+                    </div>
+                    <div class="w20pc lighter-box skill-die">
+                        <span type="text" name="attr_voodoo" class="w100pc-4px skill-d-die text-center " disabled readonly></span>
+                        <button type="action" name="act_voodoorollhelp" class="w100pc help-button" data-name="Help: voodoo" data-die-one="0" data-die-two="@{voodoo}" data-die-one-size="0" data-die-two-size="@{voodoo}" data-die-one-size="0" data-die-two-size="@{voodoo}" data-adv="0" data-push="@{charactertype}" data-i18n="help-u">HELP</button>
+                    </div>
+                </div>
+                
             </div>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
 
-        <div class="border-2 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px  weapon-header">
-            <div class="w20pc "><span data-i18n="weapons-u">WEAPONS</span></div> 
+        <div class="border-3 w100pc  weapon-header">
+            <div class="w20pc "><span data-i18n="offence-u">OFFENCE</span></div> 
             <div class="w5pc  text-center smaller" data-i18n="damage-u">DAMAGE</div>
             <div class="w8pc  text-center smaller" data-i18n="crit-u">CRIT</div>
             <div class="w12pc  text-center smaller" data-i18n="type-u">TYPE</div>
@@ -636,11 +707,10 @@
             <div class="w8pc  text-center smaller" data-i18n="range-max-u">MAX RANGE</div>
             <div class="w22pc  text-center smaller" data-i18n="comment-u">COMMENT</div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        <div class="border-2 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px weapon-row">
+
+        <div class="border-3 w100pc weapon-row">
             <div class="border-2 w20pc">
-                <input type="text" spellcheck="false" name="attr_weapon1_name" class="" />
+                <input type="text" spellcheck="false" name="attr_weapon1_name" class="w100pc-4px" />
             </div>
             <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon1_damage" class="w100pc-4px text-center" />
@@ -667,9 +737,9 @@
                 </select>
             </div>
             <input type="radio" id="combatclose1" name="attr_weapon1_combattype" value="@{handtohand}" class="w3pc cc" hidden />
-            <label for="combatclose1" class="border-2 w3pc toggle-box" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
+            <label for="combatclose1" class="border-2 w3pc toggle-box smaller" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
             <input type="radio" id="combatranged1" name="attr_weapon1_combattype" value="@{firearms}" class="w3pc rc" hidden checked /> 
-            <label for="combatranged1" class="border-2 w3pc toggle-box" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
+            <label for="combatranged1" class="border-2 w3pc toggle-box smaller" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
             <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon1_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
@@ -713,11 +783,10 @@
                 <button type="roll" name="weapon1cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon1_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon1_comment} }}" data-i18n="roll-abbr-u">ROLL</button>
             </div> -->
         </div>
-        <div class="w20px">&nbsp;</div>
-        <div class="border-2 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px weapon-row">
+
+        <div class="border-3 w100pc weapon-row">
             <div class="border-2 w20pc">
-                <input type="text" spellcheck="false" name="attr_weapon2_name" class="" />
+                <input type="text" spellcheck="false" name="attr_weapon2_name" class="w100pc-4px" />
             </div>
             <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon2_damage" class="w100pc-4px text-center" />
@@ -744,9 +813,9 @@
                 </select>
             </div>
             <input type="radio" id="combatclose2" name="attr_weapon2_combattype" value="@{handtohand}" class="cc" hidden />
-            <label for="combatclose2" class="border-2 w3pc toggle-box" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
+            <label for="combatclose2" class="border-2 w3pc toggle-box smaller" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
             <input type="radio" id="combatranged2" name="attr_weapon2_combattype" value="@{firearms}" class="rc" hidden checked />
-            <label for="combatranged2" class="border-2 w3pc toggle-box" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
+            <label for="combatranged2" class="border-2 w3pc toggle-box smaller" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
             <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon2_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
@@ -790,11 +859,10 @@
                 <button type="roll" name="weapon2cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon2_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon2_comment} }}" data-i18n="roll-abbr-u">ROLL</button>
             </div> -->
         </div>
-        <div class="w20px">&nbsp;</div>
-        <div class="border-2 w20px">&nbsp;</div>
-        <div class="border-23 border-box w100pc-40px weapon-row">
+
+        <div class="border-3 border-box w100pc weapon-row">
             <div class="border-2 w20pc">
-                <input type="text" spellcheck="false" name="attr_weapon3_name" class="" />
+                <input type="text" spellcheck="false" name="attr_weapon3_name" class="w100pc-4px" />
             </div>
             <div class="border-2 w5pc lighter-box">
                 <input type="number" name="attr_weapon3_damage" class="w100pc-4px text-center" />
@@ -821,9 +889,9 @@
                 </select>
             </div>
             <input type="radio" id="combatclose3" name="attr_weapon3_combattype" value="@{handtohand}" class="cc" hidden />
-            <label for="combatclose3" class="border-2 w3pc lighter-box toggle-box" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
+            <label for="combatclose3" class="border-2 w3pc lighter-box toggle-box smaller" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
             <input type="radio" id="combatranged3" name="attr_weapon3_combattype" value="@{firearms}" class="rc" hidden checked />
-            <label for="combatranged3" class="border-2 w3pc lighter-box toggle-box" title="Ranged combat" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
+            <label for="combatranged3" class="border-2 w3pc lighter-box toggle-box smaller" title="Ranged combat" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
             <div class="border-2 w8pc lighter-box">
                 <select type="text" name="attr_weapon3_minrange" class="w100pc-4px text-center" >   
                     <option value="" selected disabled></option>             
@@ -868,13 +936,12 @@
                 <button type="roll" name="weapon3cc" class="w100pc h100pc cc" value="&{template:bladerunner} {{character-name=@{character_name}}} {{roll-name=@{weapon3_name} }} {{roll-adv=[[0]] }} {{die-one-size=[[@{strength}]]}} {{die-two-size=[[@{handtohand}]]}} {{die-one=[[1D@{strength}]] }}  {{die-one-adv=[[1D@{strength}]] }} {{die-two=[[1D@{handtohand}]] }} {{die-two-adv=[[1D@{handtohand}]] }} {{comment=@{weapon3_comment} }}" data-i18n="roll-abbr-u">ROLL</button>
             </div> -->
         </div>
-        <div class="w20px">&nbsp;</div>
-        <div class="border-23 w20px">&nbsp;</div>    
-        <div class="border-3 w100pc-40px weapon-row repeating-weapons">
+ 
+        <div class="border-3 w100pc weapon-row repeating-weapons">
             <fieldset class="repeating_weapon">
-                <div class="border-23 w100pc repeating-weapon">
+                <div class="border-3 w100pc repeating-weapon">
                     <div class="border-2 w20pc">
-                        <input type="text" name="attr_name" spellcheck="false" class="" />
+                        <input type="text" name="attr_name" spellcheck="false" class="w100pc-4px" />
                     </div>
                     <div class="border-2 w5pc lighter-box">
                         <input type="number" name="attr_damage" class="w100pc-4px text-center" />
@@ -901,9 +968,9 @@
                         </select>
                     </div>
                     <input type="radio" name="attr_combattype" title="Hand-to-Hand combat" value="@{handtohand}" class="border-23 w3pc toggle-box repeating-toggle-box close-combat cc" />
-                    <label class="border-2 w3pc toggle-box repeating-toggle-box" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
+                    <label class="border-2 w3pc toggle-box repeating-toggle-box smaller" title="Hand-to-Hand combat" data-i18n="handtohand-abbr-u" data-i18n-title="handtohand">HtH</label>
                     <input type="radio" name="attr_combattype" title="Ranged combat" value="@{firearms}" class="border-23 w3pc toggle-box repeating-toggle-box ranged-combat rc" checked>
-                    <label class="border-2 w3pc toggle-box repeating-toggle-box" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
+                    <label class="border-2 w3pc toggle-box repeating-toggle-box smaller" data-i18n="ranged-combat-abbr-u" data-i18n-title="ranged-combat">RC</label>
                     <div class="border-2 w8pc lighter-box">
                         <select type="text" name="attr_minrange" class="w100pc-4px text-center" >   
                             <option value="" selected disabled></option>             
@@ -949,12 +1016,10 @@
                 </div>
             </fieldset>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
-        
 
-        <div class="border-23 w20px">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
-            <div class="border-2 w33pc  align-top">
+        
+        <div class="border-3 w100pc">
+            <div class="border-2 w25pc  align-top">
                 <span class="w100pc " data-i18n="specialities-u">SPECIALITIES</span>
                 <fieldset class="repeating_specialities">
                     <div class="w100pc repeating-specialities">
@@ -963,10 +1028,24 @@
                 </fieldset>
                 <!-- <textarea class=""></textarea> -->
             </div>
-            <div class="border-2 w34pc  align-top">
+            <div class="border-2 w25pc  align-top">
+                <div class="border-3 w100pc promotion-points">
+                    <span class="w50pc" data-i18n="power-points-u">POWER</span>
+                    <input type="number" name="attr_powerpoints" min="0" placeholder="CURR." class="w25pc-4px text-center" />
+                    <input type="number" name="attr_powerpoints_max" min="0" placeholder="MAX" class="w25pc-4px text-center" />
+                </div>
+                <span class="w100pc " data-i18n="spells-u">SPELLS</span>
+                <fieldset class="repeating_spells">
+                    <div class="w100pc repeating-specialities">
+                        <input type="text" name="attr_name" class="w100pc-4px" />
+                    </div>
+                </fieldset>
+                <!-- <textarea class=""></textarea> -->
+            </div>
+            <div class="border-2 w25pc  align-top">
                 <div class="w100pc border-3">
 
-                    <span class="w70pc  armor-header" data-i18n="armor-u">ARMOR</span>
+                    <span class="w70pc  armor-header" data-i18n="defence-u">DEFENCE</span>
                     <span class="w15pc  text-center armor-rating-header smaller" data-i18n="rating-u">RATING</span>
                     <span class="w10pc  text-center armor-rating-header smaller"></span>
                     <input type="text" name="attr_armorname" class="w70pc-4px border-1" />
@@ -985,10 +1064,10 @@
                     <span class="w100pc ">FAVORED GEAR</span>
                     <textarea name="attr_favoredgear" spellcheck="off" class="oneliner"></textarea>
                 </div> -->
-                <div class="w100pc border-3">
+                <!-- <div class="w100pc border-3">
                     <span class="w100pc " data-i18n="signature-item-u">SIGNATURE ITEM</span>
                     <textarea name="attr_signatureitem" class="oneliner"></textarea>
-                </div>
+                </div> -->
                 <span class="w100pc " data-i18n="gear-u">GEAR</span>
                 <fieldset class="repeating_gear">
                     <div class="w100pc repeating-gear">
@@ -997,10 +1076,10 @@
                 </fieldset>
                 <!-- <textarea class=""></textarea> -->
             </div>
-            <div class="w33pc  align-top">
+            <div class="w25pc  align-top">
 
                 <span class="w100pc border-3 " data-i18n="health-u">HEALTH</span>
-                <span class="w50pc  yellow" data-i18n="maximum-health">Maximum Health</span>
+                <span class="w50pc  yellow" data-i18n="maximum-health">Max Health</span>
                 <div class="w50pc float-right">
                     <span name="attr_health_max" class="text-center value-display"></span>
                     <select name="attr_health_mod" value="0" class="w50pc-4px text-center">
@@ -1047,7 +1126,7 @@
                 </div>
                 <div class="w100pc border-1 crit-effects">
                     <textarea class="border-1" placeholder="CRITICAL INJURIES"></textarea>
-                    <span>Critical roll </span>:
+                    <span>Crit </span>:
                     <select name="attr_rollcritdamagedie" class="w50px">
                         <option value="" data-i18n="die" selected disabled hidden>Die</option>
                         <option value="12" data-i18n="die-twelve-u">D12</option>
@@ -1067,7 +1146,7 @@
                 </div>
 
                 <span class="w100pc border-12" data-i18n="resolve-u">RESOLVE</span>
-                <span class="w50pc yellow" data-i18n="resolve-maximum">Maximum Resolve</span>
+                <span class="w50pc yellow" data-i18n="resolve-maximum">Max Resolve</span>
                 <div class="w50pc float-right">   
                     <span name="attr_resolve_max" class="text-center value-display"></span>     
                     <select name="attr_resolve_mod" value="0" class="w50pc-4px text-center">
@@ -1118,7 +1197,7 @@
                 </div>
                 <div class="w100pc border-1 crit-effects">
                     <textarea class=" border-1" placeholder="CRITICAL STRESS EFFECTS" data-i18n-placeholder="critical-stress-effects-u"></textarea>
-                    <span data-i18n="critical-roll">Critical roll </span>:
+                    <span data-i18n="critical-roll">Crit </span>:
                     <select name="attr_stressroll_mod" value="0" class="w50px text-center">
                         <option value="-" data-i18n="modifier" selected disbaled hidden>Modifier</option>
                         <option value="0">+0</option>
@@ -1133,119 +1212,107 @@
                 </div>
             </div>
         </div>
-        <div class="border-3 w20px">&nbsp;</div>
 
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-2 w100pc-40px ">
+
+        <div class="w100pc ">
             <span class="w50pc justify-left align-center"><!-- ALCON ENTERTAINMENT --></span>
             <div class="w50pc justify-right align-center"><span>v</span><span name="attr_version" class="align-center" readonly disabled></span><span>&nbsp;</span></div>
         </div>
-        <div class="w20px">&nbsp;</div>
 
     </div>
 
     <div class="w100pc tab timereport">
-        <div class="border-23 w60pc logo light-box">
-            <img src="https://github.com/dwarfwing/Blade-Runner/blob/main/images/LAPD.png?raw=true">
+        <!-- <div class="border-23 w60pc logo light-box">
             <span class="profile-database" data-i18n="case-file-report">Case File Time Report</span>
+        </div> -->
+        <div class="border-23 w40pc logo light-box">
+            <!-- <img src="https://github.com/dwarfwing/Blade-Runner/blob/main/images/LAPD.png?raw=true"> -->
+            <!-- <span class="profile-database" data-i18n="profile-database">Profile Database</span> -->
+            <!-- <div class="w100pc light-box"><span class="deadlands-noir"></span></div> -->            
+            <img src="https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/dln-sm.jpg?raw=true">
+        </div>
+        <div class="border-23 w20pc light-box justify-center">
+            <span class="profile-database" data-i18n="case-file-report">Case File<br>Time Report</span>
         </div>
 
-        <div class="border-23 w40pc light-box charinfo">
-            <label class="w40pc yellow yellow-border-bottom text-right" data-i18n="case-file-name-u">CASE FILE NAME</label>
-            <div class="w60pc">
-                <input type="text" name="attr_character_name" class="w100pc-4px" />
+        <div class="border-3 w40pc light-box charinfo">
+            <label class="w50pc yellow yellow-border-bottom text-right" data-i18n="case-file-name-u">CASE FILE NAME</label>
+            <div class="w50pc">
+                <input type="text" name="attr_case_name" class="w100pc-4px" />
             </div>
-            <label class="w40pc yellow text-right" data-i18n="reporting-office">REPORTING OFFICE</label>
-            <div class="w60pc">
+            <label class="w50pc yellow text-right" data-i18n="reporting-office">REPORTING OFFICER</label>
+            <div class="w50pc">
                 <input type="text" name="attr_reportingofficer" class="w100pc-4px" />
             </div>
         </div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w28pc border-2 dark-box yellow text-center" data-i18n="shift-one">SHIFT 1</div>
             <div class="w24pc border-2 dark-box yellow text-center" data-i18n="shift-two">SHIFT 2</div>
             <div class="w24pc border-2 dark-box yellow text-center" data-i18n="shift-three">SHIFT 3</div>
             <div class="w24pc dark-box yellow text-center" data-i18n="shift-four">SHIFT 4</div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-one">DAY 1</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday1shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday1shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday1shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday1shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-two">DAY 2</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday2shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday2shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday2shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday2shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-three">DAY 3</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday3shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday3shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday3shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday3shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-four">DAY 4</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday4shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday4shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday4shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday4shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-five">DAY 5</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday5shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday5shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday5shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday5shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-six">DAY 6</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday6shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday6shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday6shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday6shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-23 w100pc-40px">
+
+        <div class="border-3 w100pc">
             <div class="w4pc h100pc border-2 header-day dark-box"><span class="w50px deg90" data-i18n="day-seven">DAY 7</span></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday7shift1"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday7shift2"></textarea></div>
             <div class="w24pc border-2 text-center"><textarea name="attr_reportday7shift3"></textarea></div>
             <div class="w24pc text-center"><textarea name="attr_reportday7shift4"></textarea></div>
         </div>
-        <div class="w20px">&nbsp;</div>
-        
-        <div class="border-2 w20px ">&nbsp;</div>
-        <div class="border-2 w100pc-40px ">
+
+        <div class="border-2 w100pc ">
             <span class="w50pc justify-left align-center"><!-- ALCON ENTERTAINMENT --></span>
             <div class="w50pc justify-right align-center"><span>v</span><span name="attr_version" class="align-center" readonly disabled></span><span>&nbsp;</span></div>
         </div>
-        <div class="w20px">&nbsp;</div>
     </div>
 
 </div>
@@ -2009,7 +2076,7 @@
 
 
     const actions = ['', 'push', 'custom', 'strength', 'handtohand', 'force', 'stamina', 'agility', 'firearms', 'mobility', 'stealth', 
-                    'intelligence', 'medicalaid', 'observation', 'tech', 'driving', 'empathy', 'connections', 'insight', 'manipulation',
+                    'intelligence', 'medicalaid', 'observation', 'tech', 'spellcasting', 'driving', 'empathy', 'connections', 'insight', 'manipulation', 'voodoo', 'perform',
                     'weapon1cc', 'weapon1rc', 'weapon2cc','weapon2rc', 'weapon3cc', 'weapon3rc',
                     'repeating_weapon:weaponcc', 'repeating_weapon:weaponrc'];
     const actionList = _.reduce(actions, (m,n) => {
