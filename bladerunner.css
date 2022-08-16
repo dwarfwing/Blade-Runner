@@ -196,8 +196,15 @@ html {
 
 /* TEXT & INPUT */
 
-.ui-dialog .charsheet .deadlands-noir {
-    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/dln-1.00/images/dln-sm.jpg?raw=true); 
+.ui-dialog .charsheet div.logo {
+    justify-content: center;
+}
+.ui-dialog .charsheet img.deadlands-logo {
+    /* UPDATE THIS TO INCREASE HEIGHT OF LOGO */
+    height: 80%;
+    width: 80%;
+    align-self: center;
+    justify-self: center;
 }
 .ui-dialog .charsheet .blade-runner {
     font-family: 'Blade Runner Movie Font', sans-serif;
@@ -212,7 +219,7 @@ html {
 .logo {
     justify-content: flex-start;
     align-content: flex-end;
-    padding-left: 1.5rem;
+    -padding-left: 1.5rem;
     color: #617b83;
 }
 .ui-dialog .charsheet .main-box label.sheet-tab {
@@ -674,6 +681,7 @@ input[type="number"]:hover::-webkit-inner-spin-button, */
 }  
 .ui-dialog .charsheet div.charinfo label {
     padding-top: 0.3rem;
+
 }
 
 div.main-box {
@@ -1212,7 +1220,7 @@ div.crit-effects {
 .sheet-rolltemplate-bladerunner .sheet-push-link:before { content: "[";}
 .sheet-rolltemplate-bladerunner .sheet-push-link:after { content: "]";} 
 .sheet-rolltemplate-bladerunner  span.sheet-result-1 { 
-    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/9c39e26134396f8e4163a96f5e2d8d6f41f1a182/images/fail2-bl.png?raw=true);
+    background-image: url(https://github.com/dwarfwing/Blade-Runner/blob/dc86b631ec185f94886da05f3a4c2f08b241a4bd/images/fail2-bl.png?raw=true);
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 20%;
